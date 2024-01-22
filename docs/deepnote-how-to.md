@@ -25,7 +25,7 @@ If you have logged out, to log back in you need to verify your email again:
 
 1. Go to the [sign-in page](https://deepnote.com/sign-in).
 2. Enter your email. Click the CAPTCHA button. Click **Continue with email**.
-3. You will receive an email from DeepNote with a link. Click on it.
+3. You will receive an email from Deepnote with a link. Click on it.
 
 ## Workspace operations
 Before any of the following operations, you must change from project view to workspace view:
@@ -34,7 +34,7 @@ Before any of the following operations, you must change from project view to wor
 
 You will now see a list of the projects in your workspace:
 ![Workspace view](workspace-view.png)
-Some projects were automatically added by DeepNote when creating your workspace.
+Some projects were automatically added by Deepnote when creating your workspace.
 
 After you completed the desired workspace operations, click in the side panel
 on the project you want to work next.
@@ -107,7 +107,7 @@ To run all cells, click **Run notebook** in the top right corner of the notebook
 
 {: .note}
 The first time you run code, it will take some time, because
-DeepNote must first start a server with the necessary software.
+Deepnote must first start a server with the necessary software.
 
 ### Add a cell
 To insert a cell between two existing cells:

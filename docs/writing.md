@@ -24,7 +24,7 @@ the guide currently has data structures and algorithms students in mind.
 </details>
 
 An essay can have more than one author, although more than two is harder to manage.
-DeepNote makes it easy to work collaboratively on a single notebook,
+Deepnote makes it easy to work collaboratively on a single notebook,
 at the same time or asynchronously, and leave comments to co-authors.
 You may wish to first pitch your essay idea to your peers, to recruit co-authors.
 
@@ -33,7 +33,7 @@ to refer simultaneously to a single author or multiple authors.
 
 {: .note}
 You may wish to keep this guide open while going through one of the
-example essays in your copy of our DeepNote project.
+example essays in your copy of our Deepnote project.
 
 ## Problem
 It's worth spending time on choosing an appropriate problem before putting effort into an essay about it.
@@ -76,10 +76,10 @@ The essay should thus have a **clear narrative**, going from the problem to the 
 An algorithmic essay contains more text than code, and while code can and should have comments,
 the text carries most of the explanation. It's thus important for the text to be clear and error-free.
 
-DeepNote notebooks can have rich-text cells (headings, paragraph, bullet item, etc.) that,
+Deepnote notebooks can have rich-text cells (headings, paragraph, bullet item, etc.) that,
 contrary to the Markdown cells, are spell-checked as you write the text and
 support keyboard shortcuts, like Ctrl + B to put the selected text in bold.
-Unless you want to keep your essays in DeepNote, we do not recommend using rich-text cells,
+Unless you want to keep your essays in Deepnote, we do not recommend using rich-text cells,
 as their formatting is lost when downloading the notebook to your computer.
 
 Essays can be written in any style: it's a personal choice.
@@ -231,7 +231,7 @@ After importing the `algoesup` library, you can turn on type checking as follows
 
 Words that start with `%` are special commands for IPython, the Python interpreter used by Jupyter notebooks.
 The `%pytype` command, provided by our library, activates Google's `pytype` type checker,
-which comes pre-installed in the DeepNote essay project you copied.
+which comes pre-installed in the Deepnote essay project you copied.
 
 Once the type checker is activated, it checks each cell immediately after it's executed.
 In this way you can detect and fix errors as you write and run each code cell.
@@ -278,7 +278,7 @@ The formatter has already automatically enforced simple formatting conventions, 
 4 spaces for indentation and 2 empty lines between functions,
 so you will see fewer warnings from the linter.
 
-The DeepNote essay project you copied already has a linter installed:
+The Deepnote essay project you copied already has a linter installed:
 `ruff`, the fastest Python linter. To turn it on, write the following after
 importing `algoesup`.
 ```python
@@ -326,7 +326,7 @@ If you get errors that you think are pointless,
 please let us know so that we can change `ruff`'s configuration.
 
 ### Basic constructs
-The DeepNote project you copied also includes the `allowed` linter, created by ourselves.
+The Deepnote project you copied also includes the `allowed` linter, created by ourselves.
 It checks whether your code only uses certain Python constructs. This gives you
 some reassurance that your code will be understood by a wide audience.
 
@@ -551,7 +551,7 @@ you expect from your complexity analysis, then there might be other explanations
 - your input-generating functions are not generating best or worst cases.
 
 For an example of the latter, see the *Jewels and Stones* essay in your copy of
-our DeepNote project.
+our Deepnote project.
 
 ## Final check
 Whether it's your essay's first draft or final version, before you share it with others,
@@ -559,7 +559,7 @@ you should restart the kernel and run all cells, so that you have a 'clean' vers
 Then, after a break, read your essay with 'fresh eyes' from start to end
 and fix any typos or missing explanations you find.
 
-Look at DeepNote's table of contents on the sidebar and check that your section headings
+Look at Deepnote's table of contents on the sidebar and check that your section headings
 are at the right level.
 
 Finally, let others comment on your essay and help you produce a better version.
@@ -573,4 +573,4 @@ If you're interested and have the time, here are further details on some of the 
 * A summary of Python's [type hints](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html) provided by the `mypy` project (another type checker).
 * The Python [code style](https://peps.python.org/pep-0008) and [docstring conventions](https://peps.python.org/pep-0257).
 * The [formatting style](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html) enforced by `black`, which we suspect is
-  the formatter used by Deepnote. DeepNote ignores the `# fmt: skip` directive to not format a single line.
+  the formatter used by Deepnote. Deepnote ignores the `# fmt: skip` directive to not format a single line.

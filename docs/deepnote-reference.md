@@ -29,7 +29,7 @@ top, the sections are:
 - **Recents** - Projects listed in order of most recently opened.
 - **Private projects** - A list of private projects, which only you have access to.
   Other workspace members can't see private projects.
-- **Published apps** - This section shows any apps you have published. In DeepNote,
+- **Published apps** - This section shows any apps you have published. In Deepnote,
   an app is a notebooks in which some blocks have been hidden to
   abstract away technical details. This may be useful to present your findings to
   stakeholders with non-technical backgrounds.
@@ -98,7 +98,7 @@ manage workspace members.
 
 ## Cells
 
-Cells (called 'blocks' in DeepNote) are the divisions within each notebook.
+Cells (called 'blocks' in Deepnote) are the divisions within each notebook.
 They are a distinct area where code or text can
 be added depending on the type of the cell.
 See our [how-to guide]({{site.baseurl}}/deepnote-how-to#notebook-operations) for working with cells.
@@ -110,7 +110,7 @@ A terminal will give you a command line interface for your project and runs a ba
 Launching a Terminal in Deepnote allows you to run scripts or complete tasks where the GUI is
 not suitable.
 
-See the DeepNote [documentation on terminals](https://deepnote.com/docs/terminal) for more information.
+See the Deepnote [documentation on terminals](https://deepnote.com/docs/terminal) for more information.
 
 ## Environment
 
@@ -124,7 +124,7 @@ your needs.
 
 When you copied our project, you also copied the environment.
 
-See DeepNote's [documentation on custom environments](https://deepnote.com/docs/custom-environments)
+See Deepnote's [documentation on custom environments](https://deepnote.com/docs/custom-environments)
 for more information.
 
 ## Real-time collaboration
@@ -133,7 +133,7 @@ Real time collaboration refers to the capability of multiple users to work on th
 documents in the same project at the same time. Any changes to documents can be seen by all
 users working on the project as and when they happen.
 
-See DeepNote's [documentation on real-time
+See Deepnote's [documentation on real-time
 collaboration](https://deepnote.com/docs/real-time-collaboration) for more details.
 
 ## Asynchronous collaboration
@@ -155,7 +155,7 @@ You can open and close the command pallet by pressing Cmd + P on Mac or Ctrl + P
 
 ## Members
 
-A member is a DeepNote user associated with a particular workspace.
+A member is a Deepnote user associated with a particular workspace.
 
 When a user is a member of a workspace, they typically have access to all the projects within
 that workspace, but the access permissions can be adjusted.

@@ -16,7 +16,7 @@ without any software installation or configuration.
 
 ## Create a Deepnote account
 
-1. Open the DeepNote [sign-up page](https://deepnote.com/sign-up).
+1. Open the Deepnote [sign-up page](https://deepnote.com/sign-up).
 2. Enter your email address. Use your academic (rather than personal) email to get the free
    [education plan](https://deepnote.com/docs/edu-verification).
 3. Check the CAPTCHA box and click **Continue with email**.
@@ -24,11 +24,11 @@ without any software installation or configuration.
 
 {: .important}
 There are no passwords for Deepnote when signing up by email.
-If you explicitly log out of your DeepNote account,
+If you explicitly log out of your Deepnote account,
 see our guide for [how to log in]({{site.baseurl}}/deepnote-how-to#log-in).
 
 {:style="counter-reset:none"}
-1. In DeepNote, answer the introductory questions, which may depend on
+1. In Deepnote, answer the introductory questions, which may depend on
    the type of email you used to sign up.
    - If you're asked **what you are working on**, type **Writing essays** and click **Continue**.
    - If you're asked to name your **workspace**, which is where you will store your projects,
@@ -37,15 +37,15 @@ see our guide for [how to log in]({{site.baseurl}}/deepnote-how-to#log-in).
    - If you're asked for your **data sources**, click **Take me to Deepnote**.
 
 You should now be looking at an empty notebook that is part of
-the **Welcome to DeepNote** project within your workspace.
+the **Welcome to Deepnote** project within your workspace.
 You won't need that project for writing algorithmic essays, but
-you may wish to keep it, to later explore DeepNote's data science features.
+you may wish to keep it, to later explore Deepnote's data science features.
 
 For the moment, just proceed with the next steps.
 
 ## Duplicate our project
 
-We created an essay project in *our* DeepNote workspace, to be copied to *your* workspace.
+We created an essay project in *our* Deepnote workspace, to be copied to *your* workspace.
 The project has all necessary software pre-installed.
 
 1. Open [our project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b).
@@ -84,6 +84,6 @@ You can now start editing your copy of the template.
 [rename the notebook]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file).)
 
 If you're familiar with the classic Jupyter interface, we recommend you first
-read about the [differences]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook) with DeepNote.
+read about the [differences]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook) with Deepnote.
 
-For a video introduction to notebooks and DeepNote, see our [DeepNote guide]({{site.baseurl}}/deepnote).
+For a video introduction to notebooks and Deepnote, see our [Deepnote guide]({{site.baseurl}}/deepnote).

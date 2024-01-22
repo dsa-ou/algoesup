@@ -18,15 +18,15 @@ We created these resources:
 - A **library** of helper functions to easily test functions and measure their run-times.
 
 The guides are on our [documentation site](https://dsa-ou.github.io/algoesup) and
-the rest is in our [DeepNote project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/example-jewels-21dfeb1e2a8c4abd8ffb5d9ab40bef40),
-which you can copy to your DeepNote account.
+the rest is in our [Deepnote project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/example-jewels-21dfeb1e2a8c4abd8ffb5d9ab40bef40),
+which you can copy to your Deepnote account.
 
 If you want to adapt this material to your course, this repository has
-the guides in the `docs/` folder and the rest in the `DeepNote/` folder.
+the guides in the `docs/` folder and the rest in the `Deepnote/` folder.
 
 ## Development
 If you want to contribute to this repository, create a local virtual environment,
-preferably with Python 3.10 for compatibility with DeepNote, and install the software:
+preferably with Python 3.10 for compatibility with Deepnote, and install the software:
 ```bash
 python3.10 -m venv venv
 . venv/bin/activate
@@ -41,8 +41,8 @@ Bundler is usually automatically installed during the Ruby installation.
 GitHub recommends to regularly do `bundle update github-pages` to ensure that
 the local site preview looks like on GitHub Pages.
 
-After accepting a commit to folder `DeepNote/`, the owners will upload the
-updated files to the DeepNote project linked above.
+After accepting a commit to folder `Deepnote/`, the owners will upload the
+updated files to the Deepnote project linked above.
 
 ## Licences
 

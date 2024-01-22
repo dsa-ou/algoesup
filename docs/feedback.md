@@ -36,7 +36,7 @@ Many companies use **pair programming**, in which two developers work together
 on the same piece of code. While one writes the code, the other reviews it as it's written,
 pointing out mistakes and suggesting improvements.
 The two developers switch roles often during a pair programming session.
-With DeepNote, you and someone else can work simultaneously on the same notebook,
+With Deepnote, you and someone else can work simultaneously on the same notebook,
 while using Zoom, Microsoft Teams or some other app to chat.
 
 In summary, by engaging in a feedback process for your and others' essays,
@@ -90,7 +90,7 @@ encouraging feedback to keep polishing it. For example,
 if you commented on a previous version, praise the parts that improved.
 
 ## Acting on feedback
-DeepNote emails every time you get a comment on your essay.
+Deepnote emails every time you get a comment on your essay.
 You may wish to improve your essay as you get each piece of feedback, or
 you may wait some time, e.g. a week, to collect a variety of comments and
 then address them in one pass.

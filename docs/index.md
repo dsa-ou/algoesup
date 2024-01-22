@@ -30,8 +30,8 @@ We provide some [example essays]({{site.baseurl}}/example-essays) to illustrate 
 
 While many approaches to writing algorithmic essays are possible, we recommend
 using **Jupyter notebooks**, the most widely used medium for mixing text and executable code,
-and **DeepNote**, a cloud-based environment for Jupyter notebooks.
-We have no commercial affiliation with DeepNote. We chose it for these reasons:
+and **Deepnote**, a cloud-based environment for Jupyter notebooks.
+We have no commercial affiliation with Deepnote. We chose it for these reasons:
 - free academic account
 - no software installation necessary
 - you can share your essays publicly (or just with a few people) to easily
