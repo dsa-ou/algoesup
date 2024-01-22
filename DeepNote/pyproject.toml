@@ -1,0 +1,35 @@
+[project]
+name = "algoesup"
+requires-python = ">= 3.9"
+
+[tool.pytype]
+disable = [
+    # ignore issues that are common in notebooks
+    "name-error",   # cells often use names defined in previous cells
+    # ignore other issues
+    "import-error", # for some reason, pytype isn't finding local modules
+]
+
+[tool.ruff]
+output-format = "pylint"
+select = [      # enable checks taken from the following linters:
+    "A",        # flake8-builtins
+    "B",        # flake8-bugbear
+    "C90",      # mccabe
+    "D",        # pydocstyle
+    "E", "W",   # pycodestyle
+    "F",        # pyflakes
+    "N",        # pep8-naming
+    "PL",       # pylint
+]
+ignore = [
+    # ignore issues that are common in notebooks
+    "D100",     # no module docstring: notebook code is not a module
+    "W292",     # no final newline: code cells don't have a trailing blank line
+    "F401",     # unused import: cells often import modules that are used later
+    "F821",     # undefined name: cells often use names defined in previous cells
+    # ignore checks that are incompatible with others
+    "D203",     # use D211 instead: no blank line before class docstring
+    "D213",     # use D212 instead: docstring starts right after """
+    "D415",     # use D400 instead: first line of docstring must end in .
+]

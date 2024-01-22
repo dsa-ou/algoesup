@@ -1,0 +1,27 @@
+title: Algorithmic Essays
+description:
+theme: just-the-docs
+repository: dsa-ou/algoesup
+
+callouts:
+  highlight-yellow:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  note:
+    title: Note
+    color: green
+  warning:
+    title: Warning
+    color: red
+  highlight-purple:
+    color: purple
+
+callouts_opacity: 0.06
+
+enable_copy_code_button: true
+
+# New configuration option, defined in _layouts/default.html:
+# open external sites in new browser tabs, to not lose guidance context.
+all_external_links_new_tab: true

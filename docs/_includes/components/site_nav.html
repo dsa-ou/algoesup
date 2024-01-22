@@ -1,0 +1,57 @@
+<nav aria-label="Main" id="site-nav" class="site-nav">
+  <!-- Custom Navigation from nav.yml -->
+  <ul class="nav-list">
+    {% for item in site.data.nav %}
+      <li class="nav-list-item{% if item.children %} has-children{% endif %}">
+        {% if item.children %}
+          <button class="nav-list-expander btn-reset" aria-label="Toggle {{ item.title }}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+          </button>
+        {% endif %}
+        <a href="{{ item.url | relative_url }}" class="nav-list-link">{{ item.title }}</a>
+        {% if item.children %}
+          <ul class="nav-list">
+            {% for subitem in item.children %}
+              <li class="nav-list-item{% if subitem.children %} has-children{% endif %}">
+                {% if subitem.children %}
+                  <button class="nav-list-expander btn-reset" aria-label="Toggle {{ subitem.title }}">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+                  </button>
+                {% endif %}
+                <a href="{{ subitem.url | relative_url }}" class="nav-list-link">{{ subitem.title }}</a>
+                {% if subitem.children %}
+                  <ul class="nav-list">
+                    {% for subsubitem in subitem.children %}
+                      <li class="nav-list-item">
+                        <a href="{{ subsubitem.url | relative_url }}" class="nav-list-link">{{ subsubitem.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <!-- End Custom Navigation -->
+
+  <!-- External Links-->
+  {%- if site.nav_external_links -%}
+  <ul class="nav-list">
+    {%- for node in site.nav_external_links -%}
+      <li class="nav-list-item external">
+        <a href="{{ node.url | absolute_url }}" class="nav-list-link external"
+          {% if node.opens_in_new_tab or node.opens_in_new_tab == nil and site.nav_external_links_new_tab %}
+            target="_blank" rel="noopener noreferrer"
+          {% endif %}
+        >
+          {{ node.title }}
+          {% unless node.hide_icon %}<svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>{% endunless %}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+</nav>
