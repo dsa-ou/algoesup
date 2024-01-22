@@ -88,7 +88,7 @@ save space; threads can be reopened if needed. Any open threads are displayed in
 comments panel on the right-hand side of a project.
 
 Comments are one of the ways to give and receive feedback on your essays.
-See the [feedback guide](feedback.md) for more details.
+See the [feedback guide]({{site.baseurl}}/feedback) for more details.
 
 ## Limitations
 
@@ -111,7 +111,7 @@ text, which appears to slow down performance, potentially due to the autocomplet
 functionality.
 
 As a final point, the way Deepnote stores notebooks within the environment must be mentioned.
-You can of course [upload a notebook](deepnote-how-to.md#upload-a-notebook-or-file) to the system and access it like
+You can of course [upload a notebook]({{site.baseurl}}/deepnote-how-to#upload-a-notebook-or-file) to the system and access it like
 any other file, but if you want to run the notebook, it must be moved to the **NOTEBOOKS**
 section. This then becomes a problem if you wish to access the notebook file again, say using
 the terminal. When a notebook is moved to this section it effectively takes the notebook out of

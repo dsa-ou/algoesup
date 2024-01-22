@@ -259,12 +259,12 @@ However, some checking is better than no checking.
 The type checker adds some seconds to the overall time to run each code cell.
 You may thus wish to initially turn off the type checking, with `%pytype off`,
 and only turn it on after all code is written and tested.
-You will have to [run all cells](deepnote-how-to.md#run-one-or-all-cells) for the type checking to take place.
+You will have to [run all cells]({{site.baseurl}}/deepnote-how-to#run-one-or-all-cells) for the type checking to take place.
 
 ### Formatting
 Once you have written, tested and type checked all your code, you should format it so that
 it follows the Python community's code style.
-You will need to format each cell, as explained [here](deepnote-how-to.md#format-a-code-cell).
+You will need to format each cell, as explained [here]({{site.baseurl}}/deepnote-how-to#format-a-code-cell).
 
 If there's a block of code that you don't want the formatter to change,
 write `# fmt: off` on its own line before the block and write `# fmt: on` after the block,
@@ -359,7 +359,7 @@ in case you want to use even fewer constructs in your essay.
 To use that configuration, write `%allowed on -c tm112.json`.
 
 You can configure the linter with a JSON file that lists the allowed constructs.
-You can [duplicate and rename](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file)
+You can [duplicate and rename]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file)
 one of the JSON configurations in the **Files** section of the left panel,
 and adapt it to your course.
 See the `allowed` [website](https://dsa-ou.github.io/allowed) for instructions.
@@ -563,7 +563,7 @@ Look at DeepNote's table of contents on the sidebar and check that your section 
 are at the right level.
 
 Finally, let others comment on your essay and help you produce a better version.
-See our [feedback guide](feedback.md) for details.
+See our [feedback guide]({{site.baseurl}}/feedback) for details.
 
 ## Further reading
 If you're interested and have the time, here are further details on some of the above.

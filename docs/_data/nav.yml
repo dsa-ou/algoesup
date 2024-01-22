@@ -15,84 +15,84 @@
     url: deepnote-how-to
     children:
     - title: "Account operations"
-      url: deepnote-how-to/#account-operations
+      url: deepnote-how-to#account-operations
     - title: "Workspace operations"
-      url: deepnote-how-to/#workspace-operations
+      url: deepnote-how-to#workspace-operations
     - title: "Project operations"
-      url: deepnote-how-to/#project-operations
+      url: deepnote-how-to#project-operations
     - title: "Notebook operations"
-      url: deepnote-how-to/#notebook-operations
+      url: deepnote-how-to#notebook-operations
 
   - title: "Background"
     url: deepnote-background
     children:
     - title: "Organisation"
-      url: deepnote-background/#organisation
+      url: deepnote-background#organisation
     - title: "Deepnote vs Classic Notebook"
-      url: deepnote-background/#deepnote-vs-classic-notebook
+      url: deepnote-background#deepnote-vs-classic-notebook
     - title: "Collaboration"
-      url: deepnote-background/#collaboration
+      url: deepnote-background#collaboration
     - title: "Limitations"
-      url: deepnote-background/#limitations
+      url: deepnote-background#limitations
 
   - title: "Reference"
     url: deepnote-reference
     children:
     - title: "Workspace interface"
-      url: deepnote-reference/#workspace-interface
+      url: deepnote-reference#workspace-interface
     - title: "Project interface"
-      url: deepnote-reference/#project-interface
+      url: deepnote-reference#project-interface
     - title: "Notebooks"
-      url: deepnote-reference/#notebooks
+      url: deepnote-reference#notebooks
     - title: "Access levels"
-      url: deepnote-reference/#access-levels
+      url: deepnote-reference#access-levels
     - title: "Cells"
-      url: deepnote-reference/#cells
+      url: deepnote-reference#cells
     - title: "Terminal"
-      url: deepnote-reference/#terminal
+      url: deepnote-reference#terminal
     - title: "Environment"
-      url: deepnote-reference/#environment
+      url: deepnote-reference#environment
     - title: "Real-time collaboration"
-      url: deepnote-reference/#real-time-collaboration
+      url: deepnote-reference#real-time-collaboration
     - title: "Asynchronous collaboration"
-      url: deepnote-reference/#asynchronous-collaboration
+      url: deepnote-reference#asynchronous-collaboration
     - title: "Command palette"
-      url: deepnote-reference/#command-palette
+      url: deepnote-reference#command-palette
     - title: "Members"
-      url: deepnote-reference/#members
+      url: deepnote-reference#members
     - title: "Markdown cheat sheet"
-      url: deepnote-reference/#markdown-cheat-sheet
+      url: deepnote-reference#markdown-cheat-sheet
     - title: "Keyboard shortcuts"
-      url: deepnote-reference/#keyboard-shortcuts
+      url: deepnote-reference#keyboard-shortcuts
 
 - title: "Writing guide"
   url: writing
   children:
     - title: "Problem"
-      url: writing/#problem
+      url: writing#problem
     - title: "Text"
-      url: writing/#text
+      url: writing#text
     - title: "Structure"
-      url: writing/#structure
+      url: writing#structure
     - title: "Algorithms"
-      url: writing/#algorithms
+      url: writing#algorithms
     - title: "Code"
-      url: writing/#code
+      url: writing#code
     - title: "Performance analysis"
-      url: writing/#performance-analysis
+      url: writing#performance-analysis
     - title: "Final check"
-      url: writing/#final-check
+      url: writing#final-check
     - title: "Further reading"
-      url: writing/#further-reading
+      url: writing#further-reading
 
 - title: "Feedback guide"
-  url: feedback/
+  url: feedback
   children:
     - title: "Asking for feedback"
-      url: feedback/#asking-for-feedback
+      url: feedback#asking-for-feedback
     - title: "Giving feedback"
-      url: feedback/#giving-feedback
+      url: feedback#giving-feedback
     - title: "Acting on feedback"
-      url: feedback/#acting-on-feedback
+      url: feedback#acting-on-feedback
     - title: "Crediting feedback"
-      url: feedback/#crediting-feedback
+      url: feedback#crediting-feedback

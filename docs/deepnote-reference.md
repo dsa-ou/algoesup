@@ -44,8 +44,8 @@ for your workspace. Starting from the top, the sections on the left-hand side pa
  - **INTEGRATIONS** - This section allows
    you to use an integration defined for the workspace. Integrations are mainly used in data science.
  - **FILES** - Each project in Deepnote has an integrated file system which you
-   can view and access in this section. You can create and [upload
-   files](deepnote-how-to.md#upload-a-notebook-or-file)
+   can view and access in this section. You can create and
+   [upload files]({{site.baseurl}}/deepnote-how-to#upload-a-notebook-or-file)
    and folders here.
  - **TERMINALS** - Deepnote allows you to launch terminals from this section by
    clicking on the "+" icon. As you would expect you can access the local file
@@ -66,7 +66,7 @@ for your workspace. Starting from the top, the sections on the left-hand side pa
 Notebooks in Deepnote have the same core functionality as Jupyter Notebooks:
 they combine executable code and text in the same document.
 
-See [Deepnote vs Classic Notebook](deepnote-background/#deepnote-vs-classic-notebook)
+See [Deepnote vs Classic Notebook]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook)
 for some differences between the two.
 
 ## Access levels
@@ -101,7 +101,7 @@ manage workspace members.
 Cells (called 'blocks' in DeepNote) are the divisions within each notebook.
 They are a distinct area where code or text can
 be added depending on the type of the cell.
-See our [how-to guide](deepnote-how-to.md#notebook-operations) for working with cells.
+See our [how-to guide]({{site.baseurl}}/deepnote-how-to#notebook-operations) for working with cells.
 
 ## Terminal
 

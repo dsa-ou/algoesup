@@ -18,7 +18,7 @@ parent: Deepnote
 ## Account operations
 
 ### Sign up for Deepnote
-This is explained in our [Getting Started](getting-started.md#create-a-deepnote-account) guide.
+This is explained in our [Getting Started]({{site.baseurl}}/getting-started#create-a-deepnote-account) guide.
 
 ### Log in
 If you have logged out, to log back in you need to verify your email again:
@@ -67,7 +67,7 @@ If your notebook contains other types of cells besides Markdown and code,
 the downloaded `.ipynb` file won't be rendered correctly on other Jupyter platforms.
 
 ### Duplicate our project
-This is explained in our [Getting Started](getting-started.md#duplicate-our-project) guide.
+This is explained in our [Getting Started]({{site.baseurl}}/getting-started#duplicate-our-project) guide.
 
 ### Share your project
 The following assumes you have [enabled sharing](#enable-sharing) for your workspace.

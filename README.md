@@ -38,8 +38,8 @@ To preview locally the documentation that will be in GitHub Pages, follow
 The Jekyll installation instructions include how to install Ruby.
 Bundler is usually automatically installed during the Ruby installation.
 
-GitHub recommends to regularly do `bundle update github-pages` to mawe sure
-the local site preview looks like the GitHub Pages one.
+GitHub recommends to regularly do `bundle update github-pages` to ensure that
+the local site preview looks like on GitHub Pages.
 
 After accepting a commit to folder `DeepNote/`, the owners will upload the
 updated files to the DeepNote project linked above.

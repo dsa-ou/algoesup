@@ -25,11 +25,11 @@ encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></ifr
 <br>
 
 This guide has three parts:
-- The [How-to](deepnote-how-to.md) guide provides step by step instructions on how to complete specific tasks
+- The [How-to]({{site.baseurl}}/deepnote-how-to) guide provides step by step instructions on how to complete specific tasks
 in Deepnote.
-- The [Background](deepnote-background.md) section discusses and explains aspects of Deepnote in a longer form and
+- The [Background]({{site.baseurl}}/deepnote-background) section discusses and explains aspects of Deepnote in a longer form and
 sometimes broader context.
-- The [Reference](deepnote-reference.md) section is for quickly looking up information about key aspects of
+- The [Reference]({{site.baseurl}}/deepnote-reference) section is for quickly looking up information about key aspects of
 Deepnote.
 
 {: .note}

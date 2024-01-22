@@ -21,11 +21,12 @@ If you're a student, writing algorithmic essays benefits you in various ways.
   type checkers, which improves your employability.
 - You produce an artefact (the essay) for your portfolio for prospective employers.
 
-If you're an educator, you can copy our resources and adapt them to your course,
-due to our permissive licence (see below).
+If you're an educator, you can copy our resources from the
+[GitHub repository](https://github.com/dsa-ou/algoesup) and
+adapt them to your course, due to our permissive licence (see below).
 
 {: .note}
-We provide some [example essays](/example-essays/) to illustrate what they are.
+We provide some [example essays]({{site.baseurl}}/example-essays) to illustrate what they are.
 
 While many approaches to writing algorithmic essays are possible, we recommend
 using **Jupyter notebooks**, the most widely used medium for mixing text and executable code,
@@ -37,7 +38,7 @@ We have no commercial affiliation with DeepNote. We chose it for these reasons:
   - receive and give feedback
   - work collaboratively on the same essay.
 
-[Get started](/getting-started/){: .btn .btn-green}
+[Get started]({{site.baseurl}}/getting-started){: .btn .btn-green}
 
 ## Acknowledgements
 

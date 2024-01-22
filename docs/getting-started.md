@@ -25,7 +25,7 @@ without any software installation or configuration.
 {: .important}
 There are no passwords for Deepnote when signing up by email.
 If you explicitly log out of your DeepNote account,
-see our guide for [how to log in](deepnote-how-to.md#log-in).
+see our guide for [how to log in]({{site.baseurl}}/deepnote-how-to#log-in).
 
 {:style="counter-reset:none"}
 1. In DeepNote, answer the introductory questions, which may depend on
@@ -48,7 +48,7 @@ For the moment, just proceed with the next steps.
 We created an essay project in *our* DeepNote workspace, to be copied to *your* workspace.
 The project has all necessary software pre-installed.
 
-1. Open [our project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Learning-Professional-Skills-with-Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/07-writing-guidance-991741e02a2146d194b27578c44b8ff0).
+1. Open [our project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b).
 2. Click on the blue **Duplicate** button in the top right corner.
 3. Choose the name of your workspace from the drop-down menu.
 4. Click **Duplicate project** to finish the process.
@@ -58,8 +58,7 @@ Do _not_ check the box to make your project private:
 that would prevent sharing your essays later with others.
 
 After a few moments, you will see the project in your workspace,
-with the name **Learning Professional Skills with Algorithmic Essays - Duplicate**
-at the top of the screen.
+with the name **Algorithmic Essays - Duplicate** at the top of the screen.
 
 {:style="counter-reset:none"}
 1. Click on the three dots in the top right corner.
@@ -82,9 +81,9 @@ To write an essay, copy one of the templates and edit that copy.
 This creates a new notebook, with the name of the template followed by '-2', and opens it.
 You can now start editing your copy of the template.
 (Once you decided your essay's topic, you can
-[rename the notebook](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file).)
+[rename the notebook]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file).)
 
 If you're familiar with the classic Jupyter interface, we recommend you first
-read about the [differences](deepnote-background.md#deepnote-vs-classic-notebook) with DeepNote.
+read about the [differences]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook) with DeepNote.
 
-For a video introduction to notebooks and DeepNote, see our [DeepNote guide](deepnote.md).
+For a video introduction to notebooks and DeepNote, see our [DeepNote guide]({{site.baseurl}}/deepnote).
