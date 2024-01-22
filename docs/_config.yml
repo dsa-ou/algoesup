@@ -1,7 +1,15 @@
 title: Algorithmic Essays
 description:
 theme: just-the-docs
-repository: dsa-ou/algoesup
+url: https://dsa-ou.github.io/algoesup/
+
+nav_external_links:
+  - title: GitHub repository
+    url: https://github.com/dsa-ou/algoesup
+    opens_in_new_tab: true
+  - title: DeepNote project
+    url: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/example-1-to-n-affd6fc866bb441786d4b60793e5396e
+    opens_in_new_tab: true
 
 callouts:
   highlight-yellow:

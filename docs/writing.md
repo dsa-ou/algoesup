@@ -1,3 +1,9 @@
+---
+layout: default
+title: Feedback guide
+nav_order: 5
+---
+
 # Writing guide
 {: .no_toc}
 
