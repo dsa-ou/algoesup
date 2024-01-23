@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Feedback guide
+title: Writing guide
 nav_order: 5
 ---
 
@@ -278,6 +278,7 @@ The formatter has already automatically enforced simple formatting conventions, 
 4 spaces for indentation and 2 empty lines between functions,
 so you will see fewer warnings from the linter.
 
+#### Code style
 The Deepnote essay project you copied already has a linter installed:
 `ruff`, the fastest Python linter. To turn it on, write the following after
 importing `algoesup`.
@@ -325,13 +326,13 @@ won't be flagged. But again, some linting is better than none.
 If you get errors that you think are pointless,
 please let us know so that we can change `ruff`'s configuration.
 
-### Basic constructs
+#### Language subset
 The Deepnote project you copied also includes the `allowed` linter, created by ourselves.
-It checks whether your code only uses certain Python constructs. This gives you
-some reassurance that your code will be understood by a wide audience.
+It checks whether your code only uses a certain subset of the Python language.
+This gives you some reassurance that your code will be understood by a wide audience.
 
-By default, `allowed` uses the configuration for our
-algorithms and data structures course. It is already included in this project.
+By default, `allowed` checks against the Python subset used in our
+algorithms and data structures course. It is already included in the project.
 So, if you're an M269 student, to check that your essay is easily understood
 by your peers in terms of Python constructs, just add a cell:
 ```python
@@ -354,13 +355,19 @@ print(f"π is approximately {pi:.5f}.")
 
 We haven't taught the `math.sin()` function nor f-strings, and `allowed` reports these.
 
+Any line that ends with the comment `# allowed` is ignored. This is useful when
+you don't want the linter to flag a construct that you explain in your essay.
+For example, adding the comment after `print(...)` would not report the f-string.
+Note that the comment makes the tool skip the *whole* line:
+if it has several constructs that weren't taught, none of them is reported.
+
 We also include the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
 To use that configuration, write `%allowed on -c tm112.json`.
 
 You can configure the linter with a JSON file that lists the allowed constructs.
 You can [duplicate and rename]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file)
-one of the JSON configurations in the **Files** section of the left panel,
+one of the JSON configurations in the **Files** section of your project,
 and adapt it to your course.
 See the `allowed` [website](https://dsa-ou.github.io/allowed) for instructions.
 
@@ -412,7 +419,7 @@ def descending(n: int) -> tuple[list[int]]:
 We should of course test these functions, to make sure they produce the expected lists,
 but we will skip that in this explanation because we're focusing on how to measure run-times.
 
-### Comparing different cases
+### Comparing cases
 To measure the run-times of a function `f`  on best, average and worst case inputs, use
 library function `time_cases(f, [case1, case2, ...], s, d)`.
 The second argument can be a list (or tuple) of up to 6 input-generating functions.
