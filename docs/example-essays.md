@@ -10,12 +10,18 @@ These examples illustrate different ways of structuring essays and different wri
 
 Some essays have a template that highlights the essay's structure and
 the purpose of each section.
-Clicking on the buttons below will open a *read-only* version of the essay or template.
+Clicking on a button below will open a *read-only* version of the essay or template.
 They are rendered on-demand in your web browser, which may take a few seconds.
+
+If you get a "404 File not found" error when reading on nbviewer,
+it means we have updated the file and it's not yet ready for display.
+Try again in a few hours or read it on GitHub.
+You can also read all examples and templates on DeepNote
+(click the link in the navigation panel on the left).
 
 Once you have created a Deepnote account and copied our essay project,
 as explained in [Getting started]({{site.baseurl}}/getting-started),
-you will have access to *editable* versions of the templates, so that
+you will have access to *editable* versions of the examples and templates, so that
 you can use them as starting points for your essays.
 
 ## Sum of 1 to *n*
@@ -25,8 +31,11 @@ The essay shows two ways of calculating 1 + 2 + ... + *n* and compares their run
 The essay follows a simple structure, in which each approach is outlined, implemented
 and tested before moving on to the next one.
 
-[View essay](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){: .btn .btn-blue .mr-2 }
-[View template](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){: .btn .btn-blue}
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){: .btn .btn-blue .mr-2 }
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){: .btn .btn-blue }
+
+[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){: .btn .btn-blue .mr-2}
+[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){: .btn .btn-blue}
 
 ## Jewels and Stones
 
@@ -38,8 +47,11 @@ The complexity of the three algorithms is analysed and compared to their run-tim
 This essay follows a slightly different structure, in which each approach is outlined and
 its complexity analysed, before deciding which approaches are worth implementing.
 
-[View essay](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){: .btn .btn-blue .mr-2 }
-[View template](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){: .btn .btn-blue}
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){: .btn .btn-blue .mr-2 }
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){: .btn .btn-blue }
+
+[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){: .btn .btn-blue .mr-2}
+[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){: .btn .btn-blue}
 
 ## Two Sum (two approaches)
 
@@ -47,11 +59,12 @@ This classic problem asks to find two numbers in a list that add up exactly to a
 This essay solves the problem in two ways, with brute-force search (nested loops)
 and a map (Python dictionary).
 
-[View essay](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){: .btn .btn-blue .mr-2}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){: .btn .btn-blue }
 
 ## Two Sum (three approaches)
 This is an extended version of the previous essay.
-It adds a third approach, that sorts the list of numbers, and
-it analyses the complexity of the three approaches.
+It adds a third approach, that sorts the list of numbers.
 
-[View essay](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){: .btn .btn-blue .mr-2}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){: .btn .btn-blue }
