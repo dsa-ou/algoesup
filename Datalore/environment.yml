@@ -1,0 +1,8 @@
+datalore-env-format-version: "0.2"
+datalore-package-manager: "pip"
+datalore-base-env: "algoesup3.11"
+dependencies:
+- pip:
+  - ruff==0.1.8
+  - pytype==2023.12.8
+  - matplotlib==3.8.0
