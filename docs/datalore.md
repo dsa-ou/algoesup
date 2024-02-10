@@ -26,9 +26,7 @@ account.
 1. Check your email for a verification link and click it.
 1. Read and accept the terms and conditions.
 
-You should now be logged into your new Datalore account, and viewing your
-**Home workspace**.
-
+You should now be logged into Datalore and viewing your **home folder**.
 
 ## Clone one of our essay templates to your home folder
 
@@ -44,17 +42,16 @@ Make sure you are logged into Datalore before opening the essay templates.
       is suitable for students of data structures and algorithms (DSA) courses.
 1. Click the **Clone to home folder** button in the top right corner.
 
-After a few moments, the software will finish installing and a copy of the
-essay template will be saved to your **Home workspace**. The template should
+After a few moments, the software will finish installing, and a copy of the
+essay template will be saved to your **home folder**. The template should
 now be editable.
 
 {: .important}
-The essay template you have just cloned will be named "Clone of ..." where "..." is the
-original name. You should rename the notebook by clicking the three dots to the
-right of the file and selecting **rename**.
+You should rename the cloned template by clicking the three dots to the
+right of its name and selecting **rename**.
 
 ## Start writing your essay.
 
 Now that you have cloned the essay template to your home folder and renamed it,
-you can start to write your essay. For further guidance on writing algorithmic
+you can start writing your essay. For further guidance on writing algorithmic
 essays see our [writing guide](({{site.baseurl}}/writing))
