@@ -258,7 +258,7 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
 # register the supported checkers, their commands and the output processor
 checkers: dict[str, tuple[str, Callable]] = {
     "pytype": ("pytype", show_pytype_errors),
-    "allowed": ("python allowed.py", show_errors),
+    "allowed": ("allowed", show_errors),
     "ruff": ("ruff check --output-format json", show_ruff_json),
 }
 # initially no checker is active
@@ -313,7 +313,7 @@ def allowed(line: str) -> None:
     """Configure and (de)activate the `allowed` linter."""
     args = parse_argstring(allowed, line)
     config = f"-c {args.config}" if args.config else ""
-    checkers["allowed"] = (f"python allowed.py {config}", show_errors)
+    checkers["allowed"] = (f"allowed {config}", show_errors)
     process_status("allowed", args.status)
 
 
