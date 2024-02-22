@@ -23,7 +23,10 @@
     "18": ["abs"]
   },
   "IMPORTS": {
-    "2": {"math": ["floor", "pi"], "algoesup": ["test", "time_cases", "time_functions"]},
+    "2": {
+      "math": ["floor", "pi"],
+      "algoesup": ["test", "time_cases", "time_functions", "time_functions_int"]
+    },
     "6": {"math": ["inf"]},
     "7": {"collections": ["deque"]},
     "8": {"collections": ["Counter"]},

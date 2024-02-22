@@ -14,7 +14,10 @@
     "3": ["dict literal", "input", "list"]
   },
   "IMPORTS": {
-    "1": {"turtle": ["left", "right", "forward", "penup", "pendown", "goto"], "algoesup": ["test", "time_functions_int"]},
+    "1": {
+      "turtle": ["left", "right", "forward", "penup", "pendown", "goto"],
+      "algoesup": ["test", "time_cases", "time_functions", "time_functions_int"]
+    },
     "2": {"csv": ["reader"]},
     "3": {"random": ["choice"]}
   },
