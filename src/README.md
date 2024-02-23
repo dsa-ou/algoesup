@@ -1,6 +1,9 @@
 # Algoesup 
 
-This library is designed to support the writing of algorithmic essays within a Jupyter Notebook environment. It simplifies testing, measures run-times of functions, and provides cell by cell linting, formatting and type-checking options.
+Algoesup is a support library for authors of [algorithmic essays](https://dsa-ou.github.io/algoesup/). It simplifies testing, measures run-times of functions, and offers code checking functionallity for Jupyter Notebook environments.
 
-## Instalation
-TODO
+## Installing algoesup
+Algoesup is available on Pypi:
+```bash
+$ python -m pip install algoesup
+```

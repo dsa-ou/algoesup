@@ -1,4 +1,4 @@
-"""Simple testing for functions in Python."""
+"""Simplified testing for functions in Python."""
 
 from typing import Callable
 

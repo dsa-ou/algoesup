@@ -1,4 +1,8 @@
-""" Integrates code checking tools into Ipython environments"""
+""" Integrate code checking tools into Jupyter Notebook environments
+
+Usage:
+    To enable magics, use `%load_ext algoesup.magics` in a cell
+"""
 
 import json
 import os
