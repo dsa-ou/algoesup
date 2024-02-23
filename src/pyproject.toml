@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "algoesup"
+version = "0.1.0" 
+description = "Algorithmic essay support library"
+authors = [
+    "Michel Wermelinger <michel.wermelinger@open.ac.uk>",
+    "Michael Snowden"
+]
+readme = "README.md"
+license = "BSD-3-Clause"
+repository = "https://github.com/dsa-ou/algoesup"
+homepage = "https://dsa-ou.github.io/algoesup/"
+keywords = ["education"]
+classifiers = [
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Education",
+    "Operating System :: OS Independent",
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+ipython = "^8.13.1"
+ruff = "^0.1.11"
+allowed = "^1.3"
+matplotlib = "^3.4.2"
+pytype = {version = ">=2023.04.27", markers = "platform_system != 'Windows'"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
