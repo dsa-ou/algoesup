@@ -1,8 +1,10 @@
 - title: "Home"
   url: "/"
-
-- title: "Getting started"
-  url: getting-started
+  children:
+  - title: "Get started (Deepnote)"
+    url: getting-started
+  - title: "Get started (M269)"
+    url: getting-started-m269
 
 - title: "Example essays"
   url: example-essays

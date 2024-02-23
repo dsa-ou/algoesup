@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Getting started
+title: Getting started (Deepnote)
 nav_order: 2
 ---
 

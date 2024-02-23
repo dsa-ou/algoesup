@@ -12,7 +12,10 @@ These documents provide guidance to help you write, critique, and share algorith
 We define **algorithmic essays** as short reports, with code, that
 explain and compare alternative approaches to solving a computational problem.
 
-If you're a student, writing algorithmic essays benefits you in various ways.
+{: .note}
+We provide some [example essays]({{site.baseurl}}/example-essays) to illustrate what they are.
+
+If you're a **student**, writing algorithmic essays benefits you in various ways.
 - You reinforce your learning by explaining concepts to others and
   by exploring alternative solutions to the same problem.
 - You develop professional skills like problem-solving, reviewing code,
@@ -21,24 +24,30 @@ If you're a student, writing algorithmic essays benefits you in various ways.
   type checkers, which improves your employability.
 - You produce an artefact (the essay) for your portfolio for prospective employers.
 
-If you're an educator, you can copy our resources from the
+If you're an **educator**, you can copy our resources from the
 [GitHub repository](https://github.com/dsa-ou/algoesup) and
 adapt them to your course, due to our permissive licence (see below).
 
-{: .note}
-We provide some [example essays]({{site.baseurl}}/example-essays) to illustrate what they are.
+## Getting started
+While various approaches to writing algorithmic essays are possible, we recommend
+using **Jupyter notebooks**, the most popular medium for mixing text and executable code.
 
-While many approaches to writing algorithmic essays are possible, we recommend
-using **Jupyter notebooks**, the most widely used medium for mixing text and executable code,
-and **Deepnote**, a cloud-based environment for Jupyter notebooks.
-We have no commercial affiliation with Deepnote. We chose it for these reasons:
+If you're a student on M269, our data structures and algorithms course,
+you can write an essay with your existing software and share it on the forums.
+
+[Get started (M269)]({{site.baseurl}}/getting-started-m269){: .btn .btn-green}
+
+If you prefer a 'Google Docs'-like environment for collaborative
+authoring and commenting on essays, we suggest **Deepnote**:
 - free academic account
 - no software installation necessary
 - you can share your essays publicly (or just with a few people) to easily
   - receive and give feedback
   - work collaboratively on the same essay.
 
-[Get started]({{site.baseurl}}/getting-started){: .btn .btn-green}
+(We have no affiliation, commercial or otherwise, with Deepnote.)
+
+[Get started (Deepnote)]({{site.baseurl}}/getting-started){: .btn .btn-green}
 
 ## Acknowledgements
 
