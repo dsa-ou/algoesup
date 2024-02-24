@@ -1,0 +1,54 @@
+site_name: "Algorithmic Essays"
+repo_url: https://github.com/dsa-ou/algoesup
+repo_name: dsa-ou/algoesup
+copyright: Copyright (c) 2023–2024 The Open University
+extra:
+  social:                 # links for the footer
+    - icon: fontawesome/brands/github
+      link: https://github.com/dsa-ou/algoesup
+    - icon: octicons/package-16
+      link: https://pypi.org/project/algoesup/
+    - icon: simple/deepnote
+      link: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
+markdown_extensions:
+  - admonition            # allow !!! note, !!! warning, etc.
+  - attr_list             # allow {.class} after text, e.g. for buttons
+  - smarty                # curly quotes, guillemots, -- for en-dash, --- for em-dash
+  - pymdownx.highlight    # highlight code with Pygments
+  - pymdownx.smartsymbols # typeset 1/4 as ¼, 1st as 1^{st}, (c) as ©, +/- as ±, etc.
+  - pymdownx.superfences  # needed for highlighting
+extra_css:
+  - stylesheets/extra.css # change look of admonitions
+theme:
+  name: material
+  features:
+    - content.code.copy   # add copy button to code blocks
+    - navigation.footer   # add previous/next buttons below the page
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sections
+    - toc.integrate       # show TOC in left panel, not separate right panel
+  icon:                   # icon next to repo url/name
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default     # light mode
+      toggle:
+        icon: material/brightness-6
+        name: Switch to dark mode
+    - scheme: slate       # dark mode
+      toggle:
+        icon: material/brightness-6
+        name: Switch to light mode
+nav:
+  - Introduction:
+    - Home: index.md
+    - example-essays.md
+    - getting-started.md
+  - Deepnote:
+    - Overview: deepnote.md
+    - How-to: deepnote-how-to.md
+    - deepnote-background.md
+    - deepnote-reference.md
+    - Project: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
+  - writing.md
+  - feedback.md

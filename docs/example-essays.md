@@ -1,8 +1,3 @@
----
-layout: default
-title: Example essays
-nav_order: 3
----
 # Example essays
 
 These examples illustrate different ways of structuring essays and different writing styles.
@@ -20,7 +15,7 @@ You can also read all examples and templates on DeepNote
 (click the link in the navigation panel on the left).
 
 Once you have created a Deepnote account and copied our essay project,
-as explained in [Getting started]({{site.baseurl}}/getting-started),
+as explained in [Getting started](getting-started.md),
 you will have access to *editable* versions of the examples and templates, so that
 you can use them as starting points for your essays.
 
@@ -31,11 +26,11 @@ The essay shows two ways of calculating 1 + 2 + ... + *n* and compares their run
 The essay follows a simple structure, in which each approach is outlined, implemented
 and tested before moving on to the next one.
 
-[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){: .btn .btn-blue .mr-2 }
-[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){.md-button}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-1-to-n.ipynb){.md-button}
 
-[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){: .btn .btn-blue .mr-2}
-[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){: .btn .btn-blue}
+[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){.md-button .md-button--primary}
+[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-intro-programming.ipynb){.md-button .md-button--primary}
 
 ## Jewels and Stones
 
@@ -47,11 +42,11 @@ The complexity of the three algorithms is analysed and compared to their run-tim
 This essay follows a slightly different structure, in which each approach is outlined and
 its complexity analysed, before deciding which approaches are worth implementing.
 
-[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){: .btn .btn-blue .mr-2 }
-[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){.md-button}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-jewels.ipynb){.md-button}
 
-[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){: .btn .btn-blue .mr-2}
-[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){: .btn .btn-blue}
+[Template (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){.md-button .md-button--primary}
+[Template (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/template-data-structures.ipynb){.md-button .md-button--primary}
 
 ## Two Sum (two approaches)
 
@@ -59,12 +54,12 @@ This classic problem asks to find two numbers in a list that add up exactly to a
 This essay solves the problem in two ways, with brute-force search (nested loops)
 and a map (Python dictionary).
 
-[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){: .btn .btn-blue .mr-2}
-[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){.md-button}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-2.ipynb){.md-button}
 
 ## Two Sum (three approaches)
 This is an extended version of the previous essay.
 It adds a third approach, that sorts the list of numbers.
 
-[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){: .btn .btn-blue .mr-2}
-[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){: .btn .btn-blue }
+[Essay (nbviewer)](https://nbviewer.org/github/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){.md-button}
+[Essay (GitHub)](https://github.com/dsa-ou/algoesup/blob/main/Deepnote/example-two-sum-3.ipynb){.md-button}

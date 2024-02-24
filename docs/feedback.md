@@ -1,25 +1,8 @@
----
-layout: default
-title: Feedback guide
-nav_order: 6
----
-
-
 # Feedback guide
-{: .no_toc}
 
 Giving feedback on each other's essays is an important part of developing
 professional skills with algorithmic essays.
 {: .fs-6 .fw-300}
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .h4}
-- TOC
-{:toc}
-</details>
 
 Receiving feedback helps improve your essay,
 while giving feedback helps develop your communication skills.
@@ -62,7 +45,7 @@ but before investing the time in implementing and testing them. Your request cou
 > I'm looking for feedback on the above algorithms.
 > Are they clear? Have I missed other approaches to solving this problem?
 
-Once your notebook is ready for feedback, you need to [share it]({{site.baseurl}}/deepnote-how-to#share-your-project)
+Once your notebook is ready for feedback, you need to [share it](deepnote-how-to.md#share-your-project)
 so that others can comment on it.
 You may invite comments from anyone or only from one or two 'essay buddies':
 they comment on your essay and you comment on theirs.
@@ -74,11 +57,12 @@ because the author is waiting for it to progress the essay to the next draft.
 Feedback should be specific and constructive. Generic comments like "This is confusing" or
 "I don't understand this" aren't helpful for the author.
 State what you're finding hard to grasp, like:
+
 - "What is 'it' referring to in the second sentence?"
 - "The term '...' in the last sentence hasn't been defined. Does it mean the same as '...'?"
 - "What is variable '...' used for in the algorithm? Should it initially be the empty list?"
 
-Before [adding a comment]({{site.baseurl}}/deepnote-how-to#comment-on-a-cell) to a notebook cell, read the existing comments,
+Before [adding a comment](deepnote-how-to.md#comment-on-a-cell) to a notebook cell, read the existing comments,
 to avoid repeating the same points others have made.
 
 Comments that aren't about a specific text paragraph or code cell,
