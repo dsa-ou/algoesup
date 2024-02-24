@@ -20,10 +20,11 @@ from IPython.display import display_markdown
 def test(function: Callable, test_table: list) -> None:
     """Test the function with the test_table. Report failed tests.
 
-    Preconditions: each element of test_table is a list or tuple with
-        - a string (the test case name)
-        - one or more values (the inputs to the function)
-        - the expected output value
+    **Preconditions**: each element of test_table is a list or tuple with
+
+    - a string (the test case name)
+    - one or more values (the inputs to the function)
+    - the expected output value
     """
     print(f"Testing {function.__name__}:")
     for test_case in test_table:
@@ -234,7 +235,7 @@ def show_ruff_json(checker: str, output: str, filename: str) -> None:
             msg = error["message"]
             if error["fix"]:
                 msg += f". Suggested fix: {error['fix']['message']}"
-            md.append(f"- {line}: \[[{code}]({url})\] {msg}")
+            md.append(rf"- {line}: \[[{code}]({url})\] {msg}")
         display_markdown("\n".join(md), raw=True)
 
 
@@ -249,7 +250,7 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
             msg = m.group(2)
             code = m.group(3)
             md.append(
-                f"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
+                rf"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
             )
     if len(md) > 1:
         display_markdown("\n".join(md), raw=True)

@@ -2,6 +2,22 @@ site_name: "Algorithmic Essays"
 repo_url: https://github.com/dsa-ou/algoesup
 repo_name: dsa-ou/algoesup
 copyright: Copyright (c) 2023–2024 The Open University
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [Deepnote]
+        options:
+          docstring_style: null
+          separate_signature: true
+          show_signature_annotations: true
+          show_source: false
+- search        
+
+watch:                    # folders that `mkdocs serve` will watch for changes
+- Deepnote                # look for changes in algoesup.py
+
 extra:
   social:                 # links for the footer
     - icon: fontawesome/brands/github
@@ -10,15 +26,18 @@ extra:
       link: https://pypi.org/project/algoesup/
     - icon: simple/deepnote
       link: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
+
 markdown_extensions:
-  - admonition            # allow !!! note, !!! warning, etc.
+  - admonition            # allow !!! note / warning / info / example / etc.
   - attr_list             # allow {.class} after text, e.g. for buttons
   - smarty                # curly quotes, guillemots, -- for en-dash, --- for em-dash
   - pymdownx.highlight    # highlight code with Pygments
   - pymdownx.smartsymbols # typeset 1/4 as ¼, 1st as 1^{st}, (c) as ©, +/- as ±, etc.
   - pymdownx.superfences  # needed for highlighting
+
 extra_css:
   - stylesheets/extra.css # change look of admonitions
+
 theme:
   name: material
   features:
@@ -44,6 +63,7 @@ nav:
     - Home: index.md
     - example-essays.md
     - getting-started.md
+  - library.md
   - Deepnote:
     - Overview: deepnote.md
     - How-to: deepnote-how-to.md
