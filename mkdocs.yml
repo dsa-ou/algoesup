@@ -40,6 +40,7 @@ extra_css:
 
 theme:
   name: material
+  font: false             # use system font stack
   features:
     - content.code.copy   # add copy button to code blocks
     - navigation.footer   # add previous/next buttons below the page
