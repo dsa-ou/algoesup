@@ -3,3 +3,196 @@
   border-width: 0;
   border-left-width: 4px;
 }
+
+/* 
+The customisation of code blocks is explained in
+https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#custom-syntax-theme.
+*/
+
+/* The default colour of each syntax element is in 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/templates/assets/stylesheets/main/extensions/pymdownx/_highlight.scss
+*/
+
+.highlight {
+  .k, .kn { /* keyword, name */
+    font-weight: bold;
+  }
+  .c, .c1 { /* comment, single-line */
+    font-style: italic;
+  }
+  .sd { /* docstring */
+    color: var(--md-code-hl-string-color);
+  }
+}
+
+/* 
+The following is from the previous version (Just the Docs).
+The darker colours don't work so well with the dark theme.
+*/
+/*
+.highlight {
+  .c, .ch, .cd, .cm, .cpf, .c1 {
+    color: darken(#888, 15%);
+  }
+ .cp {
+    color: #579;
+  }
+ .cs {
+    color: #cc0000;
+    font-weight: bold;
+  }
+ .k, .kc, .kd, .kn, .kr, .kv, .kp {
+    color: #080;
+    font-weight: bold;
+  }
+ .o {
+    color: #aa23ff;
+  }
+ .ow {
+    color: #080;
+    font-weight: bold;
+  }
+ .nb, .bp {
+    color: #007020;
+  }
+ .nf { 
+    color: #00C;
+  }
+ .fm { 
+    color: #080;
+  }
+ .nc {
+    color: #B06;
+    font-weight: bold;
+  }
+ .nn {
+    color: #0e84b5;
+    font-weight: bold;
+  }
+ .ne {
+    color: #F00;
+    font-weight: bold;
+  }
+ .nv, .vm {
+    color: #963;
+  }
+ .vi {
+    color: #33B;
+  }
+ .vc {
+    color: #369;
+  }
+ .vg {
+    color: #d70;
+    font-weight: bold;
+  }
+ .no {
+    color: #036;
+    font-weight: bold;
+  }
+ .nl {
+    color: #970;
+    font-weight: bold;
+  }
+ .ni {
+    color: #800;
+    font-weight: bold;
+  }
+ .na {
+    color: #00C;
+  }
+ .nt {
+    color: #070;
+  }
+ .nd {
+    color: #555;
+    font-weight: bold;
+  }
+ .s, .sb, .dl, .s2, .sh, .s1 {
+    color: #ba2220;
+  }
+ .sa {
+    color: #080;
+    font-weight: bold;
+  }
+ .sc {
+    color: #04D;
+  }
+ .sd {
+    color: #D42;
+  }
+ .si {
+    background-color: #eee;
+  }
+ .se {
+    color: #666;
+    font-weight: bold;
+  }
+ .sr {
+    color: #000;
+    background-color: #fff0ff;
+  }
+ .ss {
+    color: #A60;
+  }
+ .sx {
+    color: #D20;
+  }
+ .m, .mb, .mx {
+    color: #60E;
+    font-weight: bold;
+  }
+ .mi, .il {
+    color: #00A000;
+  }
+ .mf {
+    color: #60E;
+    font-weight: bold;
+  }
+ .mh {
+    color: #058;
+    font-weight: bold;
+  }
+ .mo {
+    color: #40E;
+    font-weight: bold;
+  }
+ .gh {
+    color: #000080;
+    font-weight: bold;
+  }
+ .gu {
+    color: #800080;
+    font-weight: bold;
+  }
+ .gd {
+    color: #A00000;
+  }
+ .gi {
+    color: #00A000;
+  }
+ .gr {
+    color: #FF0000;
+  }
+ .ge {
+    font-style: italic;
+  }
+ .gs {
+    font-weight: bold;
+  }
+ .gp {
+    color: #c65d09;
+    font-weight: bold;
+  }
+ .go {
+    color: #888;
+  }
+ .gt {
+    color: #04D;
+  }
+ .err {
+    color: #F00;
+    background-color: #FAA;
+  }
+}
+*/
