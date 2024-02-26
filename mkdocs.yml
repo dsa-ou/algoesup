@@ -46,9 +46,10 @@ theme:
   features:
     - content.code.copy   # add copy button to code blocks
     - navigation.footer   # add previous/next buttons below the page
-    # - navigation.tabs
-    # - navigation.tabs.sticky
     - navigation.sections # non-collapsible sections, listing their pages
+    # the following make navigation more confusing or require extra clicks
+    # - navigation.tabs     # show sections in header; nav panel only shows current section
+    # - navigation.tabs.sticky
     # - toc.integrate       # show TOC in left panel, not separate right panel
   icon:                   # icon next to repo url/name
     repo: fontawesome/brands/github
