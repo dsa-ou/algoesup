@@ -1,19 +1,4 @@
----
-layout: default
-title: Reference
-parent: Deepnote
----
 # Reference
-{: .no_toc}
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .h4 }
-- TOC
-{:toc}
-</details>
 
 ## Workspace interface
 
@@ -21,6 +6,7 @@ The [workspaces](https://deepnote.com/docs/workspaces) interface provides an ove
 projects in your Workspace. On the left-hand side panel you will find a navigation menu
 allowing you to quickly navigate to different sections of your workspace. Starting from the
 top, the sections are:
+
 - **Integrations** - This section allows you to set up and manage connections to data sources.
   This is mostly used for data science work.
   <!-- various integrations . An integration in the context of Deepnote refers to a
@@ -39,13 +25,14 @@ top, the sections are:
 
 A [project](https://deepnote.com/docs/projects)'s interface has similarities to the interface
 for your workspace. Starting from the top, the sections on the left-hand side panel are:
+
  - **NOTEBOOKS** - This section is where your notebooks live. If you want to
    actively work on your notebooks they must be added to this location.
  - **INTEGRATIONS** - This section allows
    you to use an integration defined for the workspace. Integrations are mainly used in data science.
  - **FILES** - Each project in Deepnote has an integrated file system which you
    can view and access in this section. You can create and
-   [upload files]({{site.baseurl}}/deepnote-how-to#upload-a-notebook-or-file)
+   [upload files](deepnote-how-to.md#upload-a-notebook-or-file)
    and folders here.
  - **TERMINALS** - Deepnote allows you to launch terminals from this section by
    clicking on the "+" icon. As you would expect you can access the local file
@@ -66,7 +53,7 @@ for your workspace. Starting from the top, the sections on the left-hand side pa
 Notebooks in Deepnote have the same core functionality as Jupyter Notebooks:
 they combine executable code and text in the same document.
 
-See [Deepnote vs Classic Notebook]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook)
+See [Deepnote vs Classic Notebook](deepnote-background.md#deepnote-vs-classic-notebook)
 for some differences between the two.
 
 ## Access levels
@@ -75,6 +62,7 @@ Access levels are the range of permissions or capabilities assigned to a user in
 differ between the contexts of workspaces and projects.
 
 The access levels for projects are:
+
 - **App User**: Can use published app, but cannot view the project source code.
 - **View**: Can inspect the project, but cannot view or post comments nor execute or edit files.
 - **Comment**: Can post and view comments in addition to inspecting the project.
@@ -101,7 +89,7 @@ manage workspace members.
 Cells (called 'blocks' in Deepnote) are the divisions within each notebook.
 They are a distinct area where code or text can
 be added depending on the type of the cell.
-See our [how-to guide]({{site.baseurl}}/deepnote-how-to#notebook-operations) for working with cells.
+See our [how-to guide](deepnote-how-to.md#notebook-operations) for working with cells.
 
 ## Terminal
 

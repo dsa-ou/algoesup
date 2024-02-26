@@ -1,8 +1,3 @@
----
-title: Home
-layout: default
-nav_order: 1
----
 
 # Algorithmic Essays
 
@@ -12,7 +7,8 @@ These documents provide guidance to help you write, critique, and share algorith
 We define **algorithmic essays** as short reports, with code, that
 explain and compare alternative approaches to solving a computational problem.
 
-If you're a student, writing algorithmic essays benefits you in various ways.
+If you're a student, writing algorithmic essays benefits you in various ways:
+
 - You reinforce your learning by explaining concepts to others and
   by exploring alternative solutions to the same problem.
 - You develop professional skills like problem-solving, reviewing code,
@@ -25,20 +21,21 @@ If you're an educator, you can copy our resources from the
 [GitHub repository](https://github.com/dsa-ou/algoesup) and
 adapt them to your course, due to our permissive licence (see below).
 
-{: .note}
-We provide some [example essays]({{site.baseurl}}/example-essays) to illustrate what they are.
+!!! example
+    We provide some [example essays](example-essays.md) to illustrate what they are.
 
 While many approaches to writing algorithmic essays are possible, we recommend
 using **Jupyter notebooks**, the most widely used medium for mixing text and executable code,
 and **Deepnote**, a cloud-based environment for Jupyter notebooks.
 We have no commercial affiliation with Deepnote. We chose it for these reasons:
+
 - free academic account
 - no software installation necessary
 - you can share your essays publicly (or just with a few people) to easily
   - receive and give feedback
   - work collaboratively on the same essay.
 
-[Get started]({{site.baseurl}}/getting-started){: .btn .btn-green}
+[Get started](getting-started.md){ .md-button .md-button--primary}
 
 ## Acknowledgements
 

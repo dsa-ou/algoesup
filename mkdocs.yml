@@ -1,0 +1,90 @@
+site_name: "Algorithmic Essays"
+repo_url: https://github.com/dsa-ou/algoesup
+repo_name: dsa-ou/algoesup
+copyright: Copyright (c) 2023–2024 The Open University
+
+plugins:
+- mkdocstrings:
+    handlers:
+      python:
+        paths: [Deepnote]
+        options:
+          docstring_style: null
+          separate_signature: true
+          show_signature_annotations: true
+          show_source: false
+- mkdocs-jupyter
+- open-in-new-tab
+- search        
+
+watch:                    # folders that `mkdocs serve` will watch for changes
+- Deepnote                # look for changes in algoesup.py
+
+extra:
+  social:                 # links for the footer
+    - icon: fontawesome/brands/github
+      link: https://github.com/dsa-ou/algoesup
+    - icon: octicons/package-16
+      link: https://pypi.org/project/algoesup/
+    - icon: simple/deepnote
+      link: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
+
+markdown_extensions:
+  - admonition            # allow !!! note / warning / info / example / etc.
+  - attr_list             # allow {.class} after text, e.g. for buttons
+  - smarty                # curly quotes, guillemots, -- for en-dash, --- for em-dash
+  - pymdownx.highlight    # highlight code with Pygments
+  - pymdownx.smartsymbols # typeset 1/4 as ¼, 1st as 1^{st}, (c) as ©, +/- as ±, etc.
+  - pymdownx.superfences  # needed for highlighting
+
+extra_css:
+  - stylesheets/extra.css # change look of admonitions
+
+theme:
+  name: material
+  font: false             # use system font stack
+  features:
+    - content.code.copy   # add copy button to code blocks
+    - navigation.footer   # add previous/next buttons below the page
+    - navigation.sections # non-collapsible sections, listing their pages
+    # the following make navigation more confusing or require extra clicks
+    # - navigation.tabs     # show sections in header; nav panel only shows current section
+    # - navigation.tabs.sticky
+    # - toc.integrate       # show TOC in left panel, not separate right panel
+  icon:                   # icon next to repo url/name
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default     # light mode
+      toggle:
+        icon: material/brightness-6
+        name: Switch to dark mode
+    - scheme: slate       # dark mode
+      toggle:
+        icon: material/brightness-6
+        name: Switch to light mode
+
+nav:
+  - Introduction:
+    - Home: index.md
+    - example-essays.md
+    - getting-started.md
+  # not in the nav panel due to https://github.com/danielfrg/mkdocs-jupyter/issues/189
+  # - Templates:
+  #   - Basic: essays/template-intro-programming.ipynb
+  #   - Extended: essays/template-data-structures.ipynb
+  # - Examples:
+  #   - essays/example-1-to-n.ipynb
+  #   - essays/example-jewels.ipynb
+  #   - essays/example-two-sum-2.ipynb
+  #   - essays/example-two-sum-3.ipynb
+  - Guides:
+    - writing.md
+    - feedback.md
+  - Library:
+    - Reference: library.md
+  - Deepnote:
+    - Overview: deepnote.md
+    - How-to: deepnote-how-to.md
+    - deepnote-background.md
+    - deepnote-reference.md
+    - Project: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
