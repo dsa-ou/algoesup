@@ -13,6 +13,8 @@ plugins:
           separate_signature: true
           show_signature_annotations: true
           show_source: false
+- mkdocs-jupyter
+- open-in-new-tab
 - search        
 
 watch:                    # folders that `mkdocs serve` will watch for changes
@@ -46,8 +48,8 @@ theme:
     - navigation.footer   # add previous/next buttons below the page
     # - navigation.tabs
     # - navigation.tabs.sticky
-    # - navigation.sections
-    - toc.integrate       # show TOC in left panel, not separate right panel
+    - navigation.sections # non-collapsible sections, listing their pages
+    # - toc.integrate       # show TOC in left panel, not separate right panel
   icon:                   # icon next to repo url/name
     repo: fontawesome/brands/github
   palette:
@@ -59,17 +61,29 @@ theme:
       toggle:
         icon: material/brightness-6
         name: Switch to light mode
+
 nav:
   - Introduction:
     - Home: index.md
     - example-essays.md
     - getting-started.md
-  - library.md
+  # not in the nav panel due to https://github.com/danielfrg/mkdocs-jupyter/issues/189
+  # - Templates:
+  #   - Basic: essays/template-intro-programming.ipynb
+  #   - Extended: essays/template-data-structures.ipynb
+  # - Examples:
+  #   - essays/example-1-to-n.ipynb
+  #   - essays/example-jewels.ipynb
+  #   - essays/example-two-sum-2.ipynb
+  #   - essays/example-two-sum-3.ipynb
+  - Guides:
+    - writing.md
+    - feedback.md
+  - Library:
+    - Reference: library.md
   - Deepnote:
     - Overview: deepnote.md
     - How-to: deepnote-how-to.md
     - deepnote-background.md
     - deepnote-reference.md
     - Project: https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b
-  - writing.md
-  - feedback.md
