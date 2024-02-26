@@ -1,27 +1,11 @@
----
-layout: default
-title: Writing guide
-nav_order: 5
----
-
 # Writing guide
-{: .no_toc}
 
-This document provides guidance on how to produce your essay.
+This document provides guidance on how to produce your essay. 
 {: .fs-6 .fw-300}
 
-{: .warning}
-Although we wish to accommodate novice programmers in the future,
-the guide currently has data structures and algorithms students in mind.
-
-<details open markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .h4 }
-1. TOC
-{:toc}
-</details>
+!!! note
+    Although we wish to accommodate novice programmers in the future,
+    the guide currently has data structures and algorithms students in mind.
 
 An essay can have more than one author, although more than two is harder to manage.
 Deepnote makes it easy to work collaboratively on a single notebook,
@@ -31,9 +15,9 @@ You may wish to first pitch your essay idea to your peers, to recruit co-authors
 In the rest of this guide, 'you' and 'your' are both singular and plural pronouns,
 to refer simultaneously to a single author or multiple authors.
 
-{: .note}
-You may wish to keep this guide open while going through one of the
-example essays in your copy of our Deepnote project.
+!!! note
+    You may wish to keep this guide open while going through one of the
+    example essays in your copy of our Deepnote project.
 
 ## Problem
 It's worth spending time on choosing an appropriate problem before putting effort into an essay about it.
@@ -66,6 +50,7 @@ If you're undecided, make a shortlist of 2–3 problems and ask your peers for t
 An essay presents two or more algorithmic solutions for a computational problem,
 and concludes which one is better, according to some criteria.
 Possible criteria include:
+
 - time and space complexity
 - empirical run-times and memory used
 - simplicity of the solution
@@ -99,6 +84,7 @@ as no essay can explain everything from first principles. For example,
 tell the reader that they must know about binary trees to understand your essay.
 
 Following the introduction, use section headings to structure your essay, for example:
+
 - **Problem**: this section describes the problem, with some examples.
 - **Algorithms**: this section outlines two or more algorithms that solve the problem and their complexity.
 - **Implementations**: this section implements and tests only the most promising algorithms.
@@ -108,6 +94,7 @@ Following the introduction, use section headings to structure your essay, for ex
 The algorithms and implementations sections may have subsections, one per algorithm.
 
 An alternative structure implements each approach before evaluating all of them:
+
 - **Problem**: this section describes the problem, with some examples.
 - **First approach**: this section outlines an algorithm, implements it and tests it.
 - **Second approach**: this section presents another algorithm and its implementation.
@@ -187,10 +174,10 @@ unit_tests = [
 # run the function on all test inputs and compare the actual and expected outputs
 test(absolute_difference, unit_tests)
 ```
-This produces:
-> Testing absolute_difference:\
-> x < y FAILED: -11 instead of 11\
-> Tests finished.
+!!! failure "Output"
+    Testing absolute_difference:  
+    x < y FAILED: -11 instead of 11  
+    Tests finished.
 
 A unit test consists of the input values to pass to your function and the output value you're expecting.
 The library requires a short descriptive string for each unit test, so that it can indicate which tests failed.
@@ -214,8 +201,9 @@ def absolute_difference_without_abs(x: int, y: int) -> int:
 
 test(absolute_difference_without_abs, unit_tests) # same test table
 ```
-> Testing absolute_difference_without_abs:\
-> Tests finished.
+!!! success "Output"
+    Testing absolute_difference_without_abs:  
+    Tests finished.
 
 ### Type checking
 As the above examples show, your code should contain type hints
@@ -227,7 +215,8 @@ After importing the `algoesup` library, you can turn on type checking as follows
 ```python
 %pytype on
 ```
-> pytype was activated
+!!! success "Output"
+    pytype was activated
 
 Words that start with `%` are special commands for IPython, the Python interpreter used by Jupyter notebooks.
 The `%pytype` command, provided by our library, activates Google's `pytype` type checker,
@@ -243,10 +232,12 @@ def double(x: int) -> int:
 
 double([4])
 ```
-> [4, 4]
->
-> **pytype** found issues:
-> - 5: Function double was called with the wrong arguments \[[wrong-arg-types](https://google.github.io/pytype/errors.html#wrong-arg-types)\]
+!!! failure "Output"
+    [4, 4]
+
+    **pytype** found issues:
+
+    - 5: Function double was called with the wrong arguments \[[wrong-arg-types](https://google.github.io/pytype/errors.html#wrong-arg-types)\]
 
 The function is executed and produces an output because lists can also be 'multiplied' with an integer,
 but the type checker detects that line 5 should have passed integers, not lists of integers, to the function.
@@ -259,12 +250,12 @@ However, some checking is better than no checking.
 The type checker adds some seconds to the overall time to run each code cell.
 You may thus wish to initially turn off the type checking, with `%pytype off`,
 and only turn it on after all code is written and tested.
-You will have to [run all cells]({{site.baseurl}}/deepnote-how-to#run-one-or-all-cells) for the type checking to take place.
+You will have to [run all cells](deepnote-how-to.md#run-one-or-all-cells) for the type checking to take place.
 
 ### Formatting
 Once you have written, tested and type checked all your code, you should format it so that
 it follows the Python community's code style.
-You will need to format each cell, as explained [here]({{site.baseurl}}/deepnote-how-to#format-a-code-cell).
+You will need to format each cell, as explained [here](deepnote-how-to.md#format-a-code-cell).
 
 If there's a block of code that you don't want the formatter to change,
 write `# fmt: off` on its own line before the block and write `# fmt: on` after the block,
@@ -285,7 +276,8 @@ importing `algoesup`.
 ```python
 %ruff on
 ```
-> ruff was activated
+!!! success "Output"
+    ruff was activated
 
 From now on, each cell is automatically linted after it's executed. Here's an example:
 ```python
@@ -293,15 +285,18 @@ l = [1, 2, 3]
 if (not 5 in l) == True:
     print("5 isn't in the list")
 ```
-> 5 isn't in the list
->
-> **ruff** found issues:
-> - 1: \[[E741](https://docs.astral.sh/ruff/rules/ambiguous-variable-name)\] Ambiguous variable name: `l`
-> - 2: \[[PLR2004](https://docs.astral.sh/ruff/rules/magic-value-comparison)\] Magic value used in comparison, consider replacing 5 with a constant variable
-> - 2: \[[E713](https://docs.astral.sh/ruff/rules/not-in-test)\] Test for membership should be `not in`. Suggested fix: Convert to `not in`
-> - 2: \[[E712](https://docs.astral.sh/ruff/rules/true-false-comparison)\] Comparison to `True` should be `cond is True` or `if cond:`. Suggested fix: Replace with `cond is True`
+!!! failure "Output"
+    5 isn't in the list
+
+    **ruff** found issues:
+
+    - 1: \[[E741](https://docs.astral.sh/ruff/rules/ambiguous-variable-name)\] Ambiguous variable name: `l`
+    - 2: \[[PLR2004](https://docs.astral.sh/ruff/rules/magic-value-comparison)\] Magic value used in comparison, consider replacing 5 with a constant variable
+    - 2: \[[E713](https://docs.astral.sh/ruff/rules/not-in-test)\] Test for membership should be `not in`. Suggested fix: Convert to `not in`
+    - 2: \[[E712](https://docs.astral.sh/ruff/rules/true-false-comparison)\] Comparison to `True` should be `cond is True` or `if cond:`. Suggested fix: Replace with `cond is True`
 
 Every message indicates the line of the problem.
+
 - The first message is trying to tell us that `l` can be misread for `1` (one).
 - The second message recommends using constants, like `EXPECTED_VALUE`,
   instead of literals like 5 that are meaningless to the reader.
@@ -338,7 +333,8 @@ by your peers in terms of Python constructs, just add a cell:
 ```python
 %allowed on
 ```
-> allowed was activated
+!!! success "Output"
+    allowed was activated
 
 Henceforth, after a cell is executed, the `allowed` linter will list any constructs,
 modules or built-in types we haven't taught, like this:
@@ -347,11 +343,13 @@ from math import pi, sin
 
 print(f"π is approximately {pi:.5f}.")
 ```
-> π is approximately 3.14159.
->
-> **allowed** found issues:
-> - 1: sin
-> - 3: f-string
+!!! success "Output"
+    π is approximately 3.14159.
+
+    **allowed** found issues:
+
+    - 1: sin
+    - 3: f-string
 
 We haven't taught the `math.sin()` function nor f-strings, and `allowed` reports these.
 
@@ -366,7 +364,7 @@ in case you want to use even fewer constructs in your essay.
 To use that configuration, write `%allowed on -c tm112.json`.
 
 You can configure the linter with a JSON file that lists the allowed constructs.
-You can [duplicate and rename]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file)
+You can [duplicate and rename](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file)
 one of the JSON configurations in the **Files** section of your project,
 and adapt it to your course.
 See the `allowed` [website](https://dsa-ou.github.io/allowed) for instructions.
@@ -424,6 +422,7 @@ To measure the run-times of a function `f`  on best, average and worst case inpu
 library function `time_cases(f, [case1, case2, ...], s, d)`.
 The second argument can be a list (or tuple) of up to 6 input-generating functions.
 The `time_cases` function works as follows.
+
 1. Call `case1(s)` to generate inputs of size `s` for `f`.
 2. Run function `f` on the generated inputs and measure its run-time.
 3. Do the two previous steps with each of the functions `case2, ...`.
@@ -438,8 +437,8 @@ from algoesup import time_cases
 
 time_cases(selection_sort, [ascending, descending], start_size=100, double=4)
 ```
-This produces something like:
-
+!!! success "Output"
+    ```
     Run-times for selection_sort
 
     Input size       ascending      descending
@@ -448,6 +447,7 @@ This produces something like:
            400          2716.7          2817.9 µs
            800         11072.4         11407.3 µs
           1600         44285.3         45512.7 µs
+    ```
 
 Running selection sort on lists from 100 to 1600 integers takes about 170 microseconds to 45 milliseconds.
 To measure precisely such small time spans, function `f` (here, `selection_sort`) is called
@@ -483,8 +483,8 @@ from algoesup import time_functions
 
 time_functions([selection_sort, sorted], descending, start_size=100, double=4)
 ```
-This produces something like:
-
+!!! success "Output"
+    ```
     Inputs generated by descending
 
     Input size  selection_sort          sorted
@@ -493,6 +493,7 @@ This produces something like:
            400          2795.7             1.6 µs
            800         11534.0             3.1 µs
           1600         45470.0             5.9 µs
+    ```
 
 As expected, the built-in sorting implementation is much, much faster.
 
@@ -504,11 +505,14 @@ If you only want to see the chart, then add arguments `text=False, chart=True`.
 ```python
 time_cases(sorted, [ascending, descending], 100, 4, text=False, chart=True)
 ```
-![chart only](sorted.png)
+!!! success "Output"
+    ![chart only](sorted.png)
 
 ```python
 time_functions([sorted, selection_sort], ascending, 100, 4, chart=True)
 ```
+!!! success "Output"
+    ```
     Inputs generated by ascending
 
     Input size          sorted  selection_sort
@@ -517,8 +521,8 @@ time_functions([sorted, selection_sort], ascending, 100, 4, chart=True)
            400          1496.9       2720369.2 ns
            800          2850.4      11090135.4 ns
           1600          5553.0      44372758.4 ns
-
-![times and chart](ascending.png)
+    ```
+    ![times and chart](ascending.png)
 
 The `1e7` above the y-axis means that the run-times must be multiplied by 10⁷, i.e. 10 million.
 
@@ -533,6 +537,7 @@ and in `time_cases(f, [case1, case2, ...], ...)` the worst case should be `case1
 
 ### Interpreting run-times
 If, as the input size doubles, the run-times...
+
 - ...remain the same, then the function has constant complexity.
 - ...also double, then the function has linear complexity.
 - ...quadruple, then the function has quadratic complexity.
@@ -553,6 +558,7 @@ Increase `start_size` and run again the code cell.
 
 If after increasing the start size several times you still don't get the run-times
 you expect from your complexity analysis, then there might be other explanations:
+
 - your complexity analysis is wrong
 - your implemented algorithm modifies its input
 - your input-generating functions are not generating best or worst cases.
@@ -570,7 +576,7 @@ Look at Deepnote's table of contents on the sidebar and check that your section 
 are at the right level.
 
 Finally, let others comment on your essay and help you produce a better version.
-See our [feedback guide]({{site.baseurl}}/feedback) for details.
+See our [feedback guide](feedback.md) for details.
 
 ## Further reading
 If you're interested and have the time, here are further details on some of the above.

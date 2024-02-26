@@ -1,18 +1,8 @@
----
-layout: default
-title: Getting started
-nav_order: 2
----
-
 # Getting started
-{: .no_toc}
 
 Follow these steps to start writing essays within a few minutes,
 without any software installation or configuration.
 {: .fs-6 .fw-300}
-
-1. TOC
-{:toc}
 
 ## Create a Deepnote account
 
@@ -22,19 +12,18 @@ without any software installation or configuration.
 3. Check the CAPTCHA box and click **Continue with email**.
 4. Check your email for a sign-in link from Deepnote and click it.
 
-{: .important}
-There are no passwords for Deepnote when signing up by email.
-If you explicitly log out of your Deepnote account,
-see our guide for [how to log in]({{site.baseurl}}/deepnote-how-to#log-in).
+    !!! note
+        There are no passwords for Deepnote when signing up by email.
+        If you explicitly log out of your Deepnote account,
+        see our guide for [how to log in](deepnote-how-to.md#log-in).
 
-{:style="counter-reset:none"}
-1. In Deepnote, answer the introductory questions, which may depend on
+5. In Deepnote, answer the introductory questions, which may depend on
    the type of email you used to sign up.
-   - If you're asked **what you are working on**, type **Writing essays** and click **Continue**.
-   - If you're asked to name your **workspace**, which is where you will store your projects,
-     give it a unique and descriptive name, e.g. "_Your Name_'s projects".
-   - If you're asked to **invite your teammates**, click **Continue**.
-   - If you're asked for your **data sources**, click **Take me to Deepnote**.
+    - If you're asked **what you are working on**, type **Writing essays** and click **Continue**.
+    - If you're asked to name your **workspace**, which is where you will store your projects,
+      give it a unique and descriptive name, e.g. "_Your Name_'s projects".
+    - If you're asked to **invite your teammates**, click **Continue**.
+    - If you're asked for your **data sources**, click **Take me to Deepnote**.
 
 You should now be looking at an empty notebook that is part of
 the **Welcome to Deepnote** project within your workspace.
@@ -53,17 +42,16 @@ The project has all necessary software pre-installed.
 3. Choose the name of your workspace from the drop-down menu.
 4. Click **Duplicate project** to finish the process.
 
-{: .important}
-Do _not_ check the box to make your project private:
-that would prevent sharing your essays later with others.
+    !!! note
+        Do _not_ check the box to make your project private:
+        that would prevent sharing your essays later with others.
 
-After a few moments, you will see the project in your workspace,
-with the name **Algorithmic Essays - Duplicate** at the top of the screen.
+    After a few moments, you will see the project in your workspace,
+    with the name **Algorithmic Essays - Duplicate** at the top of the screen.
 
-{:style="counter-reset:none"}
-1. Click on the three dots in the top right corner.
-2. Select **Rename project** from the drop-down menu.
-3. In the text box that appears, type a name for your project, e.g. "_Your Name_'s essays".
+5. Click on the three dots in the top right corner.
+6. Select **Rename project** from the drop-down menu.
+7. In the text box that appears, type a name for your project, e.g. "_Your Name_'s essays".
 
 You should now see some notebooks in the left panel.
 
@@ -81,9 +69,9 @@ To write an essay, copy one of the templates and edit that copy.
 This creates a new notebook, with the name of the template followed by '-2', and opens it.
 You can now start editing your copy of the template.
 (Once you decided your essay's topic, you can
-[rename the notebook]({{site.baseurl}}/deepnote-how-to#rename-duplicate-download-or-delete-a-notebook-or-file).)
+[rename the notebook](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file).)
 
 If you're familiar with the classic Jupyter interface, we recommend you first
-read about the [differences]({{site.baseurl}}/deepnote-background#deepnote-vs-classic-notebook) with Deepnote.
+read about the [differences](deepnote-background.md#deepnote-vs-classic-notebook) with Deepnote.
 
-For a video introduction to notebooks and Deepnote, see our [Deepnote guide]({{site.baseurl}}/deepnote).
+For a video introduction to notebooks and Deepnote, see our [Deepnote guide](deepnote.md).

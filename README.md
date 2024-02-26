@@ -33,13 +33,10 @@ python3.10 -m venv venv
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-To preview locally the documentation that will be in GitHub Pages, follow
-[this guidance](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
-The Jekyll installation instructions include how to install Ruby.
-Bundler is usually automatically installed during the Ruby installation.
+To preview locally the documentation that will be in GitHub Pages, enter `mkdocs serve`.
 
-GitHub recommends to regularly do `bundle update github-pages` to ensure that
-the local site preview looks like on GitHub Pages.
+The documentation must be written in strict Markdown: 
+blank line before a new list; break lines with two spaces; indent with 4 spaces.
 
 After accepting a commit to folder `Deepnote/`, the owners will upload the
 updated files to the Deepnote project linked above.
