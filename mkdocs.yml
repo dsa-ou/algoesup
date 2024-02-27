@@ -10,9 +10,9 @@ plugins:
 - mkdocstrings:
     handlers:
       python:
-        paths: [Deepnote]
+        paths: [src]
         options:
-          docstring_style: null
+          docstring_style: "google"
           separate_signature: true
           show_signature_annotations: true
           show_source: false
