@@ -2,13 +2,11 @@
 
 The `algoesup` library provides support for testing, timing and linting code.
 
+This library requires `ipython` and `matplotlib`
+
 ## Testing
 
-This function can be used with any Python program.
-
-The library requires `matplotlib` and `ipython`. 
-
-::: algoesup
+::: algoesup.test
     options:
       heading_level: 3
       show_root_toc_entry: false
@@ -17,7 +15,7 @@ The library requires `matplotlib` and `ipython`.
 
 ## Timing
 
-::: algoesup
+::: algoesup.time
     options:
       heading_level: 3
       show_root_toc_entry: false
@@ -30,7 +28,7 @@ The library requires `matplotlib` and `ipython`.
 
 These are to lint within a Jupyter notebook, cell by cell.
 
-::: algoesup
+::: algoesup.magics
     options:
       heading_level: 3
       show_root_toc_entry: false

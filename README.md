@@ -25,22 +25,18 @@ If you want to adapt this material to your course, this repository has
 the guides in the `docs/` folder and the rest in the `Deepnote/` folder.
 
 ## Development
-If you want to contribute to this repository, create a virtual environment,
-preferably with Python 3.10 for compatibility with Deepnote, and install the software:
-```bash
-python3.10 -m venv venv
-. venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-To preview the documentation that will be in GitHub Pages, enter `mkdocs serve`.
+This repository is developed with [poetry](https://python-poetry.org).
+After installing `poetry`, enter `poetry install` to create the development environment.
+
+To preview the documentation that will be in GitHub Pages, enter `poetry run mkdocs serve`.
 
 The documentation must be written in strict Markdown: 
-blank line before a new list; break lines with two spaces; indent with 4 spaces.
+blank line before a new list; line breaks are two spaces; indentation is 4 spaces.
 
-To build the documentation in the `docs/` folder, enter `mkdocs build`.
-(Don't use `mkdocs gh-deploy` because it also pushes untracked files. For example, 
-it was going to push all 37k+ venv files, even though `venv` is on `.gitignore`!)
+To build the documentation in the `docs/` folder from the `src/docs` files, 
+enter `poetry run mkdocs build`.
+(Don't use `mkdocs gh-deploy` because it pushes untracked and other files, 
+without giving you a chance to check what will be pushed.)
 
 After accepting a commit to folder `Deepnote/`, the owners will upload the
 updated files to the Deepnote project linked above.
