@@ -128,10 +128,10 @@ def pytype(line: str) -> None:
 )
 @register_line_magic
 def allowed(line: str) -> None:
-    """Activate/deactivate the `pytype` linter.
+    """Activate/deactivate the `allowed` linter.
       
-    This magic command controls the activation state of the `allowed` linter within
-    the ipython environment. It can be toggled on or off, or queried for its
+    This ipython magic command controls the activation state of the `allowed` linter 
+    within the ipython environment. It can be toggled on or off, or queried for its
     current state.
   
     Examples:
@@ -164,7 +164,7 @@ def ruff(line: str) -> None:
     """Activate/deactivate the `ruff` linter.
     
     This ipython magic command controls the activation state of the `ruff` linter within
-    the interactive environment. It can be toggled on or off, or queried for its
+    the ipython environment. It can be toggled on or off, or queried for its
     current state.
    
     Examples:
@@ -246,4 +246,11 @@ def run_checkers(result) -> None:
 
 
 def load_ipython_extension(ipython):
+    """Loads the ipython extension, and registers run_checkers with post_cell_run
+    
+    This functions hooks into the ipython extension system so the magic commands defined
+    in this module can be loaded with `load_ext algoesup.magics`. It also registers 
+    run_checkers with the post_run_cell event so the linters are run with the contents of
+    each ipython cell after it has been executed.
+    """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]
