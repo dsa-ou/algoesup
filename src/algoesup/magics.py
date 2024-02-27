@@ -1,8 +1,4 @@
-""" Integrate code checking tools into Jupyter Notebook environments
-
-Usage:
-    To enable magics, use `%load_ext algoesup.magics` in a cell
-"""
+"""Linting tools for Jupyter Notebook environments"""
 
 import json
 import os
@@ -95,7 +91,22 @@ def process_status(name: str, status: str) -> None:
 )
 @register_line_magic
 def pytype(line: str) -> None:
-    """Activate/deactivate the `pytype` linter."""
+    """Activate/deactivate the `pytype` linter.
+    
+    This ipython magic command controls the activation state of the `pytype` linter within
+    the ipython environment. It can be toggled on or off, or queried for its
+    current state.
+
+    Examples:
+        ```
+        %pytype on 
+        pytype was activated
+        %pytype off     
+        pytype was deactivated
+        %pytype         
+        pytype is inactive  
+        ```
+    """
     args = parse_argstring(pytype, line)
     process_status("pytype", args.status)
 
@@ -117,7 +128,22 @@ def pytype(line: str) -> None:
 )
 @register_line_magic
 def allowed(line: str) -> None:
-    """Configure and (de)activate the `allowed` linter."""
+    """Activate/deactivate the `pytype` linter.
+      
+    This magic command controls the activation state of the `pytype` linter within
+    the ipython environment. It can be toggled on or off, or queried for its
+    current state.
+  
+    Examples:
+        ```
+        %pytype on 
+        pytype was activated
+        %pytype off     
+        pytype was deactivated
+        %pytype         
+        pytype is inactive  
+        ```
+    """
     args = parse_argstring(allowed, line)
     config = f"-c {args.config}" if args.config else ""
     checkers["allowed"] = (f"allowed {config}", show_errors)
@@ -135,7 +161,20 @@ def allowed(line: str) -> None:
 )
 @register_line_magic
 def ruff(line: str) -> None:
-    """Activate/deactivate the `ruff` linter."""
+    """Activate/deactivate the `ruff` linter.
+    
+    This ipython magic command controls the activation state of the `ruff` linter within
+    the interactive environment. It can be toggled on or off, or queried for its
+    current state.
+   
+    Examples:
+        `%ruff on`
+        `ruff was activated`  
+        `%ruff off`  
+        `ruff was deactivated`  
+        `%ruff`  
+        `ruff is inactive`  
+    """
     args = parse_argstring(ruff, line)
     process_status("ruff", args.status)
 

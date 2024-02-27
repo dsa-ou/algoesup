@@ -25,7 +25,7 @@ If you want to adapt this material to your course, this repository has
 the guides in the `docs/` folder and the rest in the `Deepnote/` folder.
 
 ## Development
-If you want to contribute to this repository, create a local virtual environment,
+If you want to contribute to this repository, create a virtual environment,
 preferably with Python 3.10 for compatibility with Deepnote, and install the software:
 ```bash
 python3.10 -m venv venv
@@ -33,13 +33,14 @@ python3.10 -m venv venv
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
-To preview locally the documentation that will be in GitHub Pages, follow
-[this guidance](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
-The Jekyll installation instructions include how to install Ruby.
-Bundler is usually automatically installed during the Ruby installation.
+To preview the documentation that will be in GitHub Pages, enter `mkdocs serve`.
 
-GitHub recommends to regularly do `bundle update github-pages` to ensure that
-the local site preview looks like on GitHub Pages.
+The documentation must be written in strict Markdown: 
+blank line before a new list; break lines with two spaces; indent with 4 spaces.
+
+To build the documentation in the `docs/` folder, enter `mkdocs build`.
+(Don't use `mkdocs gh-deploy` because it also pushes untracked files. For example, 
+it was going to push all 37k+ venv files, even though `venv` is on `.gitignore`!)
 
 After accepting a commit to folder `Deepnote/`, the owners will upload the
 updated files to the Deepnote project linked above.
@@ -47,7 +48,7 @@ updated files to the Deepnote project linked above.
 ## Licences
 
 The code and text in this repository are
-Copyright © 2023 by The Open University, UK.
+Copyright © 2023–2024 by The Open University, UK.
 The code is licensed under a [BSD 3-clause licence](LICENSE).
 The text is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).

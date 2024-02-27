@@ -1,4 +1,4 @@
-"""Tools for measuring and plotting the run-times of functions in Python"""
+"""Tools for measuring and plotting run-times"""
 
 from typing import Callable
 
@@ -56,7 +56,24 @@ def time_cases(
     text: bool = True,
     chart: bool = False,
 ) -> None:
-    """Print or plot the run-times of `function` for different input cases."""
+    """Print or plot the run-times of `function` for different input cases.
+    
+    `time_cases` prints or plots the run-times of a single function using a list of 
+    different input generators. Inputs are generated based on a starting size and are 
+    doubled a specified number of times.
+
+    Args:
+        function (Callable): A functions whose run-times will be measured.
+        cases (list[Callable]): A list of functions to generate inputs of different cases.
+            E.g best- normal- and worst-case.
+        start_size (int): The starting size for the inputs. Must be positive.
+        double (int): The number of times to double the input size. Must be non-negative.
+        text (bool, optional): If True, print the run-times in text format.
+        chart (bool, optional): If True plot the run-times using a chart.
+    
+    Raises:
+        AssertionError: If input conditions are not satisfied.
+    """
     assert start_size > 0, "the start size must be positive"
     assert double >= 0, "must double the input size at least zero times"
     assert 0 < len(cases) < 7, "there must be 1 to 6 input functions"
@@ -110,7 +127,25 @@ def time_functions(
     chart: bool = False,
     value: bool = False,
 ) -> None:
-    """Print or plot the run-times of different functions for the same inputs."""
+    """Print or plot the run-times of different functions for the same inputs.
+
+    `time_functions` prints or plots the run-times given list of functions and an input 
+    generator. Inputs are generated based on a starting size and are doubled a specified 
+    number of times.
+
+    Args:
+        functions (list[Callable]): A list of functions whose run-times will be measured.
+            Must be 1 to 6 functions.
+        inputs (Callable): A function to generate inputs when given a specific size.
+        start (int): The starting size for the inputs. Must be positive.
+        double (int): The number of times to double the input size. Must be non-negative.
+        text (bool, optional): If True, print the run-times in text format
+        chart (bool, optional): If True plot the run-times using a chart.
+        value (bool, optional): If True x-axis is labelled "Input value" otherwise "Input size".
+
+    Raises:
+        AssertionError: If input conditions are not satisfied.
+    """
     assert start > 0, "the start size/value can't be negative"
     assert double >= 0, "must double the input size/value at least zero times"
     assert 0 < len(functions) < 7, "there must be 1 to 6 functions"
@@ -167,5 +202,23 @@ def time_functions_int(
     text: bool = True,
     chart: bool = True,
 ) -> None:
-    """Time functions that take a single integer as input."""
+    """Time functions that take a single integer as input.
+    
+    `time_functions_int` uses `time_functions` to measure and display the run-times
+    of a given list of functions that accept a single integer input. The integer inputs
+    are generated starting from a specified value that defaults to 1, and are doubled
+    a specified number of times that defaults to 10.
+
+    Args:
+        functions (list[Callable]): A list of functions whose run-times will be measured.
+            Each function must accept a single integer argument. Must be 1 to 6 functions.
+        generator (Callable, optional): A function to generate integer inputs. Defaults to
+            `int_value`, which should generate an integer based on the input size.
+        start_size (int, optional): The starting integer value for inputs. Defaults to 1.
+            Must be positive.
+        double (int, optional): The number of times to double the input integer value.
+            Defaults to 10. Must be non-negative.
+        text (bool, optional): If True, print the run-times in text format. 
+        chart (bool, optional): If True, plot the run-times using a chart. 
+    """
     time_functions(functions, generator, start_size, double, text, chart, True)

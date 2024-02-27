@@ -1,0 +1,1786 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://dsa-ou.github.io/algoesup/writing/">
+      
+      
+        <link rel="prev" href="../getting-started/">
+      
+      
+        <link rel="next" href="../feedback/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Writing guide - Algorithmic Essays</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#writing-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Algorithmic Essays" class="md-header__button md-logo" aria-label="Algorithmic Essays" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Algorithmic Essays
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Writing guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18V6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18V6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dsa-ou/algoesup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dsa-ou/algoesup
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Algorithmic Essays" class="md-nav__button md-logo" aria-label="Algorithmic Essays" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Algorithmic Essays
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dsa-ou/algoesup" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dsa-ou/algoesup
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example-essays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Example essays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Writing guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Writing guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language subset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charting-run-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charting run-times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-run-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpreting run-times
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../feedback/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Feedback guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Library
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Library
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Deepnote
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deepnote
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepnote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepnote-how-to/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How-to
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepnote-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Background
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepnote-reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problem
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Type checking
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formatting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code style
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Language subset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Performance analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generating-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating inputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparing-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charting-run-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charting run-times
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-run-times" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interpreting run-times
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final check
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Further reading
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="writing-guide">Writing guide</h1>
+<p class="fs-6 fw-300">This document provides guidance on how to produce your essay. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although we wish to accommodate novice programmers in the future,
+the guide currently has data structures and algorithms students in mind.</p>
+</div>
+<p>An essay can have more than one author, although more than two is harder to manage.
+Deepnote makes it easy to work collaboratively on a single notebook,
+at the same time or asynchronously, and leave comments to co-authors.
+You may wish to first pitch your essay idea to your peers, to recruit co-authors.</p>
+<p>In the rest of this guide, &lsquo;you&rsquo; and &lsquo;your&rsquo; are both singular and plural pronouns,
+to refer simultaneously to a single author or multiple authors.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may wish to keep this guide open while going through one of the
+example essays in your copy of our Deepnote project.</p>
+</div>
+<h2 id="problem">Problem</h2>
+<p>It&rsquo;s worth spending time on choosing an appropriate problem before putting effort into an essay about it.
+You may invent your own problem or select an existing one.
+For example, it may be a non-assessed exercise from your course, or
+it may relate to your hobby or work. In so, provide any information the reader needs to understand the problem.
+If the problem is from your work, get permission from your employer or client.</p>
+<p>There are <a href="https://www.freecodecamp.org/news/the-most-popular-coding-challenge-websites/">many websites</a> with thousands of algorithmic problems to choose from.
+We have used <a href="https://open.kattis.com">Kattis</a> and <a href="https://leetcode.com/problemset/all/">LeetCode</a> in the past.</p>
+<p>Some sites, like LeetCode, tag their problems with the data structure or algorithmic technique needed,
+like &lsquo;array&rsquo; or &lsquo;sorting&rsquo;. This helps you find problems about a particular topic.</p>
+<p>Some sites, like LeetCode, have official and user-provided solutions, but the latter
+may be terse (single-letter identifiers, no comments) or not fully analysed.
+Other sites, like the <a href="https://ioinformatics.org/page/contests/10">International Olympiad in Informatics</a>,
+often have just solution hints or outlines.
+You may thus wish to write an essay that fully implements a solution outline or
+that improves and compares several user solutions.
+Either way would be useful to the user community of those sites.</p>
+<p>It is often said that the best way to learn a topic is to have to explain it to others.
+You may thus wish to pick a problem on a topic you&rsquo;re <em>not</em> comfortable with,
+choose two existing solutions, and explain them in an essay.</p>
+<p>If you&rsquo;re undecided, make a shortlist of 2–3 problems and ask your peers for their opinion.</p>
+<h2 id="text">Text</h2>
+<p>An essay presents two or more algorithmic solutions for a computational problem,
+and concludes which one is better, according to some criteria.
+Possible criteria include:</p>
+<ul>
+<li>time and space complexity</li>
+<li>empirical run-times and memory used</li>
+<li>simplicity of the solution</li>
+<li>ease of adapting the solution to similar problems.</li>
+</ul>
+<p>The essay should thus have a <strong>clear narrative</strong>, going from the problem to the conclusion.</p>
+<p>An algorithmic essay contains more text than code, and while code can and should have comments,
+the text carries most of the explanation. It&rsquo;s thus important for the text to be clear and error-free.</p>
+<p>Deepnote notebooks can have rich-text cells (headings, paragraph, bullet item, etc.) that,
+contrary to the Markdown cells, are spell-checked as you write the text and
+support keyboard shortcuts, like Ctrl + B to put the selected text in bold.
+Unless you want to keep your essays in Deepnote, we do not recommend using rich-text cells,
+as their formatting is lost when downloading the notebook to your computer.</p>
+<p>Essays can be written in any style: it&rsquo;s a personal choice.
+For example, you can use &lsquo;we&rsquo;, &lsquo;I&rsquo; or an impersonal form.</p>
+<h2 id="structure">Structure</h2>
+<p>An essay starts with a <strong>title</strong> that states the problem or the algorithmic technique to be used.
+Next, put your name(s) and the current <strong>date</strong>, which should be updated whenever you edit the essay.</p>
+<p>Next, <em>without</em> any heading, comes the introduction. It should state what the essay is about.
+Normally an essay&rsquo;s aim is to solve a particular problem, but it may also
+illustrate a general technique, like space-time trade-offs or recursion,
+or highlight an issue, like the difference between complexity analysis and run-time performance.</p>
+<p>The introduction should also state what you assume the reader to know,
+as no essay can explain everything from first principles. For example,
+tell the reader that they must know about binary trees to understand your essay.</p>
+<p>Following the introduction, use section headings to structure your essay, for example:</p>
+<ul>
+<li><strong>Problem</strong>: this section describes the problem, with some examples.</li>
+<li><strong>Algorithms</strong>: this section outlines two or more algorithms that solve the problem and their complexity.</li>
+<li><strong>Implementations</strong>: this section implements and tests only the most promising algorithms.</li>
+<li><strong>Comparison</strong>: this section compares the implemented algorithms according to other criteria, e.g. their run-times.</li>
+<li><strong>Conclusion</strong>: this section summarises the findings and concludes which approach is best.</li>
+</ul>
+<p>The algorithms and implementations sections may have subsections, one per algorithm.</p>
+<p>An alternative structure implements each approach before evaluating all of them:</p>
+<ul>
+<li><strong>Problem</strong>: this section describes the problem, with some examples.</li>
+<li><strong>First approach</strong>: this section outlines an algorithm, implements it and tests it.</li>
+<li><strong>Second approach</strong>: this section presents another algorithm and its implementation.</li>
+<li>&hellip;: further sections, one per approach.</li>
+<li><strong>Evaluation</strong>: this section states the criteria to be used and evaluates each approach according to them.</li>
+<li><strong>Conclusion</strong>: this section summarises the findings and concludes which approach is best.</li>
+</ul>
+<p>If the problem description is a single paragraph, you may include it in the introduction,
+rather than having a separate section.
+If you didn&rsquo;t invent the problem, indicate its source, e.g. by providing a link to a website
+or by writing something like &ldquo;This is problem 4.5 in [book title] by [author].&rdquo;</p>
+<h2 id="algorithms">Algorithms</h2>
+<p>You should describe each algorithm succinctly, preferably <em>before</em> implementing it,
+to make the code easier to understand for the reader.</p>
+<p>If you&rsquo;re using solutions by others, e.g. by LeetCode users,
+acknowledge the original author and provide a link to their solution.
+If you have modified their solutions, state what you have changed and explain why.</p>
+<p>You should include worst-case complexity analyses of the various solutions you propose,
+as this helps discard the inefficient ones that may not be worth implementing.</p>
+<h2 id="code">Code</h2>
+<p>Your code should be correct, simple, and as readable as possible.
+Unless the aim of your essay is to discuss advanced Python constructs,
+try to use only a basic subset of the language. This allows more people,
+including those with limited knowledge of Python, to understand your code.
+It also makes your code easier to port to other programming languages.</p>
+<p>We recommend the following workflow, which is further explained in the following subsections.</p>
+<ol>
+<li>Write the tests for your algorithms.</li>
+<li>Implement the algorithms and run the tests.</li>
+<li>Typecheck your code as you run each cell.</li>
+<li>Format your code, cell by cell.</li>
+<li>Check the code style as you run each cell.</li>
+</ol>
+<p>Writing the tests (step 1) <em>before</em> the code they test (step 2) is a cornerstone of
+<strong>test-driven development</strong>, a widely used practice. Thinking of the tests early
+in the process helps you better understand the problem and think of correct solutions.</p>
+<h3 id="testing">Testing</h3>
+<p>You should write tests for each function, to have some assurance that it is correct.
+Tests that check the behaviour of a single function are called <strong>unit tests</strong>.
+The unit tests should cover normal cases and <strong>edge cases</strong>: extreme input values and
+inputs that lead to extreme output values.</p>
+<p>For each input, the smallest possible value, e.g. zero or the empty list, is an edge case,
+and so is the largest possible value, if there is one for that input.
+If a function is doing a search for an item in a list, then edge cases would be the item being
+at the start, at the end, or not occurring at all.
+If the output is a list, then inputs that produce the empty list are edge cases too.
+In summary, try to think of the &lsquo;trickiest&rsquo; inputs the algorithm has to cope with.</p>
+<p>We provide a small library to support algorithmic essays: file <code>algoesup.py</code>.
+It allows you to easily write and run unit tests. Here&rsquo;s an example.
+(The <code># fmt: off</code> and <code># fmt: on</code> lines will be explained later.)
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">test</span>
+
+<span class="c1"># function to be tested</span>
+<span class="k">def</span> <span class="nf">absolute_difference</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the absolute value of the difference between x and y.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>  <span class="c1"># deliberately wrong, should be abs(x - y)</span>
+
+<span class="c1"># fmt: off</span>
+<span class="c1"># unit tests in tabular form, one test per row</span>
+<span class="n">unit_tests</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1"># test case,  x,    y,    expected result</span>
+    <span class="p">(</span><span class="s2">&quot;x == y&quot;</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>    <span class="mi">1</span><span class="p">,</span>    <span class="mi">0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;x &gt; y&quot;</span><span class="p">,</span>     <span class="mi">10</span><span class="p">,</span>   <span class="o">-</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">11</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;x &lt; y&quot;</span><span class="p">,</span>     <span class="o">-</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">10</span><span class="p">,</span>   <span class="mi">11</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="c1"># fmt: on</span>
+
+<span class="c1"># run the function on all test inputs and compare the actual and expected outputs</span>
+<span class="n">test</span><span class="p">(</span><span class="n">absolute_difference</span><span class="p">,</span> <span class="n">unit_tests</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition failure">
+<p class="admonition-title">Output</p>
+<p>Testing absolute_difference:<br />
+x &lt; y FAILED: -11 instead of 11<br />
+Tests finished.</p>
+</div>
+<p>A unit test consists of the input values to pass to your function and the output value you&rsquo;re expecting.
+The library requires a short descriptive string for each unit test, so that it can indicate which tests failed.
+The library expects unit tests to be in tabular format: one row per test, and
+one column for the description, one column for each input, and one column for the expected output.
+In the example above, the test table is a list of tuples, but it could as well be
+a list of lists, a tuple of lists, or a tuple of tuples.</p>
+<p>You should reuse the test table for <em>all</em> solutions, because they&rsquo;re about the <em>same</em> problem.
+Here&rsquo;s a correct function that passes all test cases.
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">absolute_difference_without_abs</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the absolute value of the difference between x and y.</span>
+
+<span class="sd">    This solution doesn&#39;t use the built-in abs() function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span>
+
+<span class="n">test</span><span class="p">(</span><span class="n">absolute_difference_without_abs</span><span class="p">,</span> <span class="n">unit_tests</span><span class="p">)</span> <span class="c1"># same test table</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p>Testing absolute_difference_without_abs:<br />
+Tests finished.</p>
+</div>
+<h3 id="type-checking">Type checking</h3>
+<p>As the above examples show, your code should contain type hints
+like <code>x: int</code> and <code>... -&gt; int</code> to indicate the type of the input and of the output.
+They make your code easier to understand, and help type checkers detect any type mismatches,
+like passing a string instead of an integer.</p>
+<p>After importing the <code>algoesup</code> library, you can turn on type checking as follows.
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">pytype</span> <span class="n">on</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p>pytype was activated</p>
+</div>
+<p>Words that start with <code>%</code> are special commands for IPython, the Python interpreter used by Jupyter notebooks.
+The <code>%pytype</code> command, provided by our library, activates Google&rsquo;s <code>pytype</code> type checker,
+which comes pre-installed in the Deepnote essay project you copied.</p>
+<p>Once the type checker is activated, it checks each cell immediately after it&rsquo;s executed.
+In this way you can detect and fix errors as you write and run each code cell.
+Here&rsquo;s an example of what happens.
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return twice the value of x.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">double</span><span class="p">([</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div></p>
+<div class="admonition failure">
+<p class="admonition-title">Output</p>
+<p>[4, 4]</p>
+<p><strong>pytype</strong> found issues:</p>
+<ul>
+<li>5: Function double was called with the wrong arguments [<a href="https://google.github.io/pytype/errors.html#wrong-arg-types">wrong-arg-types</a>]</li>
+</ul>
+</div>
+<p>The function is executed and produces an output because lists can also be &lsquo;multiplied&rsquo; with an integer,
+but the type checker detects that line 5 should have passed integers, not lists of integers, to the function.
+Clicking on the error name in square brackets leads you to <code>pytype</code>&rsquo;s website, with more info.</p>
+<p>When a type checker only processes one cell at a time, it is missing the wider context,
+like the previously defined functions. Therefore, <code>pytype</code> won&rsquo;t spot all type errors.
+However, some checking is better than no checking.</p>
+<p>The type checker adds some seconds to the overall time to run each code cell.
+You may thus wish to initially turn off the type checking, with <code>%pytype off</code>,
+and only turn it on after all code is written and tested.
+You will have to <a href="../deepnote-how-to/#run-one-or-all-cells">run all cells</a> for the type checking to take place.</p>
+<h3 id="formatting">Formatting</h3>
+<p>Once you have written, tested and type checked all your code, you should format it so that
+it follows the Python community&rsquo;s code style.
+You will need to format each cell, as explained <a href="../deepnote-how-to/#format-a-code-cell">here</a>.</p>
+<p>If there&rsquo;s a block of code that you don&rsquo;t want the formatter to change,
+write <code># fmt: off</code> on its own line before the block and write <code># fmt: on</code> after the block,
+to temporarily switch off formatting for that block.
+This feature is especially useful for keeping the format of unit test tables,
+as shown in an earlier example.</p>
+<h3 id="linting">Linting</h3>
+<p>Once your code is formatted, you should <strong>lint</strong> it, which means to check it for style violations.
+The formatter has already automatically enforced simple formatting conventions, like
+4 spaces for indentation and 2 empty lines between functions,
+so you will see fewer warnings from the linter.</p>
+<h4 id="code-style">Code style</h4>
+<p>The Deepnote essay project you copied already has a linter installed:
+<code>ruff</code>, the fastest Python linter. To turn it on, write the following after
+importing <code>algoesup</code>.
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p>ruff was activated</p>
+</div>
+<p>From now on, each cell is automatically linted after it&rsquo;s executed. Here&rsquo;s an example:
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5 isn&#39;t in the list&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition failure">
+<p class="admonition-title">Output</p>
+<p>5 isn&rsquo;t in the list</p>
+<p><strong>ruff</strong> found issues:</p>
+<ul>
+<li>1: [<a href="https://docs.astral.sh/ruff/rules/ambiguous-variable-name">E741</a>] Ambiguous variable name: <code>l</code></li>
+<li>2: [<a href="https://docs.astral.sh/ruff/rules/magic-value-comparison">PLR2004</a>] Magic value used in comparison, consider replacing 5 with a constant variable</li>
+<li>2: [<a href="https://docs.astral.sh/ruff/rules/not-in-test">E713</a>] Test for membership should be <code>not in</code>. Suggested fix: Convert to <code>not in</code></li>
+<li>2: [<a href="https://docs.astral.sh/ruff/rules/true-false-comparison">E712</a>] Comparison to <code>True</code> should be <code>cond is True</code> or <code>if cond:</code>. Suggested fix: Replace with <code>cond is True</code></li>
+</ul>
+</div>
+<p>Every message indicates the line of the problem.</p>
+<ul>
+<li>The first message is trying to tell us that <code>l</code> can be misread for <code>1</code> (one).</li>
+<li>The second message recommends using constants, like <code>EXPECTED_VALUE</code>,
+  instead of literals like 5 that are meaningless to the reader.</li>
+<li>The third message tells us that it&rsquo;s better to write <code>5 not in l</code>.</li>
+<li>The last message says that <code>== True</code> should be <code>is True</code> or simply omitted.
+  The suggested fix is not appropriate for this if-statement: it should be <code>if 5 not in l:</code>.</li>
+</ul>
+<p>As this code cell shows, <code>ruff</code> sometimes suggests how to fix the reported error,
+but you must consider whether the suggestion is appropriate.</p>
+<p>If you don&rsquo;t understand an error message, like the first one, click on
+the error code in brackets, to get more information from <code>ruff</code>&rsquo;s website.</p>
+<p>Like for type checking, linting one cell at a time means that the linter is
+unaware of the wider context of your code. For example, in notebooks,
+variables may be defined in one cell but used in a later cell. As the linter
+checks each cell separately, it would report an undefined variable in the later cell.
+We have disabled checks for undefined variables and other checks that would lead to
+irrelevant error messages in notebooks, which means that genuine undefined variables
+won&rsquo;t be flagged. But again, some linting is better than none.</p>
+<p>If you get errors that you think are pointless,
+please let us know so that we can change <code>ruff</code>&rsquo;s configuration.</p>
+<h4 id="language-subset">Language subset</h4>
+<p>The Deepnote project you copied also includes the <code>allowed</code> linter, created by ourselves.
+It checks whether your code only uses a certain subset of the Python language.
+This gives you some reassurance that your code will be understood by a wide audience.</p>
+<p>By default, <code>allowed</code> checks against the Python subset used in our
+algorithms and data structures course. It is already included in the project.
+So, if you&rsquo;re an M269 student, to check that your essay is easily understood
+by your peers in terms of Python constructs, just add a cell:
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">allowed</span> <span class="n">on</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p>allowed was activated</p>
+</div>
+<p>Henceforth, after a cell is executed, the <code>allowed</code> linter will list any constructs,
+modules or built-in types we haven&rsquo;t taught, like this:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;π is approximately </span><span class="si">{</span><span class="n">pi</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p>π is approximately 3.14159.</p>
+<p><strong>allowed</strong> found issues:</p>
+<ul>
+<li>1: sin</li>
+<li>3: f-string</li>
+</ul>
+</div>
+<p>We haven&rsquo;t taught the <code>math.sin()</code> function nor f-strings, and <code>allowed</code> reports these.</p>
+<p>Any line that ends with the comment <code># allowed</code> is ignored. This is useful when
+you don&rsquo;t want the linter to flag a construct that you explain in your essay.
+For example, adding the comment after <code>print(...)</code> would not report the f-string.
+Note that the comment makes the tool skip the <em>whole</em> line:
+if it has several constructs that weren&rsquo;t taught, none of them is reported.</p>
+<p>We also include the configuration for TM112, our introductory Computing course,
+in case you want to use even fewer constructs in your essay.
+To use that configuration, write <code>%allowed on -c tm112.json</code>.</p>
+<p>You can configure the linter with a JSON file that lists the allowed constructs.
+You can <a href="../deepnote-how-to/#rename-duplicate-download-or-delete-a-notebook-or-file">duplicate and rename</a>
+one of the JSON configurations in the <strong>Files</strong> section of your project,
+and adapt it to your course.
+See the <code>allowed</code> <a href="https://dsa-ou.github.io/allowed">website</a> for instructions.</p>
+<h2 id="performance-analysis">Performance analysis</h2>
+<p>Complexity analysis gives an indication of how the run-times will grow as the inputs grow,
+but it can&rsquo;t predict the exact run-times nor which algorithm is in practice fastest.</p>
+<p>Our library helps measure and plot the run-times of one function on different kinds of input,
+or of different functions on the same inputs.</p>
+<p>For example, let&rsquo;s suppose our essay is about sorting algorithms and we have implemented selection sort.
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">selection_sort</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a copy of the values, in ascending order.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">values</span><span class="p">[:]</span>
+    <span class="k">for</span> <span class="n">current</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="c1"># select the smallest element in result[current:] ...</span>
+        <span class="n">smallest</span> <span class="o">=</span> <span class="n">current</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">result</span><span class="p">[</span><span class="n">smallest</span><span class="p">]:</span>
+                <span class="n">smallest</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="c1"># ... and swap it with the current element</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">current</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="n">smallest</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">smallest</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div></p>
+<h3 id="generating-inputs">Generating inputs</h3>
+<p>To measure the run-times of sorting algorithms on increasingly large lists,
+we must implement functions that generate such lists. For example, we can write
+a function that generates lists that are already in ascending order,
+which is a best case for many sorting algorithms, and
+a function that generates lists that are in descending order,
+which is a worst case for some sorting algorithms.</p>
+<p>The library expects such input-generating functions to take a non-negative integer <em>n</em>,
+and to produce a tuple of input values, with total size <em>n</em>. Why a tuple?
+Although our sorting algorithm takes a single input (a list of integers),
+many algorithms take more than one input. Thus the input-generating functions must
+generate a tuple of inputs, in the same order as expected by the algorithm.
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">ascending</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a list of n integers in ascending order.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),)</span>  <span class="c1"># trailing comma to make it a tuple</span>
+
+<span class="k">def</span> <span class="nf">descending</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a list of n integers in descending order.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)),)</span>
+</code></pre></div>
+We should of course test these functions, to make sure they produce the expected lists,
+but we will skip that in this explanation because we&rsquo;re focusing on how to measure run-times.</p>
+<h3 id="comparing-cases">Comparing cases</h3>
+<p>To measure the run-times of a function <code>f</code>  on best, average and worst case inputs, use
+library function <code>time_cases(f, [case1, case2, ...], s, d)</code>.
+The second argument can be a list (or tuple) of up to 6 input-generating functions.
+The <code>time_cases</code> function works as follows.</p>
+<ol>
+<li>Call <code>case1(s)</code> to generate inputs of size <code>s</code> for <code>f</code>.</li>
+<li>Run function <code>f</code> on the generated inputs and measure its run-time.</li>
+<li>Do the two previous steps with each of the functions <code>case2, ...</code>.</li>
+<li>Set <code>s</code> to double its value and go back to step 1.</li>
+</ol>
+<p>The whole process stops when <code>s</code> has been doubled <code>d</code> times.
+If <code>d</code> is zero, the run-times are only measured for size <code>s</code>.</p>
+<p>Here&rsquo;s how we could measure the run-times for selection sort on ascending and descending lists.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">time_cases</span>
+
+<span class="n">time_cases</span><span class="p">(</span><span class="n">selection_sort</span><span class="p">,</span> <span class="p">[</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">],</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code>Run-times for selection_sort
+
+Input size       ascending      descending
+       100           168.2           173.2 µs
+       200           643.2           660.6 µs
+       400          2716.7          2817.9 µs
+       800         11072.4         11407.3 µs
+      1600         44285.3         45512.7 µs
+</code></pre></div>
+</div>
+<p>Running selection sort on lists from 100 to 1600 integers takes about 170 microseconds to 45 milliseconds.
+To measure precisely such small time spans, function <code>f</code> (here, <code>selection_sort</code>) is called
+multiple times on the same input, within a loop, and the total time is divided by
+the number of iterations, to obtain a better estimate of the time taken by a single call to <code>f</code>.
+The whole process is repeated 3 times, because the run-times will vary due to other processes running on the computer.
+The lowest of the 3 run-times is reported.</p>
+<p>Because function <code>f</code> is called multiple times, it is very important that <code>f</code> <strong>does <em>not</em> modify its inputs</strong>.
+For example, if <code>selection_sort</code> sorted the list in-place, instead of returning a new list,
+then the first call would put the numbers in ascending order, and the subsequent calls
+would just try to sort an already sorted list, swapping no numbers.
+We would obtain almost exact same times for ascending and descending input lists,
+instead of always larger times for descending lists, as shown above.</p>
+<p>When executing a code like the previous one, be patient while waiting for the results.
+Even though each call may just take a few milliseconds or less, the code cell will take several seconds or
+even minutes to execute, because the function is called many times to make the measurements more robust.</p>
+<h3 id="comparing-functions">Comparing functions</h3>
+<p>Our library also allows you to compare different algorithms for the same input case.
+For that, use <code>time_functions([f1, f2, ...], case, s, d)</code>, which does the following:
+1. Call <code>case(s)</code> to generate inputs of total size <code>s</code>.
+2. Call each function <code>f1</code>, <code>f2</code>, etc. on the generated inputs and measure their run-times.
+3. Double the value of <code>s</code> and go to step 1, unless <code>s</code> has been doubled <code>d</code> times.</p>
+<p>The run-times are measured as for <code>time_cases</code>: take the best of 3 run-times, each obtained by
+calling the function within a loop and dividing the total time by the number of iterations.</p>
+<p>Here&rsquo;s a comparison of the built-in <code>sorted</code> function against selection sort, on descending lists.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">time_functions</span>
+
+<span class="n">time_functions</span><span class="p">([</span><span class="n">selection_sort</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">],</span> <span class="n">descending</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div></p>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<div class="highlight"><pre><span></span><code>Inputs generated by descending
+
+Input size  selection_sort          sorted
+       100           172.8             0.5 µs
+       200           660.7             0.8 µs
+       400          2795.7             1.6 µs
+       800         11534.0             3.1 µs
+      1600         45470.0             5.9 µs
+</code></pre></div>
+</div>
+<p>As expected, the built-in sorting implementation is much, much faster.</p>
+<h3 id="charting-run-times">Charting run-times</h3>
+<p>If you add argument <code>chart=True</code> to <code>time_cases</code> or <code>time_functions</code>, then
+you will see a line chart of the run-times, in addition to the exact run-times.
+If you only want to see the chart, then add arguments <code>text=False, chart=True</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span><span class="nb">sorted</span><span class="p">,</span> <span class="p">[</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p><img alt="chart only" src="../sorted.png" /></p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">([</span><span class="nb">sorted</span><span class="p">,</span> <span class="n">selection_sort</span><span class="p">],</span> <span class="n">ascending</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Output</p>
+<p><div class="highlight"><pre><span></span><code>Inputs generated by ascending
+
+Input size          sorted  selection_sort
+       100           482.1        168025.5 ns
+       200           808.3        646093.8 ns
+       400          1496.9       2720369.2 ns
+       800          2850.4      11090135.4 ns
+      1600          5553.0      44372758.4 ns
+</code></pre></div>
+<img alt="times and chart" src="../ascending.png" /></p>
+</div>
+<p>The <code>1e7</code> above the y-axis means that the run-times must be multiplied by 10⁷, i.e. 10 million.</p>
+<p>Note that when calling <code>time_functions([selection_sort, sorted], ...)</code> the run-times were reported in microseconds,
+but when calling <code>time_functions([sorted, selection_sort], ...)</code> they were in nanoseconds.
+The reason is that the library chooses the time unit based on the first run-time measured.
+If there&rsquo;s a big time difference between the fastest and slowest cases or algorithms,
+you may wish for the first function in the list to be the <em>slowest</em> one, to report it with
+small values in a &lsquo;large&rsquo; time unit, instead of very large values in a &lsquo;small&rsquo; time unit.
+So, in <code>time_functions([f1, f2, ...], case, ...)</code> the slowest function should be <code>f1</code>,
+and in <code>time_cases(f, [case1, case2, ...], ...)</code> the worst case should be <code>case1</code>.</p>
+<h3 id="interpreting-run-times">Interpreting run-times</h3>
+<p>If, as the input size doubles, the run-times&hellip;</p>
+<ul>
+<li>&hellip;remain the same, then the function has constant complexity.</li>
+<li>&hellip;also double, then the function has linear complexity.</li>
+<li>&hellip;quadruple, then the function has quadratic complexity.</li>
+<li>&hellip;increase by a fixed amount, then the function has logarithmic complexity.</li>
+</ul>
+<p>Looking at the run-times reported in the previous subsections, we can see that
+<code>sorted</code> is linear because the run-times about double when the input size doubles,
+whereas selection sort is quadratic because the run-times increase about 4-fold when the input size doubles.</p>
+<p>Remember that run-times vary every time you execute a cell because the computer
+is executing other processes. This may lead to the odd behaviour here and there.
+For example, we have noted that <code>sorted</code> is occasionally faster for <em>descending</em> lists,
+which is counter-intuitive because it does have to reverse them.</p>
+<p>If you can&rsquo;t see any trend in the run-times, or they aren&rsquo;t what you expect,
+one possible cause is that the input sizes are too small.
+Increase <code>start_size</code> and run again the code cell.</p>
+<p>If after increasing the start size several times you still don&rsquo;t get the run-times
+you expect from your complexity analysis, then there might be other explanations:</p>
+<ul>
+<li>your complexity analysis is wrong</li>
+<li>your implemented algorithm modifies its input</li>
+<li>your input-generating functions are not generating best or worst cases.</li>
+</ul>
+<p>For an example of the latter, see the <em>Jewels and Stones</em> essay in your copy of
+our Deepnote project.</p>
+<h2 id="final-check">Final check</h2>
+<p>Whether it&rsquo;s your essay&rsquo;s first draft or final version, before you share it with others,
+you should restart the kernel and run all cells, so that you have a &lsquo;clean&rsquo; version.
+Then, after a break, read your essay with &lsquo;fresh eyes&rsquo; from start to end
+and fix any typos or missing explanations you find.</p>
+<p>Look at Deepnote&rsquo;s table of contents on the sidebar and check that your section headings
+are at the right level.</p>
+<p>Finally, let others comment on your essay and help you produce a better version.
+See our <a href="../feedback/">feedback guide</a> for details.</p>
+<h2 id="further-reading">Further reading</h2>
+<p>If you&rsquo;re interested and have the time, here are further details on some of the above.</p>
+<ul>
+<li>Strunk and White&rsquo;s <em>The Elements of Style</em> is a classic. The examples are dated but the advice is good.</li>
+<li>The websites of <a href="https://dsa-ou.github.io/allowed">allowed</a>, <a href="https://google.github.io/pytype">pytype</a> and <a href="https://docs.astral.sh/ruff">ruff</a>.</li>
+<li>A summary of Python&rsquo;s <a href="https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html">type hints</a> provided by the <code>mypy</code> project (another type checker).</li>
+<li>The Python <a href="https://peps.python.org/pep-0008">code style</a> and <a href="https://peps.python.org/pep-0257">docstring conventions</a>.</li>
+<li>The <a href="https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html">formatting style</a> enforced by <code>black</code>, which we suspect is
+  the formatter used by Deepnote. Deepnote ignores the <code># fmt: skip</code> directive to not format a single line.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../getting-started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting started">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Getting started
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../feedback/" class="md-footer__link md-footer__link--next" aria-label="Next: Feedback guide">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Feedback guide
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2023–2024 The Open University
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/dsa-ou/algoesup" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/algoesup/" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b" target="_blank" rel="noopener" title="deepnote.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.22 11.506.111.018c-.038-.006-.075-.011-.111-.018zm4.475 8.073c.636-2.816-2.172-4.8-6.955-4.814L.713 24h9.586c.132-.025.256-.056.384-.085 2.258-1.057 3.598-2.501 4.012-4.336zM10.299 24h.203l.021-.01c-.075.003-.148.008-.224.01zM24 11.319C24 3.15 18.711-.597 8.134.077L0 11.319h7.568c3.323 0 8.457.719 8.457 6.153 0 3.622-1.909 5.798-5.727 6.528.099-.003.194-.009.291-.013l-.011.001-.076.012h.912l.247-.077C19.885 23.27 24 19.07 24 11.319z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.sections"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
