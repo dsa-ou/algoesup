@@ -1254,7 +1254,7 @@ If a function is doing a search for an item in a list, then edge cases would be 
 at the start, at the end, or not occurring at all.
 If the output is a list, then inputs that produce the empty list are edge cases too.
 In summary, try to think of the &lsquo;trickiest&rsquo; inputs the algorithm has to cope with.</p>
-<p>We provide a small library to support algorithmic essays: file <code>algoesup.py</code>.
+<p>We provide a small library to support algorithmic essays: <code>algoesup</code>.
 It allows you to easily write and run unit tests. Here&rsquo;s an example.
 (The <code># fmt: off</code> and <code># fmt: on</code> lines will be explained later.)
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">test</span>
@@ -1313,14 +1313,18 @@ Tests finished.</p>
 like <code>x: int</code> and <code>... -&gt; int</code> to indicate the type of the input and of the output.
 They make your code easier to understand, and help type checkers detect any type mismatches,
 like passing a string instead of an integer.</p>
-<p>After importing the <code>algoesup</code> library, you can turn on type checking as follows.
+<p>The <code>algoesup</code> library also provides an extension for Jupyter notebooks, which you must load first.
+<div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">algoesup</span><span class="o">.</span><span class="n">magics</span>
+</code></pre></div>
+(Magics are special commands that can change the behaviour of running a code cell.)
+You can now turn on type checking as follows.
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">pytype</span> <span class="n">on</span>
 </code></pre></div></p>
 <div class="admonition success">
 <p class="admonition-title">Output</p>
 <p>pytype was activated</p>
 </div>
-<p>Words that start with <code>%</code> are special commands for IPython, the Python interpreter used by Jupyter notebooks.
+<p>Words that start with <code>%</code> are special commands (&lsquo;magics&rsquo;) for IPython, the Python interpreter used by Jupyter notebooks.
 The <code>%pytype</code> command, provided by our library, activates Google&rsquo;s <code>pytype</code> type checker,
 which comes pre-installed in the Deepnote essay project you copied.</p>
 <p>Once the type checker is activated, it checks each cell immediately after it&rsquo;s executed.
@@ -1367,7 +1371,7 @@ so you will see fewer warnings from the linter.</p>
 <h4 id="code-style">Code style</h4>
 <p>The Deepnote essay project you copied already has a linter installed:
 <code>ruff</code>, the fastest Python linter. To turn it on, write the following after
-importing <code>algoesup</code>.
+loading the <code>algoesup.magics</code> extension.
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 </code></pre></div></p>
 <div class="admonition success">
@@ -1419,7 +1423,7 @@ This gives you some reassurance that your code will be understood by a wide audi
 <p>By default, <code>allowed</code> checks against the Python subset used in our
 algorithms and data structures course. It is already included in the project.
 So, if you&rsquo;re an M269 student, to check that your essay is easily understood
-by your peers in terms of Python constructs, just add a cell:
+by your peers in terms of Python constructs, just add the following after loading the extension:
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">allowed</span> <span class="n">on</span>
 </code></pre></div></p>
 <div class="admonition success">

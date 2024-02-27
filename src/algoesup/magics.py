@@ -37,7 +37,7 @@ def show_ruff_json(checker: str, output: str, filename: str) -> None:
             msg = error["message"]
             if error["fix"]:
                 msg += f". Suggested fix: {error['fix']['message']}"
-            md.append(f"- {line}: \[[{code}]({url})\] {msg}")
+            md.append(rf"- {line}: \[[{code}]({url})\] {msg}")
         display_markdown("\n".join(md), raw=True)
 
 
@@ -52,7 +52,7 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
             msg = m.group(2)
             code = m.group(3)
             md.append(
-                f"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
+                rf"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
             )
     if len(md) > 1:
         display_markdown("\n".join(md), raw=True)
@@ -130,17 +130,17 @@ def pytype(line: str) -> None:
 def allowed(line: str) -> None:
     """Activate/deactivate the `pytype` linter.
       
-    This magic command controls the activation state of the `pytype` linter within
+    This magic command controls the activation state of the `allowed` linter within
     the ipython environment. It can be toggled on or off, or queried for its
     current state.
   
     Examples:
         ```
-        %pytype on 
+        %allowed on 
         pytype was activated
-        %pytype off     
+        %allowed off     
         pytype was deactivated
-        %pytype         
+        %allowed        
         pytype is inactive  
         ```
     """
@@ -168,12 +168,14 @@ def ruff(line: str) -> None:
     current state.
    
     Examples:
-        `%ruff on`
-        `ruff was activated`  
-        `%ruff off`  
-        `ruff was deactivated`  
-        `%ruff`  
-        `ruff is inactive`  
+        ```
+        %ruff on
+        ruff was activated
+        %ruff off
+        ruff was deactivated
+        %ruff
+        ruff is inactive
+        ```
     """
     args = parse_argstring(ruff, line)
     process_status("ruff", args.status)

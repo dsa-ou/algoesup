@@ -5,6 +5,8 @@ repo_name: dsa-ou/algoesup
 copyright: Copyright (c) 2023–2024 The Open University
 docs_dir: src/docs
 site_dir: docs
+exclude_docs: |
+  *toml
 
 plugins:
 - mkdocstrings:
@@ -21,7 +23,7 @@ plugins:
 - search        
 
 watch:                    # folders that `mkdocs serve` will watch for changes
-- Deepnote                # look for changes in algoesup.py
+- src/algoesup
 
 extra:
   social:                 # links for the footer

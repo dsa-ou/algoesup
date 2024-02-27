@@ -150,7 +150,7 @@ at the start, at the end, or not occurring at all.
 If the output is a list, then inputs that produce the empty list are edge cases too.
 In summary, try to think of the 'trickiest' inputs the algorithm has to cope with.
 
-We provide a small library to support algorithmic essays: file `algoesup.py`.
+We provide a small library to support algorithmic essays: `algoesup`.
 It allows you to easily write and run unit tests. Here's an example.
 (The `# fmt: off` and `# fmt: on` lines will be explained later.)
 ```python
@@ -211,14 +211,19 @@ like `x: int` and `... -> int` to indicate the type of the input and of the outp
 They make your code easier to understand, and help type checkers detect any type mismatches,
 like passing a string instead of an integer.
 
-After importing the `algoesup` library, you can turn on type checking as follows.
+The `algoesup` library also provides an extension for Jupyter notebooks, which you must load first.
+```python
+%load_ext algoesup.magics
+```
+(Magics are special commands that can change the behaviour of running a code cell.)
+You can now turn on type checking as follows.
 ```python
 %pytype on
 ```
 !!! success "Output"
     pytype was activated
 
-Words that start with `%` are special commands for IPython, the Python interpreter used by Jupyter notebooks.
+Words that start with `%` are special commands ('magics') for IPython, the Python interpreter used by Jupyter notebooks.
 The `%pytype` command, provided by our library, activates Google's `pytype` type checker,
 which comes pre-installed in the Deepnote essay project you copied.
 
@@ -272,7 +277,7 @@ so you will see fewer warnings from the linter.
 #### Code style
 The Deepnote essay project you copied already has a linter installed:
 `ruff`, the fastest Python linter. To turn it on, write the following after
-importing `algoesup`.
+loading the `algoesup.magics` extension.
 ```python
 %ruff on
 ```
@@ -329,7 +334,7 @@ This gives you some reassurance that your code will be understood by a wide audi
 By default, `allowed` checks against the Python subset used in our
 algorithms and data structures course. It is already included in the project.
 So, if you're an M269 student, to check that your essay is easily understood
-by your peers in terms of Python constructs, just add a cell:
+by your peers in terms of Python constructs, just add the following after loading the extension:
 ```python
 %allowed on
 ```

@@ -548,7 +548,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.test" class="md-nav__link">
+  <a href="#algoesup.test.test" class="md-nav__link">
     <span class="md-ellipsis">
       test
     </span>
@@ -572,7 +572,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_functions" class="md-nav__link">
+  <a href="#algoesup.time.time_functions" class="md-nav__link">
     <span class="md-ellipsis">
       time_functions
     </span>
@@ -581,7 +581,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_cases" class="md-nav__link">
+  <a href="#algoesup.time.time_cases" class="md-nav__link">
     <span class="md-ellipsis">
       time_cases
     </span>
@@ -590,7 +590,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_functions_int" class="md-nav__link">
+  <a href="#algoesup.time.time_functions_int" class="md-nav__link">
     <span class="md-ellipsis">
       time_functions_int
     </span>
@@ -614,7 +614,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.allowed" class="md-nav__link">
+  <a href="#algoesup.magics.allowed" class="md-nav__link">
     <span class="md-ellipsis">
       allowed
     </span>
@@ -623,7 +623,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.pytype" class="md-nav__link">
+  <a href="#algoesup.magics.pytype" class="md-nav__link">
     <span class="md-ellipsis">
       pytype
     </span>
@@ -632,7 +632,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.ruff" class="md-nav__link">
+  <a href="#algoesup.magics.ruff" class="md-nav__link">
     <span class="md-ellipsis">
       ruff
     </span>
@@ -850,7 +850,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.test" class="md-nav__link">
+  <a href="#algoesup.test.test" class="md-nav__link">
     <span class="md-ellipsis">
       test
     </span>
@@ -874,7 +874,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_functions" class="md-nav__link">
+  <a href="#algoesup.time.time_functions" class="md-nav__link">
     <span class="md-ellipsis">
       time_functions
     </span>
@@ -883,7 +883,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_cases" class="md-nav__link">
+  <a href="#algoesup.time.time_cases" class="md-nav__link">
     <span class="md-ellipsis">
       time_cases
     </span>
@@ -892,7 +892,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.time_functions_int" class="md-nav__link">
+  <a href="#algoesup.time.time_functions_int" class="md-nav__link">
     <span class="md-ellipsis">
       time_functions_int
     </span>
@@ -916,7 +916,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#algoesup.allowed" class="md-nav__link">
+  <a href="#algoesup.magics.allowed" class="md-nav__link">
     <span class="md-ellipsis">
       allowed
     </span>
@@ -925,7 +925,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.pytype" class="md-nav__link">
+  <a href="#algoesup.magics.pytype" class="md-nav__link">
     <span class="md-ellipsis">
       pytype
     </span>
@@ -934,7 +934,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#algoesup.ruff" class="md-nav__link">
+  <a href="#algoesup.magics.ruff" class="md-nav__link">
     <span class="md-ellipsis">
       ruff
     </span>
@@ -968,8 +968,6 @@
 <h1 id="library">Library</h1>
 <p>The <code>algoesup</code> library provides support for testing, timing and linting code.</p>
 <h2 id="testing">Testing</h2>
-<p>This function can be used with any Python program.</p>
-<p>The library requires <code>matplotlib</code> and <code>ipython</code>. </p>
 
 
 <div class="doc doc-object doc-module">
@@ -978,6 +976,8 @@
 
 
   <div class="doc doc-contents first">
+  
+      <p>Simplified testing for Python functions</p>
 
   
 
@@ -996,7 +996,7 @@
 
 
 
-<h3 id="algoesup.test" class="doc doc-heading">
+<h3 id="algoesup.test.test" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">test</span>
 
 
@@ -1007,12 +1007,52 @@
   <div class="doc doc-contents ">
   
       <p>Test the function with the test_table. Report failed tests.</p>
-<p><strong>Preconditions</strong>: each element of test_table is a list or tuple with</p>
-<ul>
-<li>a string (the test case name)</li>
-<li>one or more values (the inputs to the function)</li>
-<li>the expected output value</li>
-</ul>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>function</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The function to be tested.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>test_table</code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The list of tests. Each element of test_table is a list or 
+tuple with: a string (the test case name); one or more values (the inputs to the function);
+the expected output value.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1033,6 +1073,8 @@
 
 
   <div class="doc doc-contents first">
+  
+      <p>Tools for measuring and plotting run-times</p>
 
   
 
@@ -1051,25 +1093,159 @@
 
 
 
-<h3 id="algoesup.time_functions" class="doc doc-heading">
+<h3 id="algoesup.time.time_functions" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">time_functions</span>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">(</span>
-    <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
-    <span class="n">inputs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-    <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">(</span><span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
   
       <p>Print or plot the run-times of different functions for the same inputs.</p>
+<p><code>time_functions</code> prints or plots the run-times given list of functions and an input 
+generator. Inputs are generated based on a starting size and are doubled a specified 
+number of times.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>functions</code></td>
+          <td>
+                <code>list[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list of functions whose run-times will be measured.
+Must be 1 to 6 functions.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>inputs</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A function to generate inputs when given a specific size.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>start</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The starting size for the inputs. Must be positive.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>double</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The number of times to double the input size. Must be non-negative.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, print the run-times in text format</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chart</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True plot the run-times using a chart.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True x-axis is labelled &ldquo;Input value&rdquo; otherwise &ldquo;Input size&rdquo;.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>AssertionError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If input conditions are not satisfied.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1080,24 +1256,145 @@
 
 
 
-<h3 id="algoesup.time_cases" class="doc doc-heading">
+<h3 id="algoesup.time.time_cases" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">time_cases</span>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span>
-    <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
-    <span class="n">cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
-    <span class="n">start_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">start_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
   
       <p>Print or plot the run-times of <code>function</code> for different input cases.</p>
+<p><code>time_cases</code> prints or plots the run-times of a single function using a list of 
+different input generators. Inputs are generated based on a starting size and are 
+doubled a specified number of times.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>function</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A functions whose run-times will be measured.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>cases</code></td>
+          <td>
+                <code>list[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list of functions to generate inputs of different cases.
+E.g best- normal- and worst-case.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>start_size</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The starting size for the inputs. Must be positive.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>double</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The number of times to double the input size. Must be non-negative.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, print the run-times in text format.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chart</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True plot the run-times using a chart.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>AssertionError</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If input conditions are not satisfied.</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1108,24 +1405,125 @@
 
 
 
-<h3 id="algoesup.time_functions_int" class="doc doc-heading">
+<h3 id="algoesup.time.time_functions_int" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">time_functions_int</span>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions_int</span><span class="p">(</span>
-    <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
-    <span class="n">generator</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">int_value</span><span class="p">,</span>
-    <span class="n">start_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions_int</span><span class="p">(</span><span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">generator</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">int_value</span><span class="p">,</span> <span class="n">start_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
   
       <p>Time functions that take a single integer as input.</p>
+<p><code>time_functions_int</code> uses <code>time_functions</code> to measure and display the run-times
+of a given list of functions that accept a single integer input. The integer inputs
+are generated starting from a specified value that defaults to 1, and are doubled
+a specified number of times that defaults to 10.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>functions</code></td>
+          <td>
+                <code>list[<span title="typing.Callable">Callable</span>]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A list of functions whose run-times will be measured.
+Each function must accept a single integer argument. Must be 1 to 6 functions.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>generator</code></td>
+          <td>
+                <code><span title="typing.Callable">Callable</span></code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>A function to generate integer inputs. Defaults to
+<code>int_value</code>, which should generate an integer based on the input size.</p>
+            </div>
+          </td>
+          <td>
+                <code><span title="algoesup.time.int_value">int_value</span></code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>start_size</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The starting integer value for inputs. Defaults to 1.
+Must be positive.</p>
+            </div>
+          </td>
+          <td>
+                <code>1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>double</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The number of times to double the input integer value.
+Defaults to 10. Must be non-negative.</p>
+            </div>
+          </td>
+          <td>
+                <code>10</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>text</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, print the run-times in text format. </p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>chart</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>If True, plot the run-times using a chart.</p>
+            </div>
+          </td>
+          <td>
+                <code>True</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 
   </div>
 
@@ -1138,7 +1536,6 @@
   </div>
 
 </div><h2 id="linting">Linting</h2>
-<p>These are to lint within a Jupyter notebook, cell by cell.</p>
 
 
 <div class="doc doc-object doc-module">
@@ -1147,6 +1544,8 @@
 
 
   <div class="doc doc-contents first">
+  
+      <p>Linting tools for Jupyter Notebook environments</p>
 
   
 
@@ -1165,7 +1564,7 @@
 
 
 
-<h3 id="algoesup.allowed" class="doc doc-heading">
+<h3 id="algoesup.magics.allowed" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">allowed</span>
 
 
@@ -1175,7 +1574,21 @@
 
   <div class="doc doc-contents ">
   
-      <p>Configure and (de)activate the <code>allowed</code> linter.</p>
+      <p>Activate/deactivate the <code>pytype</code> linter.</p>
+<p>This magic command controls the activation state of the <code>allowed</code> linter within
+the ipython environment. It can be toggled on or off, or queried for its
+current state.</p>
+
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code>%allowed on 
+pytype was activated
+%allowed off     
+pytype was deactivated
+%allowed        
+pytype is inactive  
+</code></pre></div>
 
   </div>
 
@@ -1186,7 +1599,7 @@
 
 
 
-<h3 id="algoesup.pytype" class="doc doc-heading">
+<h3 id="algoesup.magics.pytype" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">pytype</span>
 
 
@@ -1197,6 +1610,20 @@
   <div class="doc doc-contents ">
   
       <p>Activate/deactivate the <code>pytype</code> linter.</p>
+<p>This ipython magic command controls the activation state of the <code>pytype</code> linter within
+the ipython environment. It can be toggled on or off, or queried for its
+current state.</p>
+
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code>%pytype on 
+pytype was activated
+%pytype off     
+pytype was deactivated
+%pytype         
+pytype is inactive  
+</code></pre></div>
 
   </div>
 
@@ -1207,7 +1634,7 @@
 
 
 
-<h3 id="algoesup.ruff" class="doc doc-heading">
+<h3 id="algoesup.magics.ruff" class="doc doc-heading">
           <span class="doc doc-object-name doc-function-name">ruff</span>
 
 
@@ -1218,6 +1645,20 @@
   <div class="doc doc-contents ">
   
       <p>Activate/deactivate the <code>ruff</code> linter.</p>
+<p>This ipython magic command controls the activation state of the <code>ruff</code> linter within
+the interactive environment. It can be toggled on or off, or queried for its
+current state.</p>
+
+
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code>%ruff on
+ruff was activated
+%ruff off
+ruff was deactivated
+%ruff
+ruff is inactive
+</code></pre></div>
 
   </div>
 

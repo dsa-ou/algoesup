@@ -2,8 +2,6 @@
 
 The `algoesup` library provides support for testing, timing and linting code.
 
-This library requires `ipython` and `matplotlib`
-
 ## Testing
 
 ::: algoesup.test
@@ -25,8 +23,6 @@ This library requires `ipython` and `matplotlib`
       - time_functions_int
 
 ## Linting
-
-These are to lint within a Jupyter notebook, cell by cell.
 
 ::: algoesup.magics
     options:
