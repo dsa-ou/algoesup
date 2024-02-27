@@ -6,7 +6,10 @@ authors = [
     "Michel Wermelinger <michel.wermelinger@open.ac.uk>",
     "Michael Snowden"
 ]
-readme = "README.md"
+packages = [
+    { include = "algoesup", from = "src" },
+]
+readme = "src/README.md"
 license = "BSD-3-Clause"
 repository = "https://github.com/dsa-ou/algoesup"
 homepage = "https://dsa-ou.github.io/algoesup/"
@@ -22,10 +25,17 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.10"
 ipython = "^8.13.1"
+matplotlib = "^3.4.2"
+
+[tool.poetry.group.dev.dependencies]
 ruff = "^0.1.11"
 allowed = "^1.3"
-matplotlib = "^3.4.2"
 pytype = {version = ">=2023.04.27", markers = "platform_system != 'Windows'"}
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.11"
+mkdocstrings = { version = "^0.24.0", extras = ["python"] }
+mkdocs-jupyter = "^0.24.6"
+mkdocs-open-in-new-tab = "^1.0.3"
 
 [build-system]
 requires = ["poetry-core"]
