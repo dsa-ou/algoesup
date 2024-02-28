@@ -34,7 +34,7 @@ pytype = {version = ">=2023.04.27", markers = "platform_system != 'Windows'"}
 mkdocs = "^1.5.3"
 mkdocs-material = "^9.5.11"
 mkdocstrings = { version = "^0.24.0", extras = ["python"] }
-mkdocs-jupyter = "^0.24.6"
+mkdocs-jupyter = "^0.24.0"
 mkdocs-open-in-new-tab = "^1.0.3"
 
 [build-system]

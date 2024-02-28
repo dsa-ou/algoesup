@@ -28,6 +28,7 @@ The `algoesup` library provides support for testing, timing and linting code.
     options:
       heading_level: 3
       show_root_toc_entry: false
+      show_signature: false
       members:
       - allowed
       - pytype
