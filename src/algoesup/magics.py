@@ -60,9 +60,9 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
 
 # register the supported checkers, their commands and the output processor
 checkers: dict[str, tuple[str, Callable]] = {
-    "pytype": ("pytype", show_pytype_errors),
-    "allowed": ("allowed", show_errors),
-    "ruff": ("ruff check --output-format json", show_ruff_json),
+    "pytype": [["pytype"], show_pytype_errors],
+    "allowed": [["allowed"], show_errors],
+    "ruff": [["ruff", "check", "--output-format", "json"], show_ruff_json],
 }
 # initially no checker is active
 active: set[str] = set()
@@ -145,8 +145,8 @@ def allowed(line: str) -> None:
         ```
     """
     args = parse_argstring(allowed, line)
-    config = f"-c {args.config}" if args.config else ""
-    checkers["allowed"] = (f"allowed {config}", show_errors)
+    if args.config:
+        checkers["allowed"][0] += ["-c", f"{args.config}"]
     process_status("allowed", args.status)
 
 
@@ -231,14 +231,14 @@ def run_checkers(result) -> None:
             temp_name = temp.name
         for checker in active:
             command, display = checkers[checker]
-            command += " " + temp_name
+            command.append(temp_name)
             try:
                 output = subprocess.run(
-                    command, capture_output=True, text=True, check=False, shell=True
+                    command, capture_output=True, text=True, check=False,
                 ).stdout
                 display(checker, output, temp_name)
             except Exception as e:
-                print(f"Error on executing {command}:\n{e}")
+                print(f"Error on executing {command[0]}:\n{e}")
     except Exception as e:
         print(f"Error on writing cell to a temporary file:\n{e}")
     finally:
@@ -248,9 +248,9 @@ def run_checkers(result) -> None:
 def load_ipython_extension(ipython):
     """Loads the ipython extension, and registers run_checkers with post_cell_run
     
-    This functions hooks into the ipython extension system so the magic commands defined
+    This function hooks into the ipython extension system so the magic commands defined
     in this module can be loaded with `load_ext algoesup.magics`. It also registers 
-    run_checkers with the post_run_cell event so the linters are run with the contents of
-    each ipython cell after it has been executed.
+    `run_checkers` with the `post_run_cell` event so the linters are run with the 
+    contents of each ipython cell after it has been executed.
     """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]
