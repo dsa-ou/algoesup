@@ -3,14 +3,17 @@
 These examples illustrate different ways of structuring essays and different writing styles.
 {: .fs-6 .fw-300}
 
-Some essays have a template that highlights the essay's structure and
-the purpose of each section.
+For some essays, there's a template that highlights the essay's structure and
+the purpose of each section. These templates help you start writing your own essay.
 Clicking on a button below will open a *read-only* version of the essay or template.
 
-Once you have created a Deepnote account and copied our project,
-as explained in [Getting started](getting-started.md),
-you will have access to *editable* versions of the examples and templates, so that
-you can use them as starting points for your essays.
+To get an editable version of a template to start writing your own essay,
+_right_-click on a download button. From the pop-up menu, choose 'Save file as...'
+(or similar) to save the template in a folder of your choice.
+
+If you're using Deepnote, you don't need to download anything because
+you will have the essay templates and examples once you copied our essay project,
+as explained in [Getting started (Deepnote)](getting-started.md).
 
 ## Sum of 1 to *n*
 
@@ -20,7 +23,9 @@ The essay follows a simple structure, in which each approach is outlined, implem
 and tested before moving on to the next one.
 
 [Essay](essays/example-1-to-n.ipynb){.md-button}
-[Template](essays/template-intro-programming.ipynb){.md-button .md-button--primary}
+[Template](essays/template-intro-programming.ipynb){.md-button}
+[Template (download)](https://github.com/dsa-ou/algoesup/raw/main/src/docs/essays/template-intro-programming.ipynb){.md-button .md-button--primary}
+
 
 ## Jewels and Stones
 
@@ -33,7 +38,8 @@ This essay follows a slightly different structure, in which each approach is out
 its complexity analysed, before deciding which approaches are worth implementing.
 
 [Essay](essays/example-jewels.ipynb){.md-button}
-[Template](essays/template-data-structures.ipynb){.md-button .md-button--primary}
+[Template](essays/template-data-structures.ipynb){.md-button}
+[Template (download)](https://github.com/dsa-ou/algoesup/raw/main/src/docs/essays/template-data-structures.ipynb){.md-button .md-button--primary}
 
 ## Two Sum (two approaches)
 
