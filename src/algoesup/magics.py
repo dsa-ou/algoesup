@@ -228,7 +228,9 @@ def run_checkers(result) -> None:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as temp:
             # transform IPython to pure Python to avoid linters reporting syntax errors
             temp.write(TransformerManager().transform_cell(result.info.raw_cell))
-            temp_name = temp.name
+            # Backslash causes esc sequence error from standard Windows file paths,
+            # but Windows accepts both "\" and "/" as separators.
+            temp_name = temp.name.replace("\\", "/")
         for checker in active:
             command, display = checkers[checker]
             command.append(temp_name)
