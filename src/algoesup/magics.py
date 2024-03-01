@@ -146,7 +146,7 @@ def allowed(line: str) -> None:
     """
     args = parse_argstring(allowed, line)
     if args.config:
-        checkers["allowed"][0] += ["-c", f"{args.config}"]
+        checkers["allowed"][0] = ["allowed", "-c", f"{args.config}"]
     process_status("allowed", args.status)
 
 
@@ -233,10 +233,10 @@ def run_checkers(result) -> None:
             temp_name = temp.name.replace("\\", "/")
         for checker in active:
             command, display = checkers[checker]
-            command.append(temp_name)
+            lint_file = command + [temp_name]
             try:
                 output = subprocess.run(
-                    command, capture_output=True, text=True, check=False,
+                    lint_file, capture_output=True, text=True, check=False,
                 ).stdout
                 display(checker, output, temp_name)
             except Exception as e:
