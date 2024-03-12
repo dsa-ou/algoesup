@@ -159,6 +159,12 @@ def allowed(line: str) -> None:
     nargs="?",
     default=None,
 )
+@argument(
+    "-j",
+    "--jupyter",
+    help="Ignore irrelevant violations for Jupyter Notebook environments.",
+    action="store_true"
+)
 @register_line_magic
 def ruff(line: str) -> None:
     """Activate/deactivate the `ruff` linter.
@@ -178,6 +184,13 @@ def ruff(line: str) -> None:
         ```
     """
     args = parse_argstring(ruff, line)
+    if args.jupyter:
+        # See https://docs.astral.sh/ruff/rules/ for more information on codes.
+        ruff_args = [
+            "--select", "A", "B", "C90", "D", "E", "W", "F", "N", "PL",
+            "--ignore", "D100", "W292", "F401", "F821", "D203", "D213", "D415"
+        ]
+        checkers["ruff"][0] = ["ruff", "check", "--output-format", "json"] + ruff_args
     process_status("ruff", args.status)
 
 
