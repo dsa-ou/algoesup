@@ -12,7 +12,8 @@ def test(function: Callable, test_table: list) -> None:
             tuple with: a string (the test case name); one or more values (the inputs to the function);
             the expected output value.
     """
-    print(f"Testing {function.__name__}:")
+    print(f"Testing {function.__name__}...")
+    passed = failed = 0
     for test_case in test_table:
         name = test_case[0]
         inputs = test_case[1:-1]
@@ -20,4 +21,7 @@ def test(function: Callable, test_table: list) -> None:
         actual = function(*inputs)
         if actual != expected:
             print(name, "FAILED:", actual, "instead of", expected)
-    print("Tests finished.")
+            failed += 1
+        else:
+            passed += 1
+    print("Tests finished:", passed, "passed,", failed, "failed.")
