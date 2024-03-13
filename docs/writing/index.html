@@ -1537,7 +1537,7 @@ If <code>d</code> is zero, the run-times are only measured for size <code>s</cod
 <p>Here&rsquo;s how we could measure the run-times for selection sort on ascending and descending lists.
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">time_cases</span>
 
-<span class="n">time_cases</span><span class="p">(</span><span class="n">selection_sort</span><span class="p">,</span> <span class="p">[</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">],</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">time_cases</span><span class="p">(</span><span class="n">selection_sort</span><span class="p">,</span> <span class="p">[</span><span class="n">ascending</span><span class="p">,</span> <span class="n">descending</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div></p>
 <div class="admonition success">
 <p class="admonition-title">Output</p>
@@ -1577,7 +1577,7 @@ calling the function within a loop and dividing the total time by the number of 
 <p>Here&rsquo;s a comparison of the built-in <code>sorted</code> function against selection sort, on descending lists.
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">time_functions</span>
 
-<span class="n">time_functions</span><span class="p">([</span><span class="n">selection_sort</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">],</span> <span class="n">descending</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">time_functions</span><span class="p">([</span><span class="n">selection_sort</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">],</span> <span class="n">descending</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div></p>
 <div class="admonition success">
 <p class="admonition-title">Output</p>
@@ -1643,7 +1643,7 @@ For example, we have noted that <code>sorted</code> is occasionally faster for <
 which is counter-intuitive because it does have to reverse them.</p>
 <p>If you can&rsquo;t see any trend in the run-times, or they aren&rsquo;t what you expect,
 one possible cause is that the input sizes are too small.
-Increase <code>start_size</code> and run again the code cell.</p>
+Increase <code>start</code> and run again the code cell.</p>
 <p>If after increasing the start size several times you still don&rsquo;t get the run-times
 you expect from your complexity analysis, then there might be other explanations:</p>
 <ul>
