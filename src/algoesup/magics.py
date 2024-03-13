@@ -62,7 +62,7 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
 checkers: dict[str, tuple[str, Callable]] = {
     "pytype": [["pytype"], show_pytype_errors],
     "allowed": [["allowed"], show_errors],
-    "ruff": [[], show_ruff_json],
+    "ruff": [["ruff", "check", "--output-format", "json"], show_ruff_json],
 }
 # initially no checker is active
 active: set[str] = set()
@@ -89,6 +89,12 @@ def process_status(name: str, status: str) -> None:
     nargs="?",
     default=None,
 )
+@argument(
+    "-d",
+    "--disable",
+    default="name-error,import-error",
+    help="Comma or space-separated list of error names to ignore",
+)
 @register_line_magic
 def pytype(line: str) -> None:
     """Activate/deactivate the `pytype` linter.
@@ -108,6 +114,7 @@ def pytype(line: str) -> None:
         ```
     """
     args = parse_argstring(pytype, line)
+    checkers["pytype"][0] = ["pytype", "--disable", args.disable]
     process_status("pytype", args.status)
 
 
@@ -141,7 +148,7 @@ def allowed(line: str) -> None:
         %allowed off     
         pytype was deactivated
         %allowed        
-        pytype is inactive  
+        pytype is inactive
         ```
     """
     args = parse_argstring(allowed, line)
@@ -163,11 +170,13 @@ def allowed(line: str) -> None:
     "--select",
     help="Comma-separated list of rule codes to enable",
     type=str,
+    default="A,B,C90,D,E,W,F,N,PL",
 )
 @argument(
     "--ignore",
     help="Comma-separated list of rule codes to ignore",
     type=str,
+    default="D100,W292,F401,F821,D203,D213,D415",
 )
 @register_line_magic
 def ruff(line: str) -> None:
@@ -187,15 +196,9 @@ def ruff(line: str) -> None:
         ruff is inactive
         ```
     """
-    base = ["ruff", "check", "--output-format", "json"]
-    select = ["--select", "A,B,C90,D,E,W,F,N,PL"]
-    ignore = ["--ignore", "D100,W292,F401,F821,D203,D213,D415"]
     args = parse_argstring(ruff, line)
-    if args.select:
-        select[1] += "," + args.select 
-    if args.ignore:
-        ignore[1] += "," + args.ignore
-    checkers["ruff"][0] = base + select + ignore
+    base = ["ruff", "check", "--output-format", "json"]
+    checkers["ruff"][0] = base + ["--select", args.select, "--ignore", args.ignore]
     process_status("ruff", args.status)
 
 
