@@ -62,7 +62,7 @@ def show_pytype_errors(checker: str, output: str, filename: str) -> None:
 checkers: dict[str, tuple[str, Callable]] = {
     "pytype": [["pytype"], show_pytype_errors],
     "allowed": [["allowed"], show_errors],
-    "ruff": [["ruff", "check", "--output-format", "json"], show_ruff_json],
+    "ruff": [[], show_ruff_json],
 }
 # initially no checker is active
 active: set[str] = set()
@@ -160,10 +160,14 @@ def allowed(line: str) -> None:
     default=None,
 )
 @argument(
-    "-j",
-    "--jupyter",
-    help="Ignore irrelevant violations for Jupyter Notebook environments.",
-    action="store_true"
+    "--select",
+    help="Comma-separated list of rule codes to enable",
+    type=str,
+)
+@argument(
+    "--ignore",
+    help="Comma-separated list of rule codes to ignore",
+    type=str,
 )
 @register_line_magic
 def ruff(line: str) -> None:
@@ -183,14 +187,15 @@ def ruff(line: str) -> None:
         ruff is inactive
         ```
     """
+    base = ["ruff", "check", "--output-format", "json"]
+    select = ["--select", "A,B,C90,D,E,W,F,N,PL"]
+    ignore = ["--ignore", "D100,W292,F401,F821,D203,D213,D415"]
     args = parse_argstring(ruff, line)
-    if args.jupyter:
-        # See https://docs.astral.sh/ruff/rules/ for more information on codes.
-        ruff_args = [
-            "--select", "A", "B", "C90", "D", "E", "W", "F", "N", "PL",
-            "--ignore", "D100", "W292", "F401", "F821", "D203", "D213", "D415"
-        ]
-        checkers["ruff"][0] = ["ruff", "check", "--output-format", "json"] + ruff_args
+    if args.select:
+        select[1] += "," + args.select 
+    if args.ignore:
+        ignore[1] += "," + args.ignore
+    checkers["ruff"][0] = base + select + ignore
     process_status("ruff", args.status)
 
 
@@ -241,8 +246,7 @@ def run_checkers(result) -> None:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as temp:
             # transform IPython to pure Python to avoid linters reporting syntax errors
             temp.write(TransformerManager().transform_cell(result.info.raw_cell))
-            # Backslash causes esc sequence error from standard Windows file paths,
-            # but Windows accepts both "\" and "/" as separators.
+            # Handle Windows file paths
             temp_name = temp.name.replace("\\", "/")
         for checker in active:
             command, display = checkers[checker]
