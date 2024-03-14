@@ -1285,7 +1285,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="jewels-and-stones">Jewels and Stones<a class="anchor-link" href="#jewels-and-stones">¶</a></h1><p><em>Michel Wermelinger</em>, 23 January 2024</p>
+<h1 id="jewels-and-stones">Jewels and Stones<a class="anchor-link" href="#jewels-and-stones">¶</a></h1><p><em>Michel Wermelinger</em>, 23 January 2024, last updated 13 March 2024</p>
 </div>
 </div>
 </div>
@@ -2260,10 +2260,10 @@ I start with an input size of 10 and double it four times to 20, 40, 80 and 160.
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">best_case</span><span class="p">,</span> <span class="n">normal_case</span><span class="p">,</span> <span class="n">worst_case</span><span class="p">]</span>
-<span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-11">cases = [best_case, normal_case, worst_case]
-time_cases(count_in_string, cases, start_size=10, double=4)</div>
+time_cases(count_in_string, cases, start=10, double=4)</div>
 </div>
 </div>
 </div>
@@ -2334,9 +2334,9 @@ This time I also ask for a graphical output.</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-12">time_cases(count_in_string, cases, start_size=1000, double=4, chart=True)</div>
+<div class="clipboard-copy-txt" id="cell-12">time_cases(count_in_string, cases, start=1000, double=4, chart=True)</div>
 </div>
 </div>
 </div>

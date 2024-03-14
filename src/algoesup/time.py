@@ -51,7 +51,7 @@ def time_it(function: Callable, *args, loops=0, repeat=3) -> float:
 def time_cases(
     function: Callable,
     cases: list[Callable],
-    start_size: int,
+    start: int,
     double: int,
     text: bool = True,
     chart: bool = False,
@@ -63,23 +63,23 @@ def time_cases(
     doubled a specified number of times.
 
     Args:
-        function (Callable): A functions whose run-times will be measured.
-        cases (list[Callable]): A list of functions to generate inputs of different cases.
-            E.g best- normal- and worst-case.
-        start_size (int): The starting size for the inputs. Must be positive.
+        function (Callable): A function whose run-times will be measured.
+        cases (list[Callable]): A list of 1 to 6 functions to generate inputs of different cases,
+            e.g. best-, normal- and worst-case.
+        start (int): The starting size for the inputs. Must be positive.
         double (int): The number of times to double the input size. Must be non-negative.
         text (bool, optional): If True, print the run-times in text format.
-        chart (bool, optional): If True plot the run-times using a chart.
+        chart (bool, optional): If True, plot the run-times using a chart.
     
     Raises:
         AssertionError: If input conditions are not satisfied.
     """
-    assert start_size > 0, "the start size must be positive"
+    assert start > 0, "the start size must be positive"
     assert double >= 0, "must double the input size at least zero times"
     assert 0 < len(cases) < 7, "there must be 1 to 6 input functions"
     assert text or chart, "at least one of text and chart must be enabled"
 
-    sizes = [start_size]  # the input sizes used
+    sizes = [start]  # the input sizes used
     for _ in range(double):
         sizes.append(sizes[-1] * 2)
     scale = unit = None  # no scale determined yet
@@ -197,7 +197,7 @@ def time_functions(
 def time_functions_int(
     functions: list[Callable],
     generator: Callable = int_value,
-    start_size: int = 1,
+    start: int = 1,
     double: int = 10,
     text: bool = True,
     chart: bool = True,
@@ -213,12 +213,12 @@ def time_functions_int(
         functions (list[Callable]): A list of functions whose run-times will be measured.
             Each function must accept a single integer argument. Must be 1 to 6 functions.
         generator (Callable, optional): A function to generate integer inputs. Defaults to
-            `int_value`, which should generate an integer based on the input size.
-        start_size (int, optional): The starting integer value for inputs. Defaults to 1.
+            `int_value`, which returns a tuple containing the input integer.
+        start (int, optional): The starting integer value for inputs. Defaults to 1.
             Must be positive.
         double (int, optional): The number of times to double the input integer value.
             Defaults to 10. Must be non-negative.
         text (bool, optional): If True, print the run-times in text format. 
         chart (bool, optional): If True, plot the run-times using a chart. 
     """
-    time_functions(functions, generator, start_size, double, text, chart, True)
+    time_functions(functions, generator, start, double, text, chart, True)

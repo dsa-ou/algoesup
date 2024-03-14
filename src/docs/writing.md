@@ -440,7 +440,7 @@ Here's how we could measure the run-times for selection sort on ascending and de
 ```python
 from algoesup import time_cases
 
-time_cases(selection_sort, [ascending, descending], start_size=100, double=4)
+time_cases(selection_sort, [ascending, descending], start=100, double=4)
 ```
 !!! success "Output"
     ```
@@ -486,7 +486,7 @@ Here's a comparison of the built-in `sorted` function against selection sort, on
 ```python
 from algoesup import time_functions
 
-time_functions([selection_sort, sorted], descending, start_size=100, double=4)
+time_functions([selection_sort, sorted], descending, start=100, double=4)
 ```
 !!! success "Output"
     ```
@@ -559,7 +559,7 @@ which is counter-intuitive because it does have to reverse them.
 
 If you can't see any trend in the run-times, or they aren't what you expect,
 one possible cause is that the input sizes are too small.
-Increase `start_size` and run again the code cell.
+Increase `start` and run again the code cell.
 
 If after increasing the start size several times you still don't get the run-times
 you expect from your complexity analysis, then there might be other explanations:

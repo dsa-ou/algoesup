@@ -1309,7 +1309,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="two-sum-three-solutions">Two sum (three solutions)<a class="anchor-link" href="#two-sum-three-solutions">¶</a></h1><p><em>Michael Snowden</em>, 25 January 2024</p>
+<h1 id="two-sum-three-solutions">Two sum (three solutions)<a class="anchor-link" href="#two-sum-three-solutions">¶</a></h1><p><em>Michael Snowden</em>, 25 January 2024, last updated 13 March 2024</p>
 </div>
 </div>
 </div>
@@ -2193,10 +2193,10 @@ input size starts at 100 and is doubled 4 times reaching 1600 for the last data 
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">input_generators</span> <span class="o">=</span> <span class="p">[</span><span class="n">worst</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">best</span><span class="p">]</span>
-<span class="n">time_cases</span><span class="p">(</span><span class="n">two_sum_bf</span><span class="p">,</span> <span class="n">input_generators</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">time_cases</span><span class="p">(</span><span class="n">two_sum_bf</span><span class="p">,</span> <span class="n">input_generators</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-8">input_generators = [worst, normal, best]
-time_cases(two_sum_bf, input_generators, start_size=100, double=4, chart=True)</div>
+time_cases(two_sum_bf, input_generators, start=100, double=4, chart=True)</div>
 </div>
 </div>
 </div>
@@ -2263,10 +2263,10 @@ complexity. The normal case is somewhere in the middle of the two.</p>
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">input_generators</span> <span class="o">=</span> <span class="p">[</span><span class="n">worst</span><span class="p">,</span> <span class="n">normal</span><span class="p">,</span> <span class="n">best</span><span class="p">]</span>
-<span class="n">time_cases</span><span class="p">(</span><span class="n">two_sum_map</span><span class="p">,</span> <span class="n">input_generators</span><span class="p">,</span> <span class="n">start_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">time_cases</span><span class="p">(</span><span class="n">two_sum_map</span><span class="p">,</span> <span class="n">input_generators</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-9">input_generators = [worst, normal, best]
-time_cases(two_sum_map, input_generators, start_size=100, double=4, chart=True)</div>
+time_cases(two_sum_map, input_generators, start=100, double=4, chart=True)</div>
 </div>
 </div>
 </div>
