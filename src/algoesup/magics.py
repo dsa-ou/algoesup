@@ -89,25 +89,27 @@ def process_status(name: str, status: str) -> None:
     nargs="?",
     default=None,
 )
+@argument(
+    "-d",
+    "--disable",
+    default="name-error,import-error",
+    help="Comma or space-separated list of error names to ignore",
+)
 @register_line_magic
 def pytype(line: str) -> None:
-    """Activate/deactivate the `pytype` linter.
-    
-    This ipython magic command controls the activation state of the `pytype` linter within
-    the ipython environment. It can be toggled on or off, or queried for its
-    current state.
+    """Activate/deactivate the [pytype linter](https://google.github.io/pytype).
 
-    Examples:
-        ```
-        %pytype on 
-        pytype was activated
-        %pytype off     
-        pytype was deactivated
-        %pytype         
-        pytype is inactive  
-        ```
+    When active, the linter checks each code cell that is executed for type errors.
+
+    - `%pytype --disable ... on` activates the linter but does not check the given errors
+      (see the [list of errors](https://google.github.io/pytype/errors.html))
+    - `%pytype on` is equal to `%pytype --disable name-error,import-error on`
+    - `%pytype off` deactivates the linter
+    - `%pytype` shows the current status of the linter
+    - `%pytype?` shows this documentation and the command's options
     """
     args = parse_argstring(pytype, line)
+    checkers["pytype"][0] = ["pytype", "--disable", args.disable]
     process_status("pytype", args.status)
 
 
@@ -128,21 +130,18 @@ def pytype(line: str) -> None:
 )
 @register_line_magic
 def allowed(line: str) -> None:
-    """Activate/deactivate the `allowed` linter.
+    """Activate/deactivate the [allowed linter](https://dsa-ou.github.io/allowed).
       
-    This ipython magic command controls the activation state of the `allowed` linter 
-    within the ipython environment. It can be toggled on or off, or queried for its
-    current state.
-  
-    Examples:
-        ```
-        %allowed on 
-        pytype was activated
-        %allowed off     
-        pytype was deactivated
-        %allowed        
-        pytype is inactive  
-        ```
+    When active, the linter checks each code cell that is executed for any
+    Python constructs that are not listed in the given configuration file.
+
+    - `%allowed --config ... on` activates the linter with the given configuration,
+      which must be `m269.json`, `tm112.json` or 
+      [one you defined](https://dsa-ou.github.io/allowed/docs/configuration.html)
+    - `%allowed on` is equal to `%allowed --config m269.json on`
+    - `%allowed off` deactivates the linter
+    - `%allowed` shows the current status of the linter
+    - `%allowed?` shows this documentation and the command's options
     """
     args = parse_argstring(allowed, line)
     if args.config:
@@ -159,25 +158,35 @@ def allowed(line: str) -> None:
     nargs="?",
     default=None,
 )
+@argument(
+    "--select",
+    help="Comma-separated list of rule codes to enable",
+    type=str,
+    default="A,B,C90,D,E,W,F,N,PL",
+)
+@argument(
+    "--ignore",
+    help="Comma-separated list of rule codes to ignore",
+    type=str,
+    default="D100,W292,F401,F821,D203,D213,D415",
+)
 @register_line_magic
 def ruff(line: str) -> None:
-    """Activate/deactivate the `ruff` linter.
+    """Activate/deactivate the [Ruff linter](https://docs.astral.sh/ruff).
+
+    When active, the linter checks each code cell that is executed
+    against the selected code style rules.
     
-    This ipython magic command controls the activation state of the `ruff` linter within
-    the ipython environment. It can be toggled on or off, or queried for its
-    current state.
-   
-    Examples:
-        ```
-        %ruff on
-        ruff was activated
-        %ruff off
-        ruff was deactivated
-        %ruff
-        ruff is inactive
-        ```
+    - `%ruff --select ... --ignore ... on` activates the linter with the given rules
+      (see [the list of rules](https://docs.astral.sh/ruff/rules))
+    - `%ruff on` is equal to `%ruff --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415 on`
+    - `%ruff off` deactivates the linter
+    - `%ruff` shows the current status of the linter
+    - `%ruff?` shows this documentation and the command's options
     """
     args = parse_argstring(ruff, line)
+    base = ["ruff", "check", "--output-format", "json"]
+    checkers["ruff"][0] = base + ["--select", args.select, "--ignore", args.ignore]
     process_status("ruff", args.status)
 
 
@@ -228,8 +237,7 @@ def run_checkers(result) -> None:
         with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as temp:
             # transform IPython to pure Python to avoid linters reporting syntax errors
             temp.write(TransformerManager().transform_cell(result.info.raw_cell))
-            # Backslash causes esc sequence error from standard Windows file paths,
-            # but Windows accepts both "\" and "/" as separators.
+            # Handle Windows file paths
             temp_name = temp.name.replace("\\", "/")
         for checker in active:
             command, display = checkers[checker]
