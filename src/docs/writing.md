@@ -175,9 +175,9 @@ unit_tests = [
 test(absolute_difference, unit_tests)
 ```
 !!! failure "Output"
-    Testing absolute_difference:  
+    Testing absolute_difference...  
     x < y FAILED: -11 instead of 11  
-    Tests finished.
+    Tests finished: 2 passed, 1 failed.
 
 A unit test consists of the input values to pass to your function and the output value you're expecting.
 The library requires a short descriptive string for each unit test, so that it can indicate which tests failed.
@@ -202,8 +202,8 @@ def absolute_difference_without_abs(x: int, y: int) -> int:
 test(absolute_difference_without_abs, unit_tests) # same test table
 ```
 !!! success "Output"
-    Testing absolute_difference_without_abs:  
-    Tests finished.
+    Testing absolute_difference_without_abs...  
+    Tests finished: 3 passed, 0 failed.
 
 ### Type checking
 As the above examples show, your code should contain type hints
