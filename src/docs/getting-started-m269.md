@@ -12,18 +12,11 @@ test, check the style, and measure the run-time of code.
 1. Activate your M269 environment as usual:
     - Open a PowerShell (Windows) or terminal (Linux / macOS), and enter `m269-23j`.
     - The prompt should now be `(m269-23j) ...` and you should be in your M269 folder.
-2. To install the software, enter `pip install algoesup ruff allowed` in the PowerShell / terminal.
+2. To install the software, enter `pip install algoesup ruff` in the PowerShell / terminal.
    
     !!! note
-        The command installs a version of `allowed` that can be used from
-        within the notebook, to check the code cell by cell.
-        Do _not_ delete the `allowed.py` and `m269.json` files in your M269 folder. 
-        You will continue to need them to check your TMAs before submission.
-
-3. The software needs a configuration file named `pyproject.toml`.
-   Right-click on [this link](https://github.com/dsa-ou/algoesup/raw/main/src/docs/essays/pyproject.toml)
-   and select 'Download / Save file as...' to save the file to your M269 folder.
-   Do _not_ change its name.
+        You also need the most recent version of `allowed`, which is available
+        from the Resources tab of the M269 website.
 
 ## Copy template
 
@@ -33,7 +26,7 @@ We have created templates to serve as starting points for your essay.
 2. Choose a template and _right_-click on the corresponding download button.
 3. Select 'Download / Save file as...' and save the template to your M269 folder,
    with a filename that includes your name (e.g. `essay-Michael.ipynb`)
-   or indicates the topic (e.g. `balanced-brackets.ipynb`).
+   or that indicates the topic (e.g. `balanced-brackets.ipynb`).
    If you prefer, you can rename the file later, when you settled on a topic.
 
 ## Write the essay

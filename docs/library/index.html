@@ -1595,21 +1595,18 @@ Defaults to 10. Must be non-negative.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Activate/deactivate the <code>allowed</code> linter.</p>
-<p>This ipython magic command controls the activation state of the <code>allowed</code> linter 
-within the ipython environment. It can be toggled on or off, or queried for its
-current state.</p>
-
-
-
-<p><strong>Examples:</strong></p>
-    <div class="highlight"><pre><span></span><code>%allowed on 
-pytype was activated
-%allowed off     
-pytype was deactivated
-%allowed        
-pytype is inactive  
-</code></pre></div>
+      <p>Activate/deactivate the <a href="https://dsa-ou.github.io/allowed">allowed linter</a>.</p>
+<p>When active, the linter checks each code cell that is executed for any
+Python constructs that are not listed in the given configuration file.</p>
+<ul>
+<li><code>%allowed --config ... on</code> activates the linter with the given configuration,
+  which must be <code>m269.json</code>, <code>tm112.json</code> or 
+  <a href="https://dsa-ou.github.io/allowed/docs/configuration.html">one you defined</a></li>
+<li><code>%allowed on</code> is equal to <code>%allowed --config m269.json on</code></li>
+<li><code>%allowed off</code> deactivates the linter</li>
+<li><code>%allowed</code> shows the current status of the linter</li>
+<li><code>%allowed?</code> shows this documentation and the command&rsquo;s options</li>
+</ul>
 
   </div>
 
@@ -1630,21 +1627,16 @@ pytype is inactive
 
   <div class="doc doc-contents ">
   
-      <p>Activate/deactivate the <code>pytype</code> linter.</p>
-<p>This ipython magic command controls the activation state of the <code>pytype</code> linter within
-the ipython environment. It can be toggled on or off, or queried for its
-current state.</p>
-
-
-
-<p><strong>Examples:</strong></p>
-    <div class="highlight"><pre><span></span><code>%pytype on 
-pytype was activated
-%pytype off     
-pytype was deactivated
-%pytype         
-pytype is inactive  
-</code></pre></div>
+      <p>Activate/deactivate the <a href="https://google.github.io/pytype">pytype linter</a>.</p>
+<p>When active, the linter checks each code cell that is executed for type errors.</p>
+<ul>
+<li><code>%pytype --disable ... on</code> activates the linter but does not check the given errors
+  (see the <a href="https://google.github.io/pytype/errors.html">list of errors</a>)</li>
+<li><code>%pytype on</code> is equal to <code>%pytype --disable name-error,import-error on</code></li>
+<li><code>%pytype off</code> deactivates the linter</li>
+<li><code>%pytype</code> shows the current status of the linter</li>
+<li><code>%pytype?</code> shows this documentation and the command&rsquo;s options</li>
+</ul>
 
   </div>
 
@@ -1665,21 +1657,17 @@ pytype is inactive
 
   <div class="doc doc-contents ">
   
-      <p>Activate/deactivate the <code>ruff</code> linter.</p>
-<p>This ipython magic command controls the activation state of the <code>ruff</code> linter within
-the ipython environment. It can be toggled on or off, or queried for its
-current state.</p>
-
-
-
-<p><strong>Examples:</strong></p>
-    <div class="highlight"><pre><span></span><code>%ruff on
-ruff was activated
-%ruff off
-ruff was deactivated
-%ruff
-ruff is inactive
-</code></pre></div>
+      <p>Activate/deactivate the <a href="https://docs.astral.sh/ruff">Ruff linter</a>.</p>
+<p>When active, the linter checks each code cell that is executed
+against the selected code style rules.</p>
+<ul>
+<li><code>%ruff --select ... --ignore ... on</code> activates the linter with the given rules
+  (see <a href="https://docs.astral.sh/ruff/rules">the list of rules</a>)</li>
+<li><code>%ruff on</code> is equal to <code>%ruff --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415 on</code></li>
+<li><code>%ruff off</code> deactivates the linter</li>
+<li><code>%ruff</code> shows the current status of the linter</li>
+<li><code>%ruff?</code> shows this documentation and the command&rsquo;s options</li>
+</ul>
 
   </div>
 
