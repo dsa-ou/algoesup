@@ -1304,13 +1304,13 @@ from algoesup import test, time_functions_int</div>
 <span class="c1"># check the code's style</span>
 <span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 <span class="c1"># optional: flag the Python constructs not taught in TM112, our introductory course</span>
-<span class="o">%</span><span class="n">allowed</span> <span class="n">on</span> <span class="o">-</span><span class="n">c</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span>
+<span class="o">%</span><span class="n">allowed</span> <span class="o">--</span><span class="n">config</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span> <span class="n">on</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-2">%load_ext algoesup.magics
 # check the code's style
 %ruff on
 # optional: flag the Python constructs not taught in TM112, our introductory course
-%allowed on -c tm112.json</div>
+%allowed --config tm112.json on</div>
 </div>
 </div>
 </div>

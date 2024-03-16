@@ -38,8 +38,13 @@ enter `poetry run mkdocs build`.
 (Don't use `mkdocs gh-deploy` because it pushes untracked and other files, 
 without giving you a chance to check what will be pushed.)
 
-After accepting a commit to folder `Deepnote/`, the owners will upload the
-updated files to the Deepnote project linked above.
+When a new version of the library is to be put on PyPI:
+
+1. Run again the notebooks, to test the library.
+2. Re-generate the docs.
+3. Bump the version in `pyproject.toml` and `Deepnote/Dockerfile`,
+   so that a new docker image can be built.
+4. Commit with a tag indicating the new version.
 
 ## Licences
 

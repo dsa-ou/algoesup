@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "algoesup"
-version = "0.1.0" 
+version = "0.2.0" 
 description = "Algorithmic essay support library"
 authors = [
     "Michel Wermelinger <michel.wermelinger@open.ac.uk>",
