@@ -350,6 +350,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../getting-started-google-colab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get started (Google Colab)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-m269/" class="md-nav__link">
         
   
@@ -1271,11 +1292,17 @@ Replace any text in italics by yours and delete this paragraph.</p>
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># import functions to test the code and to measure the execution time</span>
-<span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">test</span><span class="p">,</span> <span class="n">time_functions_int</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="s1">'COLAB_GPU'</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>  <span class="c1"># if we are in Google Colab...</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">algoesup</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">allowed</span> <span class="n">ruff</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1"># import functions to test the code and to measure the execution time
-from algoesup import test, time_functions_int</div>
+<div class="clipboard-copy-txt" id="cell-1">import os
+
+if 'COLAB_GPU' in os.environ:  # if we are in Google Colab...
+    !pip install algoesup --no-deps
+    !pip install allowed ruff</div>
 </div>
 </div>
 </div>
@@ -1300,13 +1327,42 @@ from algoesup import test, time_functions_int</div>
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># import functions to test the code and to measure the execution time</span>
+<span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">test</span><span class="p">,</span> <span class="n">time_functions_int</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-2"># import functions to test the code and to measure the execution time
+from algoesup import test, time_functions_int</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy for="cell-3">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">algoesup</span><span class="o">.</span><span class="n">magics</span>
 <span class="c1"># check the code's style</span>
 <span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 <span class="c1"># optional: flag the Python constructs not taught in TM112, our introductory course</span>
 <span class="o">%</span><span class="n">allowed</span> <span class="o">--</span><span class="n">config</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span> <span class="n">on</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">%load_ext algoesup.magics
+<div class="clipboard-copy-txt" id="cell-3">%load_ext algoesup.magics
 # check the code's style
 %ruff on
 # optional: flag the Python constructs not taught in TM112, our introductory course
@@ -1336,7 +1392,7 @@ from algoesup import test, time_functions_int</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-3">
+<clipboard-copy for="cell-4">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1351,7 +1407,7 @@ from algoesup import test, time_functions_int</div>
     <span class="c1"># (description, input1, input2, ..., expected_output),</span>
 <span class="p">]</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">tests = [
+<div class="clipboard-copy-txt" id="cell-4">tests = [
     # Each line is a list or tuple of the form:
     # (description, input1, input2, ..., expected_output),
 ]</div>
@@ -1391,7 +1447,7 @@ from algoesup import test, time_functions_int</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-4">
+<clipboard-copy for="cell-5">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1407,7 +1463,7 @@ from algoesup import test, time_functions_int</div>
 
 <span class="n">test</span><span class="p">(</span><span class="n">solution_one</span><span class="p">,</span> <span class="n">tests</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def solution_one():
+<div class="clipboard-copy-txt" id="cell-5">def solution_one():
     # Implement your solution here
     pass
 
@@ -1437,7 +1493,7 @@ test(solution_one, tests)</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-5">
+<clipboard-copy for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1453,7 +1509,7 @@ test(solution_one, tests)</div>
 
 <span class="n">test</span><span class="p">(</span><span class="n">solution_two</span><span class="p">,</span> <span class="n">tests</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">def solution_two():
+<div class="clipboard-copy-txt" id="cell-6">def solution_two():
     # Implement your solution here
     pass
 
@@ -1483,7 +1539,7 @@ test(solution_two, tests)</div>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-6">
+<clipboard-copy for="cell-7">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1496,7 +1552,7 @@ test(solution_two, tests)</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># The next line assumes your functions have a single integer as input.</span>
 <span class="n">time_functions_int</span><span class="p">([</span><span class="n">solution_one</span><span class="p">,</span> <span class="n">solution_two</span><span class="p">])</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6"># The next line assumes your functions have a single integer as input.
+<div class="clipboard-copy-txt" id="cell-7"># The next line assumes your functions have a single integer as input.
 time_functions_int([solution_one, solution_two])</div>
 </div>
 </div>

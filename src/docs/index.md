@@ -33,17 +33,19 @@ you can write an essay with your existing software and share it on the forums.
 [Get started (M269)](getting-started-m269.md){.md-button .md-button--primary}
 
 If you prefer a 'Google Docs'-like environment for collaborative
-authoring and commenting on essays, we suggest **Deepnote**:
+authoring and commenting on essays, we suggest **Deepnote** or 
+Google's **Colaboratory** (Colab for short):
 
-- free academic account
+- free account
 - no software installation necessary
 - you can share your essays publicly (or just with a few people) to easily
     - receive and give feedback
     - work collaboratively on the same essay.
 
-(We have no affiliation, commercial or otherwise, with Deepnote.)
+(We have no affiliation, commercial or otherwise, with Deepnote or Google.)
 
 [Get started (Deepnote)](getting-started.md){ .md-button .md-button--primary}
+[Get started (Colab)](getting-started-google-colab.md){ .md-button .md-button--primary}
 
 ## Acknowledgements
 

@@ -8,7 +8,7 @@ This document provides guidance on how to produce your essay.
     the guide currently has data structures and algorithms students in mind.
 
 An essay can have more than one author, although more than two is harder to manage.
-Deepnote makes it easy to work collaboratively on a single notebook,
+Deepnote and Colab make it easy to work collaboratively on a single notebook,
 at the same time or asynchronously, and leave comments to co-authors.
 You may wish to first pitch your essay idea to your peers, to recruit co-authors.
 
@@ -16,8 +16,8 @@ In the rest of this guide, 'you' and 'your' are both singular and plural pronoun
 to refer simultaneously to a single author or multiple authors.
 
 !!! note
-    You may wish to keep this guide open while going through one of the
-    example essays in your copy of our Deepnote project.
+    You may wish to keep this guide open while going through
+    your copy of our template.
 
 ## Problem
 It's worth spending time on choosing an appropriate problem before putting effort into an essay about it.
@@ -137,6 +137,10 @@ Writing the tests (step 1) *before* the code they test (step 2) is a cornerstone
 **test-driven development**, a widely used practice. Thinking of the tests early
 in the process helps you better understand the problem and think of correct solutions.
 
+!!! info
+    If you followed our 'getting started' instructions, the software mentioned 
+    in the next subsections to carry out the above workflow is already installed.
+
 ### Testing
 You should write tests for each function, to have some assurance that it is correct.
 Tests that check the behaviour of a single function are called **unit tests**.
@@ -224,8 +228,7 @@ You can now turn on type checking as follows.
     pytype was activated
 
 Words that start with `%` are special commands ('magics') for IPython, the Python interpreter used by Jupyter notebooks.
-The `%pytype` command, provided by our library, activates Google's `pytype` type checker,
-which comes pre-installed in the Deepnote essay project you copied.
+The `%pytype` command, provided by our library, activates Google's `pytype` type checker.
 
 Once the type checker is activated, it checks each cell immediately after it's executed.
 In this way you can detect and fix errors as you write and run each code cell.
@@ -255,9 +258,12 @@ However, some checking is better than no checking.
 The type checker adds some seconds to the overall time to run each code cell.
 You may thus wish to initially turn off the type checking, with `%pytype off`,
 and only turn it on after all code is written and tested.
-You will have to [run all cells](deepnote-how-to.md#run-one-or-all-cells) for the type checking to take place.
+You will have to run all cells of your notebook for the type checking to take place.
 
 ### Formatting
+!!! note
+    This subsection only applies to Deepnote.
+
 Once you have written, tested and type checked all your code, you should format it so that
 it follows the Python community's code style.
 You will need to format each cell, as explained [here](deepnote-how-to.md#format-a-code-cell).
@@ -268,16 +274,16 @@ to temporarily switch off formatting for that block.
 This feature is especially useful for keeping the format of unit test tables,
 as shown in an earlier example.
 
-### Linting
-Once your code is formatted, you should **lint** it, which means to check it for style violations.
-The formatter has already automatically enforced simple formatting conventions, like
+The Deepnote formatter automatically enforces simple formatting conventions, like
 4 spaces for indentation and 2 empty lines between functions,
-so you will see fewer warnings from the linter.
+so you will see fewer warnings in the next stage.
+
+### Linting
+You should **lint** your code, which means to check it for style violations.
 
 #### Code style
-The Deepnote essay project you copied already has a linter installed:
-`ruff`, the fastest Python linter. To turn it on, write the following after
-loading the `algoesup.magics` extension.
+Our library support `ruff`, the fastest Python linter. 
+To turn it on, write the following after loading the `algoesup.magics` extension.
 ```python
 %ruff on
 ```
@@ -327,12 +333,12 @@ If you get errors that you think are pointless,
 please let us know so that we can change `ruff`'s configuration.
 
 #### Language subset
-The Deepnote project you copied also includes the `allowed` linter, created by ourselves.
+Our library also supports the `allowed` linter, created by ourselves.
 It checks whether your code only uses a certain subset of the Python language.
 This gives you some reassurance that your code will be understood by a wide audience.
 
 By default, `allowed` checks against the Python subset used in our
-algorithms and data structures course. It is already included in the project.
+algorithms and data structures course.
 So, if you're an M269 student, to check that your essay is easily understood
 by your peers in terms of Python constructs, just add the following after loading the extension:
 ```python
@@ -364,13 +370,13 @@ For example, adding the comment after `print(...)` would not report the f-string
 Note that the comment makes the tool skip the *whole* line:
 if it has several constructs that weren't taught, none of them is reported.
 
-We also include the configuration for TM112, our introductory Computing course,
+The `allowed` linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
 To use that configuration, write `%allowed on -c tm112.json`.
 
 You can configure the linter with a JSON file that lists the allowed constructs.
-You can [duplicate and rename](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file)
-one of the JSON configurations in the **Files** section of your project,
+In Deepnote, [rename](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file)
+the `allowed.json` JSON configuration in the **Files** section of your project,
 and adapt it to your course.
 See the `allowed` [website](https://dsa-ou.github.io/allowed) for instructions.
 
@@ -568,8 +574,7 @@ you expect from your complexity analysis, then there might be other explanations
 - your implemented algorithm modifies its input
 - your input-generating functions are not generating best or worst cases.
 
-For an example of the latter, see the *Jewels and Stones* essay in your copy of
-our Deepnote project.
+For an example of the latter, see the [Jewels and Stones](essays/example-jewels.ipynb) essay.
 
 ## Final check
 Whether it's your essay's first draft or final version, before you share it with others,
@@ -577,8 +582,12 @@ you should restart the kernel and run all cells, so that you have a 'clean' vers
 Then, after a break, read your essay with 'fresh eyes' from start to end
 and fix any typos or missing explanations you find.
 
-Look at Deepnote's table of contents on the sidebar and check that your section headings
+Look at the table of contents of your notebook and check that your section headings
 are at the right level.
+
+!!! info
+    In Deepnote, the table of contents is on the left sidebar;
+    in Colab, you must click the bullet list icon in the left sidebar.
 
 Finally, let others comment on your essay and help you produce a better version.
 See our [feedback guide](feedback.md) for details.

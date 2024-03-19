@@ -354,6 +354,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../getting-started-google-colab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get started (Google Colab)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started-m269/" class="md-nav__link">
         
   
@@ -1156,15 +1177,15 @@
 the guide currently has data structures and algorithms students in mind.</p>
 </div>
 <p>An essay can have more than one author, although more than two is harder to manage.
-Deepnote makes it easy to work collaboratively on a single notebook,
+Deepnote and Colab make it easy to work collaboratively on a single notebook,
 at the same time or asynchronously, and leave comments to co-authors.
 You may wish to first pitch your essay idea to your peers, to recruit co-authors.</p>
 <p>In the rest of this guide, &lsquo;you&rsquo; and &lsquo;your&rsquo; are both singular and plural pronouns,
 to refer simultaneously to a single author or multiple authors.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You may wish to keep this guide open while going through one of the
-example essays in your copy of our Deepnote project.</p>
+<p>You may wish to keep this guide open while going through
+your copy of our template.</p>
 </div>
 <h2 id="problem">Problem</h2>
 <p>It&rsquo;s worth spending time on choosing an appropriate problem before putting effort into an essay about it.
@@ -1264,6 +1285,11 @@ It also makes your code easier to port to other programming languages.</p>
 <p>Writing the tests (step 1) <em>before</em> the code they test (step 2) is a cornerstone of
 <strong>test-driven development</strong>, a widely used practice. Thinking of the tests early
 in the process helps you better understand the problem and think of correct solutions.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you followed our &lsquo;getting started&rsquo; instructions, the software mentioned 
+in the next subsections to carry out the above workflow is already installed.</p>
+</div>
 <h3 id="testing">Testing</h3>
 <p>You should write tests for each function, to have some assurance that it is correct.
 Tests that check the behaviour of a single function are called <strong>unit tests</strong>.
@@ -1346,8 +1372,7 @@ You can now turn on type checking as follows.
 <p>pytype was activated</p>
 </div>
 <p>Words that start with <code>%</code> are special commands (&lsquo;magics&rsquo;) for IPython, the Python interpreter used by Jupyter notebooks.
-The <code>%pytype</code> command, provided by our library, activates Google&rsquo;s <code>pytype</code> type checker,
-which comes pre-installed in the Deepnote essay project you copied.</p>
+The <code>%pytype</code> command, provided by our library, activates Google&rsquo;s <code>pytype</code> type checker.</p>
 <p>Once the type checker is activated, it checks each cell immediately after it&rsquo;s executed.
 In this way you can detect and fix errors as you write and run each code cell.
 Here&rsquo;s an example of what happens.
@@ -1374,8 +1399,12 @@ However, some checking is better than no checking.</p>
 <p>The type checker adds some seconds to the overall time to run each code cell.
 You may thus wish to initially turn off the type checking, with <code>%pytype off</code>,
 and only turn it on after all code is written and tested.
-You will have to <a href="../deepnote-how-to/#run-one-or-all-cells">run all cells</a> for the type checking to take place.</p>
+You will have to run all cells of your notebook for the type checking to take place.</p>
 <h3 id="formatting">Formatting</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This subsection only applies to Deepnote.</p>
+</div>
 <p>Once you have written, tested and type checked all your code, you should format it so that
 it follows the Python community&rsquo;s code style.
 You will need to format each cell, as explained <a href="../deepnote-how-to/#format-a-code-cell">here</a>.</p>
@@ -1384,15 +1413,14 @@ write <code># fmt: off</code> on its own line before the block and write <code>#
 to temporarily switch off formatting for that block.
 This feature is especially useful for keeping the format of unit test tables,
 as shown in an earlier example.</p>
-<h3 id="linting">Linting</h3>
-<p>Once your code is formatted, you should <strong>lint</strong> it, which means to check it for style violations.
-The formatter has already automatically enforced simple formatting conventions, like
+<p>The Deepnote formatter automatically enforces simple formatting conventions, like
 4 spaces for indentation and 2 empty lines between functions,
-so you will see fewer warnings from the linter.</p>
+so you will see fewer warnings in the next stage.</p>
+<h3 id="linting">Linting</h3>
+<p>You should <strong>lint</strong> your code, which means to check it for style violations.</p>
 <h4 id="code-style">Code style</h4>
-<p>The Deepnote essay project you copied already has a linter installed:
-<code>ruff</code>, the fastest Python linter. To turn it on, write the following after
-loading the <code>algoesup.magics</code> extension.
+<p>Our library support <code>ruff</code>, the fastest Python linter. 
+To turn it on, write the following after loading the <code>algoesup.magics</code> extension.
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 </code></pre></div></p>
 <div class="admonition success">
@@ -1438,11 +1466,11 @@ won&rsquo;t be flagged. But again, some linting is better than none.</p>
 <p>If you get errors that you think are pointless,
 please let us know so that we can change <code>ruff</code>&rsquo;s configuration.</p>
 <h4 id="language-subset">Language subset</h4>
-<p>The Deepnote project you copied also includes the <code>allowed</code> linter, created by ourselves.
+<p>Our library also supports the <code>allowed</code> linter, created by ourselves.
 It checks whether your code only uses a certain subset of the Python language.
 This gives you some reassurance that your code will be understood by a wide audience.</p>
 <p>By default, <code>allowed</code> checks against the Python subset used in our
-algorithms and data structures course. It is already included in the project.
+algorithms and data structures course.
 So, if you&rsquo;re an M269 student, to check that your essay is easily understood
 by your peers in terms of Python constructs, just add the following after loading the extension:
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">allowed</span> <span class="n">on</span>
@@ -1472,12 +1500,12 @@ you don&rsquo;t want the linter to flag a construct that you explain in your ess
 For example, adding the comment after <code>print(...)</code> would not report the f-string.
 Note that the comment makes the tool skip the <em>whole</em> line:
 if it has several constructs that weren&rsquo;t taught, none of them is reported.</p>
-<p>We also include the configuration for TM112, our introductory Computing course,
+<p>The <code>allowed</code> linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
 To use that configuration, write <code>%allowed on -c tm112.json</code>.</p>
 <p>You can configure the linter with a JSON file that lists the allowed constructs.
-You can <a href="../deepnote-how-to/#rename-duplicate-download-or-delete-a-notebook-or-file">duplicate and rename</a>
-one of the JSON configurations in the <strong>Files</strong> section of your project,
+In Deepnote, <a href="../deepnote-how-to/#rename-duplicate-download-or-delete-a-notebook-or-file">rename</a>
+the <code>allowed.json</code> JSON configuration in the <strong>Files</strong> section of your project,
 and adapt it to your course.
 See the <code>allowed</code> <a href="https://dsa-ou.github.io/allowed">website</a> for instructions.</p>
 <h2 id="performance-analysis">Performance analysis</h2>
@@ -1651,15 +1679,19 @@ you expect from your complexity analysis, then there might be other explanations
 <li>your implemented algorithm modifies its input</li>
 <li>your input-generating functions are not generating best or worst cases.</li>
 </ul>
-<p>For an example of the latter, see the <em>Jewels and Stones</em> essay in your copy of
-our Deepnote project.</p>
+<p>For an example of the latter, see the <a href="../essays/example-jewels/">Jewels and Stones</a> essay.</p>
 <h2 id="final-check">Final check</h2>
 <p>Whether it&rsquo;s your essay&rsquo;s first draft or final version, before you share it with others,
 you should restart the kernel and run all cells, so that you have a &lsquo;clean&rsquo; version.
 Then, after a break, read your essay with &lsquo;fresh eyes&rsquo; from start to end
 and fix any typos or missing explanations you find.</p>
-<p>Look at Deepnote&rsquo;s table of contents on the sidebar and check that your section headings
+<p>Look at the table of contents of your notebook and check that your section headings
 are at the right level.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In Deepnote, the table of contents is on the left sidebar;
+in Colab, you must click the bullet list icon in the left sidebar.</p>
+</div>
 <p>Finally, let others comment on your essay and help you produce a better version.
 See our <a href="../feedback/">feedback guide</a> for details.</p>
 <h2 id="further-reading">Further reading</h2>

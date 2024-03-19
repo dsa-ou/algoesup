@@ -350,6 +350,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../getting-started-google-colab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Get started (Google Colab)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-m269/" class="md-nav__link">
         
   
@@ -1325,7 +1346,7 @@ for constructs I didn't teach (with <a href="https://dsa-ou.github.io/allowed">a
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy for="cell-1">
@@ -1338,9 +1359,44 @@ for constructs I didn't teach (with <a href="https://dsa-ou.github.io/allowed">a
 </div>
 </clipboard-copy>
 </div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="s1">'COLAB_GPU'</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>  <span class="c1"># if we are in Google Colab...</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">algoesup</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">deps</span>
+    <span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">allowed</span> <span class="n">ruff</span> <span class="n">pytype</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-1">import os
+
+if 'COLAB_GPU' in os.environ:  # if we are in Google Colab...
+    !pip install algoesup --no-deps
+    !pip install allowed ruff pytype</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy for="cell-2">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span> <span class="nn">algoesup</span> <span class="kn">import</span> <span class="n">test</span><span class="p">,</span> <span class="n">time_cases</span><span class="p">,</span> <span class="n">time_functions</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-1">from algoesup import test, time_cases, time_functions</div>
+<div class="clipboard-copy-txt" id="cell-2">from algoesup import test, time_cases, time_functions</div>
 </div>
 </div>
 </div>
@@ -1355,7 +1411,7 @@ for constructs I didn't teach (with <a href="https://dsa-ou.github.io/allowed">a
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-2">
+<clipboard-copy for="cell-3">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1370,7 +1426,7 @@ for constructs I didn't teach (with <a href="https://dsa-ou.github.io/allowed">a
 <span class="o">%</span><span class="n">pytype</span> <span class="n">on</span>
 <span class="o">%</span><span class="n">allowed</span> <span class="n">on</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-2">%load_ext algoesup.magics
+<div class="clipboard-copy-txt" id="cell-3">%load_ext algoesup.magics
 %ruff on
 %pytype on
 %allowed on</div>
@@ -1426,7 +1482,7 @@ where the actual outputs differ from the expected ones.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-3">
+<clipboard-copy for="cell-4">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1452,7 +1508,7 @@ where the actual outputs differ from the expected ones.</p>
 <span class="c1"># allow code formatters to change the following cells</span>
 <span class="c1"># fmt: on</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3"># don't allow code formatters to change this table
+<div class="clipboard-copy-txt" id="cell-4"># don't allow code formatters to change this table
 # fmt: off
 tests = [
     # case                  jewels  stones  output
@@ -1594,7 +1650,7 @@ Nevertheless, I'll implement Algorithm 4 too, for comparison.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-4">
+<clipboard-copy for="cell-5">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1621,7 +1677,7 @@ Nevertheless, I'll implement Algorithm 4 too, for comparison.</p>
 <span class="c1"># and prints the tests that fail (actual output isn't the expected output).</span>
 <span class="n">test</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">tests</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">def count_in_string(jewels: str, stones: str) -&gt; int:
+<div class="clipboard-copy-txt" id="cell-5">def count_in_string(jewels: str, stones: str) -&gt; int:
     """Return the number of characters in `stones` that are in `jewels`.
 
     Use Algorithm 2: for each stone, check if it's a jewel.
@@ -1677,7 +1733,7 @@ Next, Algorithm 3 can be implemented with Python's <a href="https://docs.python.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-5">
+<clipboard-copy for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1705,7 +1761,7 @@ Next, Algorithm 3 can be implemented with Python's <a href="https://docs.python.
 
 <span class="n">test</span><span class="p">(</span><span class="n">count_in_bag</span><span class="p">,</span> <span class="n">tests</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">from collections import Counter
+<div class="clipboard-copy-txt" id="cell-6">from collections import Counter
 
 
 def count_in_bag(jewels: str, stones: str) -&gt; int:
@@ -1761,7 +1817,7 @@ Tests finished: 8 passed, 0 failed.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-6">
+<clipboard-copy for="cell-7">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1787,7 +1843,7 @@ Tests finished: 8 passed, 0 failed.
 
 <span class="n">test</span><span class="p">(</span><span class="n">count_in_set</span><span class="p">,</span> <span class="n">tests</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">def count_in_set(jewels: str, stones: str) -&gt; int:
+<div class="clipboard-copy-txt" id="cell-7">def count_in_set(jewels: str, stones: str) -&gt; int:
     """Return the number of characters in `stones` that are in `jewels`.
 
     Use Algorithm 4: put jewels in a set; count the stones that are in the set.
@@ -1860,7 +1916,7 @@ The first 31 characters are mostly unprintable control characters, so I start at
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-7">
+<clipboard-copy for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1888,7 +1944,7 @@ The first 31 characters are mostly unprintable control characters, so I start at
     <span class="n">stones</span> <span class="o">=</span> <span class="s2">" "</span> <span class="o">*</span> <span class="n">s</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">jewels</span><span class="p">,</span> <span class="n">stones</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">def best_case(size: int) -&gt; tuple[str, str]:
+<div class="clipboard-copy-txt" id="cell-8">def best_case(size: int) -&gt; tuple[str, str]:
     """Return a best-case input (pair of strings) of the given size.
 
     Output: (jewels, stones) with
@@ -1947,7 +2003,7 @@ That's why I explained it before presenting the code.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-8">
+<clipboard-copy for="cell-9">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -1966,7 +2022,7 @@ That's why I explained it before presenting the code.</p>
 <span class="p">])</span>
 <span class="c1"># fmt: on</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8"># fmt: off
+<div class="clipboard-copy-txt" id="cell-9"># fmt: off
 test(best_case, [
     # case,           size, (jewels, stones)
     ("empty strings", 0,    ("",     "")),
@@ -2015,7 +2071,7 @@ I choose the first one. (Spoiler alert: I made the wrong choice. Can you see why
 <div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-9">
+<clipboard-copy for="cell-10">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2055,7 +2111,7 @@ I choose the first one. (Spoiler alert: I made the wrong choice. Can you see why
 <span class="p">])</span>
 <span class="c1"># fmt: on</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-9">def worst_case(size: int) -&gt; tuple[str, str]:
+<div class="clipboard-copy-txt" id="cell-10">def worst_case(size: int) -&gt; tuple[str, str]:
     """Return a worst-case input (pair of strings) of the given size.
 
     Output: (jewels, stones) with
@@ -2125,7 +2181,7 @@ because it was explained, and hence should not be reported.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-10">
+<clipboard-copy for="cell-11">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2166,7 +2222,7 @@ because it was explained, and hence should not be reported.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Some stones are jewels:"</span><span class="p">,</span> <span class="n">counter</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Some stones aren't jewels:"</span><span class="p">,</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">stones</span><span class="p">))</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-10">import random
+<div class="clipboard-copy-txt" id="cell-11">import random
 
 
 def normal_case(size: int) -&gt; tuple[str, str]:
@@ -2249,7 +2305,7 @@ I start with an input size of 10 and double it four times to 20, 40, 80 and 160.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-11">
+<clipboard-copy for="cell-12">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2262,7 +2318,7 @@ I start with an input size of 10 and double it four times to 20, 40, 80 and 160.
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">cases</span> <span class="o">=</span> <span class="p">[</span><span class="n">best_case</span><span class="p">,</span> <span class="n">normal_case</span><span class="p">,</span> <span class="n">worst_case</span><span class="p">]</span>
 <span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-11">cases = [best_case, normal_case, worst_case]
+<div class="clipboard-copy-txt" id="cell-12">cases = [best_case, normal_case, worst_case]
 time_cases(count_in_string, cases, start=10, double=4)</div>
 </div>
 </div>
@@ -2324,7 +2380,7 @@ This time I also ask for a graphical output.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-12">
+<clipboard-copy for="cell-13">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2336,7 +2392,7 @@ This time I also ask for a graphical output.</p>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">time_cases</span><span class="p">(</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">cases</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-12">time_cases(count_in_string, cases, start=1000, double=4, chart=True)</div>
+<div class="clipboard-copy-txt" id="cell-13">time_cases(count_in_string, cases, start=1000, double=4, chart=True)</div>
 </div>
 </div>
 </div>
@@ -2400,7 +2456,7 @@ I run the three implemented algorithms on typical inputs, with the same sizes as
 <div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-13">
+<clipboard-copy for="cell-14">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2413,7 +2469,7 @@ I run the three implemented algorithms on typical inputs, with the same sizes as
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span><span class="n">count_in_string</span><span class="p">,</span> <span class="n">count_in_set</span><span class="p">,</span> <span class="n">count_in_bag</span><span class="p">]</span>
 <span class="n">time_functions</span><span class="p">(</span><span class="n">algorithms</span><span class="p">,</span> <span class="n">normal_case</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">chart</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-13">algorithms = [count_in_string, count_in_set, count_in_bag]
+<div class="clipboard-copy-txt" id="cell-14">algorithms = [count_in_string, count_in_set, count_in_bag]
 time_functions(algorithms, normal_case, 1000, 4, chart=True)</div>
 </div>
 </div>
