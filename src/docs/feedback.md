@@ -19,7 +19,7 @@ Many companies use **pair programming**, in which two developers work together
 on the same piece of code. While one writes the code, the other reviews it as it's written,
 pointing out mistakes and suggesting improvements.
 The two developers switch roles often during a pair programming session.
-With Deepnote, you and someone else can work simultaneously on the same notebook,
+With Deepnote and Colab, you and someone else can work simultaneously on the same notebook,
 while using Zoom, Microsoft Teams or some other app to chat.
 
 In summary, by engaging in a feedback process for your and others' essays,
@@ -45,11 +45,17 @@ but before investing the time in implementing and testing them. Your request cou
 > I'm looking for feedback on the above algorithms.
 > Are they clear? Have I missed other approaches to solving this problem?
 
-Once your notebook is ready for feedback, you need to [share it](deepnote-how-to.md#share-your-project)
+Once your notebook is ready for feedback, you need to share it
 so that others can comment on it.
 You may invite comments from anyone or only from one or two 'essay buddies':
 they comment on your essay and you comment on theirs.
 
+!!! info
+    For how to share your essay, see the corresponding instructions for 
+    [Colab](getting-started-google-colab.md#share-the-essay),
+    [Deepnote](deepnote-how-to.md#share-your-project) or
+    [M269](getting-started-m269.md#share-the-essay).
+    
 ## Giving feedback
 Once you have been invited to comment on an essay, read it as soon as you can,
 because the author is waiting for it to progress the essay to the next draft.

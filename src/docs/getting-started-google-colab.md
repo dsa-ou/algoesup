@@ -6,9 +6,8 @@ Follow these steps to start writing essays on Google Colab within a few minutes.
 
 !!! important
     To use Colab, you need a Google account. 
-    You can create one by visiting the [Google Account sign in
-    page](https://accounts.google.com/signin) and following the
-    instructions.
+    To create one, visit the [Google Account sign in
+    page](https://accounts.google.com/signin) and follow the instructions.
 
 1. Log in to your Google account
 2. Click one of these links to open a template in Colab: 
@@ -17,6 +16,10 @@ Follow these steps to start writing essays on Google Colab within a few minutes.
 3. In the template, click **File->Save a copy in Drive** to save a copy to your Google Drive. 
 4. In your copy of the template, click **File->Rename** to rename the copy. 
    Use a descriptive name relating to your essay.
+
+!!! info
+    The first code cell of each template essay notebook installs 
+    the necessary software when running the notebook in Colab.
 
 ## Write the essay
 
@@ -47,14 +50,14 @@ See our [feedback guide](feedback.md) for more information.
 
 In Colab, comments are attached to a cell and are displayed next to the cell they refer to.
 
-If you have edit or comment permissions you can comment on a cell in one of three ways:
+If you have edit or comment permissions, you can comment on a cell in one of three ways:
 
 1. Select a cell and click the comment button (speech bubble) in the toolbar 
    above the top-right corner of the cell.
 2. Right-click a text cell and select 'Add a comment' from the pop-up menu.
-3. Press Ctrl+Shift+M to add a comment to the currently selected cell.
+3. Press Ctrl+Alt+M to add a comment to the currently selected cell.
 
 You can resolve and reply to comments, and you can target comments to specific collaborators 
-by typing +[email address] (e.g., +user@domain.com). Addressed collaborators will be emailed.
+by typing @[email address] (e.g., @user@domain.com). Addressed collaborators will be emailed.
 
 The Comment button in the top-right corner of the page shows all comments attached to the notebook.

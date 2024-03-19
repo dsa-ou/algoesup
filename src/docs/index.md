@@ -45,7 +45,7 @@ Google's **Colaboratory** (Colab for short):
 (We have no affiliation, commercial or otherwise, with Deepnote or Google.)
 
 [Get started (Deepnote)](getting-started.md){ .md-button .md-button--primary}
-[Get started (Colab)](getting-started-colab.md){ .md-button .md-button--primary}
+[Get started (Colab)](getting-started-google-colab.md){ .md-button .md-button--primary}
 
 ## Acknowledgements
 
