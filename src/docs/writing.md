@@ -265,6 +265,9 @@ You may thus wish to initially turn off the type checking, with `%pytype off`,
 and only turn it on after all code is written and tested.
 You will have to run all cells of your notebook for the type checking to take place.
 
+For a list of all the options for the `%pytype` command, 
+see the [library reference](library.md#algoesup.magics.pytype).
+
 ### Formatting
 !!! note
     This subsection only applies to Deepnote.
@@ -334,8 +337,9 @@ We have disabled checks for undefined variables and other checks that would lead
 irrelevant error messages in notebooks, which means that genuine undefined variables
 won't be flagged. But again, some linting is better than none.
 
-If you get errors that you think are pointless,
-please let us know so that we can change `ruff`'s configuration.
+If you get errors that you think are irrelevant,
+you can disable them with the `--ignore` option:
+see the [library reference](library.md#algoesup.magics.ruff).
 
 #### Language subset
 Our library also supports the `allowed` linter, created by ourselves.
@@ -377,7 +381,9 @@ if it has several constructs that weren't taught, none of them is reported.
 
 The `allowed` linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
-To use that configuration, write `%allowed on -c tm112.json`.
+To use that configuration, write `%allowed --config tm112.json on`.
+For a list of all the options for the `%allowed` command, 
+see the [library reference](library.md#algoesup.magics.allowed).
 
 You can configure the linter with a JSON file that lists the allowed constructs.
 In Deepnote, [rename](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file)
