@@ -73,8 +73,8 @@ nav:
     - Home: index.md
     - example-essays.md
     - Get started (Deepnote): getting-started.md
-    - Get started (M269): getting-started-m269.md
     - Get started (Google Colab): getting-started-google-colab.md
+    - Get started (M269): getting-started-m269.md
   # not in the nav panel due to https://github.com/danielfrg/mkdocs-jupyter/issues/189
   # - Templates:
   #   - Basic: essays/template-intro-programming.ipynb

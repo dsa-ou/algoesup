@@ -16,8 +16,8 @@ In the rest of this guide, 'you' and 'your' are both singular and plural pronoun
 to refer simultaneously to a single author or multiple authors.
 
 !!! note
-    You may wish to keep this guide open while going through one of the
-    copies of our example essays in your Deepnote or Colab account.
+    You may wish to keep this guide open while going through
+    your copy of our template.
 
 ## Problem
 It's worth spending time on choosing an appropriate problem before putting effort into an essay about it.
