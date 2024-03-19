@@ -23,7 +23,7 @@ to refer simultaneously to a single author or multiple authors.
 It's worth spending time on choosing an appropriate problem before putting effort into an essay about it.
 You may invent your own problem or select an existing one.
 For example, it may be a non-assessed exercise from your course, or
-it may relate to your hobby or work. In so, provide any information the reader needs to understand the problem.
+it may relate to your hobby or work. If so, provide any information the reader needs to understand the problem.
 If the problem is from your work, get permission from your employer or client.
 
 There are [many websites](https://www.freecodecamp.org/news/the-most-popular-coding-challenge-websites/) with thousands of algorithmic problems to choose from.
@@ -290,7 +290,7 @@ so you will see fewer warnings in the next stage.
 You should **lint** your code, which means to check it for style violations.
 
 #### Code style
-Our library support `ruff`, the fastest Python linter. 
+Our library supports `ruff`, the fastest Python linter. 
 To turn it on, write the following after loading the `algoesup.magics` extension.
 ```python
 %ruff on
