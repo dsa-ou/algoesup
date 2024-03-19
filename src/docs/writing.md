@@ -108,8 +108,13 @@ If you didn't invent the problem, indicate its source, e.g. by providing a link 
 or by writing something like "This is problem 4.5 in [book title] by [author]."
 
 ## Algorithms
-You should describe each algorithm succinctly, preferably *before* implementing it,
+You should choose at least two sufficiently different algorithms that solve the problem,
+and describe each one succinctly, preferably *before* implementing it,
 to make the code easier to understand for the reader.
+
+We recommend to not describe algorithms that are only slight variants of each other,
+as this is usually of little interest, and 
+to only include two algorithms in your first draft.
 
 If you're using solutions by others, e.g. by LeetCode users,
 acknowledge the original author and provide a link to their solution.
