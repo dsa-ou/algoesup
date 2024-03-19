@@ -1261,8 +1261,12 @@ rather than having a separate section.
 If you didn&rsquo;t invent the problem, indicate its source, e.g. by providing a link to a website
 or by writing something like &ldquo;This is problem 4.5 in [book title] by [author].&rdquo;</p>
 <h2 id="algorithms">Algorithms</h2>
-<p>You should describe each algorithm succinctly, preferably <em>before</em> implementing it,
+<p>You should choose at least two sufficiently different algorithms that solve the problem,
+and describe each one succinctly, preferably <em>before</em> implementing it,
 to make the code easier to understand for the reader.</p>
+<p>We recommend to not describe algorithms that are only slight variants of each other,
+as this is usually of little interest, and 
+to only include two algorithms in your first draft.</p>
 <p>If you&rsquo;re using solutions by others, e.g. by LeetCode users,
 acknowledge the original author and provide a link to their solution.
 If you have modified their solutions, state what you have changed and explain why.</p>
@@ -1400,6 +1404,8 @@ However, some checking is better than no checking.</p>
 You may thus wish to initially turn off the type checking, with <code>%pytype off</code>,
 and only turn it on after all code is written and tested.
 You will have to run all cells of your notebook for the type checking to take place.</p>
+<p>For a list of all the options for the <code>%pytype</code> command, 
+see the <a href="../library/#algoesup.magics.pytype">library reference</a>.</p>
 <h3 id="formatting">Formatting</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1463,8 +1469,9 @@ checks each cell separately, it would report an undefined variable in the later 
 We have disabled checks for undefined variables and other checks that would lead to
 irrelevant error messages in notebooks, which means that genuine undefined variables
 won&rsquo;t be flagged. But again, some linting is better than none.</p>
-<p>If you get errors that you think are pointless,
-please let us know so that we can change <code>ruff</code>&rsquo;s configuration.</p>
+<p>If you get errors that you think are irrelevant,
+you can disable them with the <code>--ignore</code> option:
+see the <a href="../library/#algoesup.magics.ruff">library reference</a>.</p>
 <h4 id="language-subset">Language subset</h4>
 <p>Our library also supports the <code>allowed</code> linter, created by ourselves.
 It checks whether your code only uses a certain subset of the Python language.
@@ -1502,7 +1509,9 @@ Note that the comment makes the tool skip the <em>whole</em> line:
 if it has several constructs that weren&rsquo;t taught, none of them is reported.</p>
 <p>The <code>allowed</code> linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
-To use that configuration, write <code>%allowed on -c tm112.json</code>.</p>
+To use that configuration, write <code>%allowed --config tm112.json on</code>.
+For a list of all the options for the <code>%allowed</code> command, 
+see the <a href="../library/#algoesup.magics.allowed">library reference</a>.</p>
 <p>You can configure the linter with a JSON file that lists the allowed constructs.
 In Deepnote, <a href="../deepnote-how-to/#rename-duplicate-download-or-delete-a-notebook-or-file">rename</a>
 the <code>allowed.json</code> JSON configuration in the <strong>Files</strong> section of your project,
