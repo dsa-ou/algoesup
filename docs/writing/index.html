@@ -1191,7 +1191,7 @@ your copy of our template.</p>
 <p>It&rsquo;s worth spending time on choosing an appropriate problem before putting effort into an essay about it.
 You may invent your own problem or select an existing one.
 For example, it may be a non-assessed exercise from your course, or
-it may relate to your hobby or work. In so, provide any information the reader needs to understand the problem.
+it may relate to your hobby or work. If so, provide any information the reader needs to understand the problem.
 If the problem is from your work, get permission from your employer or client.</p>
 <p>There are <a href="https://www.freecodecamp.org/news/the-most-popular-coding-challenge-websites/">many websites</a> with thousands of algorithmic problems to choose from.
 We have used <a href="https://open.kattis.com">Kattis</a> and <a href="https://leetcode.com/problemset/all/">LeetCode</a> in the past.</p>
@@ -1404,7 +1404,7 @@ However, some checking is better than no checking.</p>
 You may thus wish to initially turn off the type checking, with <code>%pytype off</code>,
 and only turn it on after all code is written and tested.
 You will have to run all cells of your notebook for the type checking to take place.</p>
-<p>For a list of all the options for the <code>%pytype</code> command, 
+<p>For a list of all the options for the <code>%pytype</code> command,
 see the <a href="../library/#algoesup.magics.pytype">library reference</a>.</p>
 <h3 id="formatting">Formatting</h3>
 <div class="admonition note">
@@ -1425,7 +1425,7 @@ so you will see fewer warnings in the next stage.</p>
 <h3 id="linting">Linting</h3>
 <p>You should <strong>lint</strong> your code, which means to check it for style violations.</p>
 <h4 id="code-style">Code style</h4>
-<p>Our library support <code>ruff</code>, the fastest Python linter. 
+<p>Our library supports <code>ruff</code>, the fastest Python linter.
 To turn it on, write the following after loading the <code>algoesup.magics</code> extension.
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 </code></pre></div></p>
@@ -1509,7 +1509,7 @@ Note that the comment makes the tool skip the <em>whole</em> line:
 if it has several constructs that weren&rsquo;t taught, none of them is reported.</p>
 <p>The <code>allowed</code> linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
-To use that configuration, write <code>%allowed --config tm112.json on</code>.
+To use that configuration, write <code>%allowed on --config tm112.json</code>.
 For a list of all the options for the <code>%allowed</code> command, 
 see the <a href="../library/#algoesup.magics.allowed">library reference</a>.</p>
 <p>You can configure the linter with a JSON file that lists the allowed constructs.
