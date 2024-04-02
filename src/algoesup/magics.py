@@ -1,5 +1,6 @@
 """Linting tools for Jupyter Notebook environments"""
 
+import argparse
 import json
 import os
 import re
@@ -9,7 +10,6 @@ from typing import Callable
 
 from IPython.core.inputtransformer2 import TransformerManager
 from IPython.core.magic import register_line_magic
-from IPython.core.magic_arguments import argument, magic_arguments, parse_argstring
 from IPython.display import display_markdown
 
 
@@ -80,153 +80,131 @@ def process_status(name: str, status: str) -> None:
         print(name, "was deactivated")
 
 
-@magic_arguments()
-@argument(
-    "status",
-    choices=["on", "off"],
-    type=str.lower,
-    help="Activate or deactivate the linter. If omitted, show the current status.",
-    nargs="?",
-    default=None,
-)
-@argument(
-    "-d",
-    "--disable",
-    default="name-error,import-error",
-    help="Comma or space-separated list of error names to ignore",
-)
 @register_line_magic
 def pytype(line: str) -> None:
     """Activate/deactivate the [pytype linter](https://google.github.io/pytype).
 
     When active, the linter checks each code cell that is executed for type errors.
 
-    - `%pytype --disable ... on` activates the linter but does not check the given errors
-      (see the [list of errors](https://google.github.io/pytype/errors.html))
-    - `%pytype on` is equal to `%pytype --disable name-error,import-error on`
+    - `%pytype on ...` activates the linter with the command options given after `on`
+    - `%pytype on` is equal to `%pytype on --disable name-error,import-error`
     - `%pytype off` deactivates the linter
     - `%pytype` shows the current status of the linter
     - `%pytype?` shows this documentation and the command's options
+
+    For a list of possible options `...`, enter `!pytype -h` in a code cell.
+    Some options may not be appropriate when running pytype within a notebook.
+
+    The `--disable` option expects a list of 
+    [errors](https://google.github.io/pytype/errors.html) to ignore, without spaces.
     """
-    args = parse_argstring(pytype, line)
-    checkers["pytype"][0] = ["pytype", "--disable", args.disable]
-    process_status("pytype", args.status)
+    parser = argparse.ArgumentParser("pytype")
+    parser.add_argument("status",
+        choices=["on", "off"],
+        type=str.lower,
+        help="Activate or deactivate the linter. If omitted, show the current status.",
+        nargs="?",
+        default=None,
+    )
+    parser.add_argument("-d", "--disable",
+        default="name-error,import-error",
+        help="Comma or space-separated list of error names to ignore",
+    )
+    known, unknown = parser.parse_known_args(line.split())
+    if known.status != "on" and (known or unknown):
+        print("warning: ignoring additional options for %pytype")
+    else:
+        checkers["pytype"][0] = ["pytype", "--disable", known.disable] + unknown
+    process_status("pytype", known.status)
 
 
-@magic_arguments()
-@argument(
-    "-c",
-    "--config",
-    default=None,
-    help="Use configuration file CONFIG (default: m269.json).",
-)
-@argument(
-    "status",
-    choices=["on", "off"],
-    type=str.lower,
-    help="Activate or deactivate the linter. If omitted, show the current status.",
-    nargs="?",
-    default=None,
-)
 @register_line_magic
 def allowed(line: str) -> None:
     """Activate/deactivate the [allowed linter](https://dsa-ou.github.io/allowed).
-      
+
     When active, the linter checks each code cell that is executed for any
     Python constructs that are not listed in the given configuration file.
 
-    - `%allowed --config ... on` activates the linter with the given configuration,
-      which must be `m269.json`, `tm112.json` or 
-      [one you defined](https://dsa-ou.github.io/allowed/docs/configuration.html)
-    - `%allowed on` is equal to `%allowed --config m269.json on`
+    - `%allowed on ...` activates the linter with any command options given after `on`
+    - `%allowed on` is equal to `%allowed on --config m269.json`
     - `%allowed off` deactivates the linter
     - `%allowed` shows the current status of the linter
     - `%allowed?` shows this documentation and the command's options
+
+    For a list of possible options `...`, enter `!allowed -h` in a code cell.
+    Some options may not be appropriate when running `allowed` within a notebook.
+
+    The `--config` option expects `m269.json`, `tm112.json` or the name of a JSON file
+    with your own [configuration](https://dsa-ou.github.io/allowed/docs/configuration.html).
     """
-    args = parse_argstring(allowed, line)
-    if args.config:
-        checkers["allowed"][0] = ["allowed", "-c", f"{args.config}"]
-    process_status("allowed", args.status)
+    parser = argparse.ArgumentParser("allowed")
+    parser.add_argument("status",
+        choices=["on", "off"],
+        type=str.lower,
+        help="Activate or deactivate the linter. If omitted, show the current status.",
+        nargs="?",
+        default=None,
+    )
+    parser.add_argument("-c", "--config",
+        default=None,
+        help="Use configuration file CONFIG (default: m269.json).",
+    )
+    known, unknown = parser.parse_known_args(line.split())
+    if known.status != "on" and (known or unknown):
+        print("warning: ignoring additional options for %allowed")
+    else:
+        config = ["-c", known.config] if known.config else []
+        checkers["allowed"][0] = ["allowed"] + config + unknown
+    process_status("allowed", known.status)
 
 
-@magic_arguments()
-@argument(
-    "status",
-    choices=["on", "off"],
-    type=str.lower,
-    help="Activate or deactivate the linter. If omitted, show the current status.",
-    nargs="?",
-    default=None,
-)
-@argument(
-    "--select",
-    help="Comma-separated list of rule codes to enable",
-    type=str,
-    default="A,B,C90,D,E,W,F,N,PL",
-)
-@argument(
-    "--ignore",
-    help="Comma-separated list of rule codes to ignore",
-    type=str,
-    default="D100,W292,F401,F821,D203,D213,D415",
-)
 @register_line_magic
 def ruff(line: str) -> None:
     """Activate/deactivate the [Ruff linter](https://docs.astral.sh/ruff).
 
     When active, the linter checks each code cell that is executed
     against the selected code style rules.
-    
-    - `%ruff --select ... --ignore ... on` activates the linter with the given rules
-      (see [the list of rules](https://docs.astral.sh/ruff/rules))
-    - `%ruff on` is equal to `%ruff --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415 on`
+
+    - `%ruff on ...` activates the linter with any command options given after `on`
+      (see [ruff's list of rules])
+    - `%ruff on` is equal to `%ruff on --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415`
     - `%ruff off` deactivates the linter
     - `%ruff` shows the current status of the linter
-    - `%ruff?` shows this documentation and the command's options
+    - `%ruff?` shows this documentation
+
+    The command `%ruff on ...` will run `ruff check --output-format json ...` on each cell. 
+    For a list of the possible options `...`, enter `!ruff help check` in a code cell.
+    Some options may not be appropriate when running Ruff within a notebook.
+
+    The `--select` and `--ignore` options expect a list
+    of [rule codes](https://docs.astral.sh/ruff/rules), without spaces.
     """
-    args = parse_argstring(ruff, line)
-    base = ["ruff", "check", "--output-format", "json"]
-    checkers["ruff"][0] = base + ["--select", args.select, "--ignore", args.ignore]
-    process_status("ruff", args.status)
-
-
-# TODO: add an option to set the output processor function
-@register_line_magic
-def checker(line: str) -> None:
-    """Define or turn on/off a given checker."""
-    global checkers, active
-
-    args = line.split()
-    if len(args) == 0:
-        print("Active checkers:", *active)
-        print("Inactive checkers:", *(set(checkers) - active))
-        return
-
-    name = args[0]
-    if len(args) == 1:
-        if name not in checkers:
-            print(f"Checker {name} isn't defined.")
-        else:
-            status = "active" if name in active else "inactive"
-            print(f"Checker {name} is {status} and defined as '{checkers[name]}'.")
-    elif args[1].lower() == "on":
-        if name not in checkers:
-            print(f"Error: checker {name} isn't defined.")
-        else:
-            active.add(name)
-            print(f"Checker {name} has been activated.")
-    elif args[1].lower() == "off":
-        if name not in checkers:
-            print(f"Error: checker {name} isn't defined.")
-        else:
-            active.discard(name)
-            print(f"Checker {name} has been deactivated.")
+    parser = argparse.ArgumentParser("ruff")
+    parser.add_argument("status",
+        choices=["on", "off"],
+        type=str.lower,
+        help="Activate or deactivate the linter. If omitted, show the current status.",
+        nargs="?",
+        default=None,
+    )
+    parser.add_argument("--select",
+        help="Comma-separated list of rule codes to enable",
+        type=str,
+        default="A,B,C90,D,E,W,F,N,PL",
+    )
+    parser.add_argument("--ignore",
+        help="Comma-separated list of rule codes to ignore",
+        type=str,
+        default="D100,W292,F401,F821,D203,D213,D415",
+    )
+    known, unknown = parser.parse_known_args(line.split())
+    if known.status != "on" and (known or unknown):
+        print("warning: ignoring additional options for %ruff")
     else:
-        command = " ".join(args[1:])
-        status = "redefined" if name in checkers else "defined"
-        checkers[name] = command
-        active.add(name)
-        print(f"Checker {name} has been {status} and activated.")
+        base = ["ruff", "check", "--output-format", "json"]
+        rules = ["--select", known.select, "--ignore", known.ignore]
+        checkers["ruff"][0] = base + rules + unknown
+    process_status("ruff", known.status)
 
 
 def run_checkers(result) -> None:
@@ -257,10 +235,10 @@ def run_checkers(result) -> None:
 
 def load_ipython_extension(ipython):
     """Loads the ipython extension, and registers run_checkers with post_cell_run
-    
+
     This function hooks into the ipython extension system so the magic commands defined
-    in this module can be loaded with `load_ext algoesup.magics`. It also registers 
-    `run_checkers` with the `post_run_cell` event so the linters are run with the 
+    in this module can be loaded with `load_ext algoesup.magics`. It also registers
+    `run_checkers` with the `post_run_cell` event so the linters are run with the
     contents of each ipython cell after it has been executed.
     """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]
