@@ -7,27 +7,37 @@ import re
 import subprocess
 import tempfile
 from typing import Callable
+from subprocess import CompletedProcess
 
 from IPython.core.inputtransformer2 import TransformerManager
 from IPython.core.magic import register_line_magic
 from IPython.display import display_markdown
 
 
-def show_errors(checker: str, output: str, filename: str) -> None:
-    """Print the errors for the given file in the checker's output."""
-    md = [f"**{checker}** found issues:"]
-    for line in output.split("\n"):
-        if "syntax" in line.lower() and "error" in line.lower():
-            continue  # syntax errors already reported when running the cell
-        if m := re.match(rf".*{filename}[^\d]*(\d+[^:]*:.*)", line):
-            md.append(f"- {m.group(1)}")
-    if len(md) > 1:
-        display_markdown("\n".join(md), raw=True)
+def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -> None:
+    """Print the errors for the given file in allowed's output."""
+    if output.returncode > 0:
+        error_msg = "Error on executing allowed:"
+        if output.stderr:
+            print(f"{error_msg}\n{output.stderr}")
+        else:
+            print(f"{error_msg}\n{output.stdout}")
+    else:
+        md = [f"**{checker}** found issues:"]
+        for line in output.stdout.split("\n"):
+            if "syntax" in line.lower() and "error" in line.lower():
+                continue  # syntax errors already reported when running the cell
+            if m := re.match(rf".*{filename}[^\d]*(\d+[^:]*:.*)", line):
+                md.append(f"- {m.group(1)}")
+        if len(md) > 1:
+            display_markdown("\n".join(md), raw=True)
 
 
-def show_ruff_json(checker: str, output: str, filename: str) -> None:
+def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in ruff's JSON output for the given file."""
-    if errors := json.loads(output):
+    if output.stderr:
+        print(f"Error on executing ruff:\n{output.stderr}")
+    elif errors := json.loads(output.stdout):
         md = [f"**{checker}** found issues:"]
         # the following assumes errors come in line order
         for error in errors:
@@ -41,27 +51,30 @@ def show_ruff_json(checker: str, output: str, filename: str) -> None:
         display_markdown("\n".join(md), raw=True)
 
 
-def show_pytype_errors(checker: str, output: str, filename: str) -> None:
+def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in pytype's output for the given file."""
-    md = [f"**{checker}** found issues:"]
-    for error in output.split("\n"):
-        if "syntax" in error.lower() and "error" in error.lower():
-            continue  # syntax errors already reported when running the cell
-        if m := re.match(rf".*{filename}[^\d]*(\d+)[^:]*:(.*)\[(.*)\]", error):
-            line = m.group(1)
-            msg = m.group(2)
-            code = m.group(3)
-            md.append(
-                rf"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
-            )
-    if len(md) > 1:
-        display_markdown("\n".join(md), raw=True)
+    if output.stderr:
+        print(f"Error on executing pytype:\n{output.stderr}")
+    else:
+        md = [f"**{checker}** found issues:"]
+        for error in output.stdout.split("\n"):
+            if "syntax" in error.lower() and "error" in error.lower():
+                continue  # syntax errors already reported when running the cell
+            if m := re.match(rf".*{filename}[^\d]*(\d+)[^:]*:(.*)\[(.*)\]", error):
+                line = m.group(1)
+                msg = m.group(2)
+                code = m.group(3)
+                md.append(
+                    rf"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
+                )
+        if len(md) > 1:
+            display_markdown("\n".join(md), raw=True)
 
 
 # register the supported checkers, their commands and the output processor
 checkers: dict[str, tuple[str, Callable]] = {
     "pytype": [["pytype"], show_pytype_errors],
-    "allowed": [["allowed"], show_errors],
+    "allowed": [["allowed"], show_allowed_errors],
     "ruff": [["ruff", "check", "--output-format", "json"], show_ruff_json],
 }
 # initially no checker is active
@@ -223,7 +236,7 @@ def run_checkers(result) -> None:
             try:
                 output = subprocess.run(
                     lint_file, capture_output=True, text=True, check=False,
-                ).stdout
+                )
                 display(checker, output, temp_name)
             except Exception as e:
                 print(f"Error on executing {command[0]}:\n{e}")
@@ -234,11 +247,11 @@ def run_checkers(result) -> None:
 
 
 def load_ipython_extension(ipython):
-    """Loads the ipython extension, and registers run_checkers with post_cell_run
+    """Load the ipython extension, and register run_checkers with post_cell_run
 
     This function hooks into the ipython extension system so the magic commands defined
-    in this module can be loaded with `load_ext algoesup.magics`. It also registers
-    `run_checkers` with the `post_run_cell` event so the linters are run with the
+    in this module can be loaded with `load_ext algoesup.magics`. It also registers 
+    `run_checkers` with the `post_run_cell` event so the linters are run with the 
     contents of each ipython cell after it has been executed.
     """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]
