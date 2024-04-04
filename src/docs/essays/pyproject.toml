@@ -6,7 +6,7 @@ disable = [
     "import-error", # for some reason, pytype isn't finding local modules
 ]
 
-[tool.ruff.lint]
+[tool.ruff]
 output-format = "pylint"
 select = [      # enable checks taken from the following linters:
     "A",        # flake8-builtins

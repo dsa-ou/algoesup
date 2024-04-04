@@ -28,7 +28,7 @@ ipython = "^8.13.1"
 matplotlib = "^3.4.2"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.3.5"
+ruff = "^0.1.11"
 allowed = "^1.3"
 pytype = {version = ">=2023.04.27", markers = "platform_system != 'Windows'"}
 mkdocs = "^1.5.3"
