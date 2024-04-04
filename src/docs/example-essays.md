@@ -11,9 +11,13 @@ To get an editable version of a template to start writing your own essay,
 _right_-click on a download button. From the pop-up menu, choose 'Save file as...'
 (or similar) to save the template in a folder of your choice.
 
-If you're using Deepnote, you don't need to download anything because
-you will have the essay templates and examples once you copied our essay project,
-as explained in [Getting started (Deepnote)](getting-started.md).
+!!! tip "Deepnote"
+    You don't need to download anything because
+    you will have the essay templates and examples once you copied our essay project,
+    as explained in [Getting started (Deepnote)](getting-started.md).
+!!! tip "Colab"
+    You don't need to download any template because you can open them directly,
+    as explained in [Getting started (Colab)](getting-started-google-colab.md).
 
 ## Sum of 1 to *n*
 

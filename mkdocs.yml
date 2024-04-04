@@ -58,6 +58,8 @@ theme:
     # - toc.integrate       # show TOC in left panel, not separate right panel
   icon:                   # icon next to repo url/name
     repo: fontawesome/brands/github
+    admonition:
+      tip: material/lightbulb-on
   palette:
     - scheme: default     # light mode
       toggle:
@@ -86,6 +88,7 @@ nav:
   #   - essays/example-two-sum-3.ipynb
   - Guides:
     - writing.md
+    - coding.ipynb
     - feedback.md
   - Library:
     - Reference: library.md
