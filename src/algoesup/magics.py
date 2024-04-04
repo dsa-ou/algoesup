@@ -17,11 +17,8 @@ from IPython.display import display_markdown
 def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors for the given file in allowed's output."""
     if output.returncode > 0:
-        error_msg = "Error on executing allowed:"
-        if output.stderr:
-            print(f"{error_msg}\n{output.stderr}")
-        else:
-            print(f"{error_msg}\n{output.stdout}")
+        display_markdown(f"**{checker}** didn't check code:", raw=True)
+        print(output.stderr if output.stderr else output.stdout)
     else:
         md = [f"**{checker}** found issues:"]
         for line in output.stdout.split("\n"):
@@ -36,7 +33,10 @@ def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -
 def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in ruff's JSON output for the given file."""
     if output.stderr:
-        print(f"Error on executing ruff:\n{output.stderr}")
+        # ignore syntax errors: they're reported on running the cell
+        if not "Failed to parse" in output.stderr:
+            display_markdown(f"**{checker}** didn't check code:", raw=True)
+            print(output.stderr)
     elif errors := json.loads(output.stdout):
         md = [f"**{checker}** found issues:"]
         # the following assumes errors come in line order
@@ -54,12 +54,15 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
 def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in pytype's output for the given file."""
     if output.stderr:
-        print(f"Error on executing pytype:\n{output.stderr}")
+        display_markdown(f"**{checker}** didn't check code:", raw=True)
+        print(output.stderr)
     else:
         md = [f"**{checker}** found issues:"]
         for error in output.stdout.split("\n"):
             if "syntax" in error.lower() and "error" in error.lower():
                 continue  # syntax errors already reported when running the cell
+            if "python-compiler-error" in error:
+                continue
             if m := re.match(rf".*{filename}[^\d]*(\d+)[^:]*:(.*)\[(.*)\]", error):
                 line = m.group(1)
                 msg = m.group(2)
