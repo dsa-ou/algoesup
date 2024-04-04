@@ -111,7 +111,7 @@ def pytype(line: str) -> None:
     For a list of possible options `...`, enter `!pytype -h` in a code cell.
     Some options may not be appropriate when running pytype within a notebook.
 
-    The `--disable` option expects a list of 
+    The `--disable` option expects a list of
     [errors](https://google.github.io/pytype/errors.html) to ignore, without spaces.
     """
     parser = argparse.ArgumentParser("pytype")
@@ -188,7 +188,7 @@ def ruff(line: str) -> None:
     - `%ruff` shows the current status of the linter
     - `%ruff?` shows this documentation
 
-    The command `%ruff on ...` will run `ruff check --output-format json ...` on each cell. 
+    The command `%ruff on ...` will run `ruff check --output-format json ...` on each cell.
     For a list of the possible options `...`, enter `!ruff help check` in a code cell.
     Some options may not be appropriate when running Ruff within a notebook.
 
@@ -253,8 +253,8 @@ def load_ipython_extension(ipython):
     """Load the ipython extension, and register run_checkers with post_cell_run
 
     This function hooks into the ipython extension system so the magic commands defined
-    in this module can be loaded with `load_ext algoesup.magics`. It also registers 
-    `run_checkers` with the `post_run_cell` event so the linters are run with the 
+    in this module can be loaded with `load_ext algoesup.magics`. It also registers
+    `run_checkers` with the `post_run_cell` event so the linters are run with the
     contents of each ipython cell after it has been executed.
     """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]
