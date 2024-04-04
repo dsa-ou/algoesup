@@ -265,7 +265,7 @@ You may thus wish to initially turn off the type checking, with `%pytype off`,
 and only turn it on after all code is written and tested.
 You will have to run all cells of your notebook for the type checking to take place.
 
-For a list of all the options for the `%pytype` command, 
+For a list of all the options for the `%pytype` command,
 see the [library reference](library.md#algoesup.magics.pytype).
 
 ### Formatting
@@ -290,7 +290,7 @@ so you will see fewer warnings in the next stage.
 You should **lint** your code, which means to check it for style violations.
 
 #### Code style
-Our library supports `ruff`, the fastest Python linter. 
+Our library supports `ruff`, the fastest Python linter.
 To turn it on, write the following after loading the `algoesup.magics` extension.
 ```python
 %ruff on
@@ -381,7 +381,7 @@ if it has several constructs that weren't taught, none of them is reported.
 
 The `allowed` linter also includes the configuration for TM112, our introductory Computing course,
 in case you want to use even fewer constructs in your essay.
-To use that configuration, write `%allowed --config tm112.json on`.
+To use that configuration, write `%allowed on --config tm112.json`.
 For a list of all the options for the `%allowed` command, 
 see the [library reference](library.md#algoesup.magics.allowed).
 

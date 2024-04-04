@@ -1140,7 +1140,15 @@ the expected output value.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">(</span><span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">(</span>
+    <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
+    <span class="n">inputs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1303,7 +1311,14 @@ Must be 1 to 6 functions.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span>
+    <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+    <span class="n">cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1452,7 +1467,14 @@ e.g. best-, normal- and worst-case.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions_int</span><span class="p">(</span><span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span> <span class="n">generator</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">int_value</span><span class="p">,</span> <span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">double</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions_int</span><span class="p">(</span>
+    <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
+    <span class="n">generator</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">int_value</span><span class="p">,</span>
+    <span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">double</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">chart</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1620,14 +1642,16 @@ Defaults to 10. Must be non-negative.</p>
 <p>When active, the linter checks each code cell that is executed for any
 Python constructs that are not listed in the given configuration file.</p>
 <ul>
-<li><code>%allowed --config ... on</code> activates the linter with the given configuration,
-  which must be <code>m269.json</code>, <code>tm112.json</code> or 
-  <a href="https://dsa-ou.github.io/allowed/docs/configuration.html">one you defined</a></li>
-<li><code>%allowed on</code> is equal to <code>%allowed --config m269.json on</code></li>
+<li><code>%allowed on ...</code> activates the linter with any command options given after <code>on</code></li>
+<li><code>%allowed on</code> is equal to <code>%allowed on --config m269.json</code></li>
 <li><code>%allowed off</code> deactivates the linter</li>
 <li><code>%allowed</code> shows the current status of the linter</li>
 <li><code>%allowed?</code> shows this documentation and the command&rsquo;s options</li>
 </ul>
+<p>For a list of possible options <code>...</code>, enter <code>!allowed -h</code> in a code cell.
+Some options may not be appropriate when running <code>allowed</code> within a notebook.</p>
+<p>The <code>--config</code> option expects <code>m269.json</code>, <code>tm112.json</code> or the name of a JSON file
+with your own <a href="https://dsa-ou.github.io/allowed/docs/configuration.html">configuration</a>.</p>
 
   </div>
 
@@ -1651,13 +1675,16 @@ Python constructs that are not listed in the given configuration file.</p>
       <p>Activate/deactivate the <a href="https://google.github.io/pytype">pytype linter</a>.</p>
 <p>When active, the linter checks each code cell that is executed for type errors.</p>
 <ul>
-<li><code>%pytype --disable ... on</code> activates the linter but does not check the given errors
-  (see the <a href="https://google.github.io/pytype/errors.html">list of errors</a>)</li>
-<li><code>%pytype on</code> is equal to <code>%pytype --disable name-error,import-error on</code></li>
+<li><code>%pytype on ...</code> activates the linter with the command options given after <code>on</code></li>
+<li><code>%pytype on</code> is equal to <code>%pytype on --disable name-error,import-error</code></li>
 <li><code>%pytype off</code> deactivates the linter</li>
 <li><code>%pytype</code> shows the current status of the linter</li>
 <li><code>%pytype?</code> shows this documentation and the command&rsquo;s options</li>
 </ul>
+<p>For a list of possible options <code>...</code>, enter <code>!pytype -h</code> in a code cell.
+Some options may not be appropriate when running pytype within a notebook.</p>
+<p>The <code>--disable</code> option expects a list of 
+<a href="https://google.github.io/pytype/errors.html">errors</a> to ignore, without spaces.</p>
 
   </div>
 
@@ -1682,13 +1709,18 @@ Python constructs that are not listed in the given configuration file.</p>
 <p>When active, the linter checks each code cell that is executed
 against the selected code style rules.</p>
 <ul>
-<li><code>%ruff --select ... --ignore ... on</code> activates the linter with the given rules
-  (see <a href="https://docs.astral.sh/ruff/rules">the list of rules</a>)</li>
-<li><code>%ruff on</code> is equal to <code>%ruff --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415 on</code></li>
+<li><code>%ruff on ...</code> activates the linter with any command options given after <code>on</code>
+  (see [ruff&rsquo;s list of rules])</li>
+<li><code>%ruff on</code> is equal to <code>%ruff on --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415</code></li>
 <li><code>%ruff off</code> deactivates the linter</li>
 <li><code>%ruff</code> shows the current status of the linter</li>
-<li><code>%ruff?</code> shows this documentation and the command&rsquo;s options</li>
+<li><code>%ruff?</code> shows this documentation</li>
 </ul>
+<p>The command <code>%ruff on ...</code> will run <code>ruff check --output-format json ...</code> on each cell. 
+For a list of the possible options <code>...</code>, enter <code>!ruff help check</code> in a code cell.
+Some options may not be appropriate when running Ruff within a notebook.</p>
+<p>The <code>--select</code> and <code>--ignore</code> options expect a list
+of <a href="https://docs.astral.sh/ruff/rules">rule codes</a>, without spaces.</p>
 
   </div>
 

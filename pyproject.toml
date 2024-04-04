@@ -36,6 +36,7 @@ mkdocs-material = "^9.5.11"
 mkdocstrings = { version = "^0.24.0", extras = ["python"] }
 mkdocs-jupyter = "^0.24.0"
 mkdocs-open-in-new-tab = "^1.0.3"
+black = "^24.3.0"
 
 [build-system]
 requires = ["poetry-core"]

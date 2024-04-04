@@ -1348,7 +1348,7 @@ There won't be any messages in this notebook because the code passes all checks.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy for="cell-3">
@@ -1365,13 +1365,13 @@ There won't be any messages in this notebook because the code passes all checks.
 <span class="c1"># check the code for style violations</span>
 <span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
 <span class="c1"># check that only the subset of Python taught in our introductory course TM112 is used</span>
-<span class="o">%</span><span class="n">allowed</span> <span class="o">--</span><span class="n">config</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span> <span class="n">on</span>
+<span class="o">%</span><span class="n">allowed</span> <span class="n">on</span> <span class="o">--</span><span class="n">config</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">%load_ext algoesup.magics
 # check the code for style violations
 %ruff on
 # check that only the subset of Python taught in our introductory course TM112 is used
-%allowed --config tm112.json on</div>
+%allowed on --config tm112.json</div>
 </div>
 </div>
 </div>
