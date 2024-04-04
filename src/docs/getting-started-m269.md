@@ -13,7 +13,7 @@ test, check the style, and measure the run-time of code.
     - Open a PowerShell (Windows) or terminal (Linux / macOS), and enter `m269-23j`.
     - The prompt should now be `(m269-23j) ...` and you should be in your M269 folder.
 2. To install the software, enter `pip install algoesup ruff` in the PowerShell / terminal.
-   
+
     !!! note
         You also need the most recent version of `allowed`, which is available
         from the Resources tab of the M269 website.
