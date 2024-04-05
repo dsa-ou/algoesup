@@ -1,4 +1,4 @@
-# Getting started
+# Getting started (Deepnote)
 
 Follow these steps to start writing essays within a few minutes,
 without any software installation or configuration.
@@ -55,7 +55,7 @@ The project has all necessary software pre-installed.
 
 You should now see some notebooks in the left panel.
 
-## Copy a template and edit it
+## Copy a template 
 
 We provide two templates as starting points for your essay.
 One template is simpler, with introductory programming in mind,
@@ -67,11 +67,46 @@ To write an essay, copy one of the templates and edit that copy.
 3. In the pop-up menu that appears, select **Duplicate**.
 
 This creates a new notebook, with the name of the template followed by '-2', and opens it.
-You can now start editing your copy of the template.
-(Once you decided your essay's topic, you can
-[rename the notebook](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file).)
+
+Once you decided your essay's topic, you can
+[rename the notebook](deepnote-how-to.md#rename-duplicate-download-or-delete-a-notebook-or-file).
+
+## Write the essay
+
+Now that you have copied and renamed a template you can start writing your essay in Deepnote.
 
 If you're familiar with the classic Jupyter interface, we recommend you first
 read about the [differences](deepnote-background.md#deepnote-vs-classic-notebook) with Deepnote.
 
 For a video introduction to notebooks and Deepnote, see our [Deepnote guide](deepnote.md).
+
+For guidance on writing algorithmic essays see our [writing](writing.md) and
+[coding](coding.ipynb) guides.
+
+## Share the essay
+
+When you are ready to share the essay with others, do the following.
+
+1. [Enabled sharing](deepnote-how-to.md#enable-sharing) for your workspace.
+2. Click the **Share** button in the top right corner of the screen.
+3. To the right of **Anyone with a link to this project**, click on the drop-down menu and select **Comment**.
+4. Click the highlighted blue **link to this project**, to copy the link.
+5. Share that link with your peers by email or by posting in your course's forum.
+
+## Comment on essays
+
+After sharing your essay, others will be able to comment on it. You can also make comments on essays as part of the feedback process.
+See out [feedback guide](feedback.md) for more information.
+
+If you have comment permissions, do *one* of the following to make a comment:
+
+- Press Ctrl + Alt + C (Mac: Cmd + Alt + C) if the cell is [selected](#notebook-operations).
+- Click the speech bubble icon in the top right corner of the cell.
+
+After typing your comment, press the upwards blue arrow to finish.
+
+!!! warning
+    You must be logged into your account to comment on notebooks shared with you.
+    If you're not logged in, your comments are marked as 'anonymous user' and
+    the essay's author won't see them.
+

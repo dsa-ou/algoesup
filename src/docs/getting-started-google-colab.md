@@ -29,7 +29,7 @@ you can start writing your essay in Colab.
 For how to use Jupyter notebooks in Colab, read through the
 [Overview of Colaboratory Features](https://colab.research.google.com/notebooks/basic_features_overview.ipynb).
 
-For guidance on writing algorithmic essays, see our [writing guide](writing.md).
+For guidance on writing algorithmic essays, see our [writing](writing.md) and [coding](coding.ipynb) guides.
 
 ## Share the essay
 
