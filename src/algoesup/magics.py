@@ -114,6 +114,10 @@ def pytype(line: str) -> None:
 
     The `--disable` option expects a list of
     [errors](https://google.github.io/pytype/errors.html) to ignore, without spaces.
+    By default, `%pylint` ignores these errors:
+
+    - name-error: cells often use names defined in previous cells
+    - import-error: pytype doesn't find local modules
     """
     parser = argparse.ArgumentParser("pytype")
     parser.add_argument("status",
@@ -195,6 +199,20 @@ def ruff(line: str) -> None:
 
     The `--select` and `--ignore` options expect a list
     of [rule codes](https://docs.astral.sh/ruff/rules), without spaces.
+
+    By default, `%ruff` enables the rules from
+    flake8-builtins (A), flake8-bugbear (B), mccabe (C90), pydocstyle (D),
+    pycodestyle (E, W), pyflakes (F), pep8-naming (N), and pylint (PL).
+
+    By default, `%ruff` ignores these rules:
+
+    - D100: Missing docstring in public module (notebooks aren't modules)
+    - W292: No newline at end of file (cells don't have a trailing blank line)
+    - F401: Imported but unused (cells often import modules that are used later)
+    - F821: Undefined name (cells often use names defined in previous cells)
+    - D203: use D211 instead (no blank line before class docstring)
+    - D213: use D212 instead (docstring starts right after \"\"\")
+    - D415: use D400 instead (first line of docstring must end in .)
     """
     parser = argparse.ArgumentParser("ruff")
     parser.add_argument("status",

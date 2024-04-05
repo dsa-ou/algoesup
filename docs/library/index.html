@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e359304.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bcfcd587.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1072,7 +1072,7 @@
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">test</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">test_table</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">test</span><span class="p">(</span><span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">test_table</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1169,7 +1169,7 @@ the expected output value.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions</span><span class="p">(</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">time_functions</span><span class="p">(</span>
     <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
     <span class="n">inputs</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1340,7 +1340,7 @@ Must be 1 to 6 functions.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_cases</span><span class="p">(</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">time_cases</span><span class="p">(</span>
     <span class="n">function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
     <span class="n">cases</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
     <span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -1496,7 +1496,7 @@ e.g. best-, normal- and worst-case.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">time_functions_int</span><span class="p">(</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">time_functions_int</span><span class="p">(</span>
     <span class="n">functions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Callable</span><span class="p">],</span>
     <span class="n">generator</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="n">int_value</span><span class="p">,</span>
     <span class="n">start</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
@@ -1662,7 +1662,7 @@ Defaults to 10. Must be non-negative.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">allowed</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">allowed</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1696,7 +1696,7 @@ with your own <a href="https://dsa-ou.github.io/allowed/docs/configuration.html"
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">pytype</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">pytype</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1713,7 +1713,12 @@ with your own <a href="https://dsa-ou.github.io/allowed/docs/configuration.html"
 <p>For a list of possible options <code>...</code>, enter <code>!pytype -h</code> in a code cell.
 Some options may not be appropriate when running pytype within a notebook.</p>
 <p>The <code>--disable</code> option expects a list of
-<a href="https://google.github.io/pytype/errors.html">errors</a> to ignore, without spaces.</p>
+<a href="https://google.github.io/pytype/errors.html">errors</a> to ignore, without spaces.
+By default, <code>%pylint</code> ignores these errors:</p>
+<ul>
+<li>name-error: cells often use names defined in previous cells</li>
+<li>import-error: pytype doesn&rsquo;t find local modules</li>
+</ul>
 
   </div>
 
@@ -1729,7 +1734,7 @@ Some options may not be appropriate when running pytype within a notebook.</p>
 
 
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">ruff</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">ruff</span>
 </code></pre></div>
 
   <div class="doc doc-contents ">
@@ -1750,6 +1755,19 @@ For a list of the possible options <code>...</code>, enter <code>!ruff help chec
 Some options may not be appropriate when running Ruff within a notebook.</p>
 <p>The <code>--select</code> and <code>--ignore</code> options expect a list
 of <a href="https://docs.astral.sh/ruff/rules">rule codes</a>, without spaces.</p>
+<p>By default, <code>%ruff</code> enables the rules from
+flake8-builtins (A), flake8-bugbear (B), mccabe (C90), pydocstyle (D),
+pycodestyle (E, W), pyflakes (F), pep8-naming (N), and pylint (PL).</p>
+<p>By default, <code>%ruff</code> ignores these rules:</p>
+<ul>
+<li>D100: Missing docstring in public module (notebooks aren&rsquo;t modules)</li>
+<li>W292: No newline at end of file (cells don&rsquo;t have a trailing blank line)</li>
+<li>F401: Imported but unused (cells often import modules that are used later)</li>
+<li>F821: Undefined name (cells often use names defined in previous cells)</li>
+<li>D203: use D211 instead (no blank line before class docstring)</li>
+<li>D213: use D212 instead (docstring starts right after &ldquo;&rdquo;&ldquo;)</li>
+<li>D415: use D400 instead (first line of docstring must end in .)</li>
+</ul>
 
   </div>
 
@@ -1892,7 +1910,7 @@ of <a href="https://docs.astral.sh/ruff/rules">rule codes</a>, without spaces.</
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.sections"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../assets/javascripts/bundle.1e8ae164.min.js"></script>
       
         <script src="../js/open_in_new_tab.js"></script>
       
