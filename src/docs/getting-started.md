@@ -73,32 +73,33 @@ Once you decided your essay's topic, you can
 
 ## Write the essay
 
-Now that you have copied and renamed a template you can start writing your essay in Deepnote.
+Now that you have copied and renamed a template, you can start writing your essay in Deepnote.
 
 If you're familiar with the classic Jupyter interface, we recommend you first
 read about the [differences](deepnote-background.md#deepnote-vs-classic-notebook) with Deepnote.
 
 For a video introduction to notebooks and Deepnote, see our [Deepnote guide](deepnote.md).
 
-For guidance on writing algorithmic essays see our [writing](writing.md) and
+For guidance on writing algorithmic essays, see our [writing](writing.md) and
 [coding](coding.ipynb) guides.
 
 ## Share the essay
 
 When you are ready to share the essay with others, do the following.
 
-1. [Enabled sharing](deepnote-how-to.md#enable-sharing) for your workspace.
+1. [Enable sharing](deepnote-how-to.md#enable-sharing) for your workspace.
 2. Click the **Share** button in the top right corner of the screen.
 3. To the right of **Anyone with a link to this project**, click on the drop-down menu and select **Comment**.
 4. Click the highlighted blue **link to this project**, to copy the link.
 5. Share that link with your peers by email or by posting in your course's forum.
 
+For suggestions on how to ask for feedback on your shared essay, see our [feedback guide](feedback.md)
+
 ## Comment on essays
 
-After sharing your essay, others will be able to comment on it. You can also make comments on essays as part of the feedback process.
-See out [feedback guide](feedback.md) for more information.
-
-If you have comment permissions, do *one* of the following to make a comment:
+Once an essay has been shared with you, you can comment on it. See our guide on how
+to [leave feedback](feedback.md). If you have comment permissions, do *one* of
+the following to make a comment:
 
 - Press Ctrl + Alt + C (Mac: Cmd + Alt + C) if the cell is [selected](#notebook-operations).
 - Click the speech bubble icon in the top right corner of the cell.

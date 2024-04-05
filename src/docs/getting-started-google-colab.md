@@ -42,11 +42,12 @@ When you are ready to share the essay with others, do the following:
 3. Click the **Copy link** button to put the link in your clipboard.
 4. Click **Done** to close the window and share the link with your peers.
 
+For suggestions on how to ask for feedback on your shared essay, see our [feedback guide](feedback.md)
+
+
 ## Comment on essays
 
-After sharing your essay, others will be able to comment on it.
-You can also make comments on essays as part of the feedback process.
-See our [feedback guide](feedback.md) for more information.
+Once an essay has been shared with you, you can comment on it. See our guide on how to [leave feedback](feedback.md).
 
 In Colab, comments are attached to a cell and are displayed next to the cell they refer to.
 
