@@ -18,7 +18,7 @@ test, check the style, and measure the run-time of code.
         You also need the most recent version of `allowed`, which is available
         from the Resources tab of the M269 website.
 
-## Copy template
+## Copy an essay template
 
 We have created templates to serve as starting points for your essay.
 
@@ -37,6 +37,9 @@ you do with the book's chapters and your TMAs.
 1. Open a PowerShell or terminal.
 2. Enter `m269-23j` to activate your M269 environment and go to your M269 folder.
 3. Enter `nb` to open the Jupyter dashboard, from which you can open the essay.
+
+For guidance on writing algorithmic essays see our [writing](writing.md) and
+[coding](coding.ipynb) guides.
 
 ## Share the essay
 
