@@ -8,7 +8,7 @@ def test(function: Callable, test_table: list) -> None:
 
     Args:
         function (Callable): The function to be tested.
-        test_table (list): The list of tests. Each element of test_table is a list or 
+        test_table (list): The list of tests. Each element of test_table is a list or
             tuple with: a string (the test case name); one or more values (the inputs to the function);
             the expected output value.
     """
@@ -26,8 +26,10 @@ def test(function: Callable, test_table: list) -> None:
             invalid.append(f"test case {num} must have string as first element.")
         elif len(test_case[1:-1]) != expects:
             num_args = len(test_case[1:-1])
-            invalid.append(f"test case \"{test_case[0]}\" has {num_args} input(s) instead of {expects}")
-    if invalid: 
+            invalid.append(
+                f'test case "{test_case[0]}" has {num_args} input(s) instead of {expects}'
+            )
+    if invalid:
         for msg in invalid:
             print(f"Error: {msg}")
         print(not_tested)
