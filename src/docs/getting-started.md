@@ -83,6 +83,10 @@ For a video introduction to notebooks and Deepnote, see our [Deepnote guide](dee
 For guidance on writing algorithmic essays, see our [writing](writing.md) and
 [coding](coding.ipynb) guides.
 
+!!! info
+    If an error occurs in a cell, click on the **Show error details** box in 
+    the bottom right corner of the cell to show the full stack trace.
+
 ## Share the essay
 
 When you are ready to share the essay with others, do the following.

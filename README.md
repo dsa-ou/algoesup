@@ -33,7 +33,8 @@ To preview the documentation that will be in GitHub Pages, enter `poetry run mkd
 The documentation must be written in strict Markdown: 
 blank line before a new list; line breaks are two spaces; indentation is 4 spaces.
 
-To build the documentation in the `docs/` folder from the `src/docs` files, 
+To build the documentation in the `docs/` folder from the `src/docs` files, first enter
+`poetry install` to update your development environment, then 
 enter `poetry run mkdocs build`.
 (Don't use `mkdocs gh-deploy` because it pushes untracked and other files, 
 without giving you a chance to check what will be pushed.)
