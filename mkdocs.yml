@@ -20,7 +20,7 @@ plugins:
           show_source: false
 - mkdocs-jupyter
 - open-in-new-tab
-- search        
+- search
 
 watch:                    # folders that `mkdocs serve` will watch for changes
 - src/algoesup
@@ -77,7 +77,6 @@ nav:
     - Get started (Deepnote): getting-started.md
     - Get started (Google Colab): getting-started-google-colab.md
     - Get started (M269): getting-started-m269.md
-    - Comparison of Jupyter Notebook Platforms: jn-platform-comparison.md
   # not in the nav panel due to https://github.com/danielfrg/mkdocs-jupyter/issues/189
   # - Templates:
   #   - Basic: essays/template-intro-programming.ipynb
@@ -91,6 +90,7 @@ nav:
     - writing.md
     - coding.ipynb
     - feedback.md
+    - jn-platform-comparison.md
   - Library:
     - Reference: library.md
   - Deepnote:
