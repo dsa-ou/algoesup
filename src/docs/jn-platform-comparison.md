@@ -107,9 +107,10 @@ to a terminal, allows linters and formatters to be used on these files.
 ## Comparison table
 
 You may need to scroll sideways to see all columns.
+You can sort the table by clicking on any column header.
 
 Some platforms may no longer exist, or may have changed their name or URL,
-since this comparison was made, in ... <mark>MW: add month and year</mark>
+since we compared them in ... <mark>MW: add month and year</mark>
 
 | Platform                     | .ipynb Compatibility | Free Account | Hosting       | Customisable Run-time | Share via Links | GitHub Integration | Interface     | Real-time Collaboration | Commenting on Cells | Terminal & File System Access | Access to Notebook Files |
 |------------------------------|----------------------|--------------|---------------|-----------------------|-----------------|--------------------|---------------|-------------------------|----------------------|-------------------------------|--------------------------|
