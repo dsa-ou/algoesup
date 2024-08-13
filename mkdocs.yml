@@ -20,7 +20,7 @@ plugins:
           show_source: false
 - mkdocs-jupyter
 - open-in-new-tab
-- search        
+- search
 
 watch:                    # folders that `mkdocs serve` will watch for changes
 - src/algoesup
@@ -44,6 +44,10 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css # change look of admonitions
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 
 theme:
   name: material
@@ -90,6 +94,7 @@ nav:
     - writing.md
     - coding.ipynb
     - feedback.md
+    - jn-platform-comparison.md
   - Library:
     - Reference: library.md
   - Deepnote:
