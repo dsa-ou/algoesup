@@ -17,8 +17,9 @@ We created these resources:
 - **Essay templates** that provide a starting point for writing essays.
 - A **library** of helper functions to easily test functions and measure their run-times.
 
-The guides are on our [documentation site](https://dsa-ou.github.io/algoesup) and
-the rest is in our [Deepnote project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/example-jewels-21dfeb1e2a8c4abd8ffb5d9ab40bef40),
+The library is on [PyPI](https://pypi.org/project/algoesup).
+The resources are on our [documentation site](https://dsa-ou.github.io/algoesup) and
+[Deepnote project](https://deepnote.com/workspace/lpsae-cc66-cd5cf5e4-ca6e-49d8-b6ee-dbbf202143d3/project/Algorithmic-Essays-acd23b74-5d63-4ef4-a991-3b8a049ddf6b/notebook/example-jewels-21dfeb1e2a8c4abd8ffb5d9ab40bef40),
 which you can copy to your Deepnote account.
 
 If you want to adapt this material to your course, this repository has
@@ -41,11 +42,13 @@ without giving you a chance to check what will be pushed.)
 
 When a new version of the library is to be put on PyPI:
 
-1. Run again the notebooks, to test the library.
-2. Re-generate the docs.
-3. Bump the version in `pyproject.toml` and `Deepnote/Dockerfile`,
+1. Run again the notebooks (including the coding guide), to test the library.
+2. Update the [changelog](CHANGELOG.md).
+3. Re-generate the docs as explained above.
+4. Bump the version in `pyproject.toml` and `Deepnote/Dockerfile`,
    so that a new docker image can be built.
-4. Commit with a tag indicating the new version.
+5. Commit with a tag indicating the new version.
+6. Run `poetry build` and `poetry publish`.
 
 ## Licences
 
