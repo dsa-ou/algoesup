@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "algoesup"
-version = "0.3.0"
+version = "0.3.1"
 description = "Algorithmic essay support library"
 authors = [
     "Michel Wermelinger <michel.wermelinger@open.ac.uk>",
@@ -11,8 +11,8 @@ packages = [
 ]
 readme = "src/README.md"
 license = "BSD-3-Clause"
-repository = "https://github.com/dsa-ou/algoesup"
-homepage = "https://dsa-ou.github.io/algoesup/"
+repository = "https://github.com/dsa-ou/algoesup/"
+documentation = "https://dsa-ou.github.io/algoesup/library/"
 keywords = ["education"]
 classifiers = [
     "Intended Audience :: Education",
@@ -21,6 +21,9 @@ classifiers = [
     "Topic :: Education",
     "Operating System :: OS Independent",
     ]
+
+[tool.poetry.urls]
+"Changelog" = "https://github.com/dsa-ou/algoesup/blob/main/CHANGELOG.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
