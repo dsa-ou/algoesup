@@ -52,22 +52,29 @@ def time_cases(
     function: Callable,
     cases: list[Callable],
     start: int,
-    double: int,
+    steps: int,
+    factor: float = 2,
+    increment: int = 0,
     text: bool = True,
     chart: bool = False,
 ) -> None:
     """Print or plot the run-times of `function` for different input cases.
     
     `time_cases` prints or plots the run-times of a single function using a list of 
-    different input generators. Inputs are generated based on a starting size and are 
-    doubled a specified number of times.
+    different input generators. Inputs are generated based on a starting size which is
+    multiplied by `factor` and summed with `increment` for `steps` number of iterations.
 
     Args:
         function (Callable): A function whose run-times will be measured.
         cases (list[Callable]): A list of 1 to 6 functions to generate inputs of different cases,
             e.g. best-, normal- and worst-case.
         start (int): The starting size for the inputs. Must be positive.
-        double (int): The number of times to double the input size. Must be non-negative.
+        steps (int): The number of times the starting input size is multiplied by factor and summed 
+            with increment. Must be non-negative.
+        factor (float, optional): The value that the starting input size is multiplied by.
+            Must be greater than or equal to 1.
+        increment (int, optional): The value that is added to the starting input size.
+            Must be greater than or equal to 0.
         text (bool, optional): If True, print the run-times in text format.
         chart (bool, optional): If True, plot the run-times using a chart.
     
@@ -75,13 +82,15 @@ def time_cases(
         AssertionError: If input conditions are not satisfied.
     """
     assert start > 0, "the start size must be positive"
-    assert double >= 0, "must double the input size at least zero times"
+    assert steps >= 0, "the number of steps can not be negative"
+    assert factor >= 1, "the factor must be greater than or equal to 1"
+    assert increment >= 0, "the increment can not be negative"
     assert 0 < len(cases) < 7, "there must be 1 to 6 input functions"
     assert text or chart, "at least one of text and chart must be enabled"
 
     sizes = [start]  # the input sizes used
-    for _ in range(double):
-        sizes.append(sizes[-1] * 2)
+    for _ in range(steps):
+        sizes.append((sizes[-1] * factor) + increment)
     scale = unit = None  # no scale determined yet
     if chart:
         markers = ["bo-", "ko--", "ro:", "ys-", "cs--", "gs:"]
@@ -122,7 +131,9 @@ def time_functions(
     functions: list[Callable],
     inputs: Callable,
     start: int,
-    double: int,
+    steps: int,
+    factor: float = 2,
+    increment: int = 0,
     text: bool = True,
     chart: bool = False,
     value: bool = False,
@@ -138,7 +149,12 @@ def time_functions(
             Must be 1 to 6 functions.
         inputs (Callable): A function to generate inputs when given a specific size.
         start (int): The starting size for the inputs. Must be positive.
-        double (int): The number of times to double the input size. Must be non-negative.
+        steps (int): The number of times the starting input size is multiplied by factor and summed 
+            with increment. Must be non-negative.
+        factor (float, optional): The value that the starting input size is multiplied by.
+            Must be greater than or equal to 1.
+        increment (int, optional): The value that is added to the starting input size.
+            Must be greater than or equal to 0.
         text (bool, optional): If True, print the run-times in text format
         chart (bool, optional): If True plot the run-times using a chart.
         value (bool, optional): If True x-axis is labelled "Input value" otherwise "Input size".
@@ -147,15 +163,17 @@ def time_functions(
         AssertionError: If input conditions are not satisfied.
     """
     assert start > 0, "the start size/value can't be negative"
-    assert double >= 0, "must double the input size/value at least zero times"
+    assert steps >= 0, "the number of steps can not be negative"
+    assert factor >= 1, "the factor must be greater than or equal to 1"
+    assert increment >= 0, "the increment can not be negative"
     assert 0 < len(functions) < 7, "there must be 1 to 6 functions"
     assert text or chart, "at least one of text and chart must be enabled"
 
     x_label = "Input " + ("value" if value else "size")
     text_width = len(x_label)
     sizes = [start]  # the input sizes used
-    for _ in range(double):
-        sizes.append(sizes[-1] * 2)
+    for _ in range(steps):
+        sizes.append((sizes[-1] * factor) + increment)
     scale = unit = None  # no scale determined yet
     if chart:
         markers = ["bo-", "ko--", "ro:", "ys-", "cs--", "gs:"]
@@ -198,7 +216,9 @@ def time_functions_int(
     functions: list[Callable],
     generator: Callable = int_value,
     start: int = 1,
-    double: int = 10,
+    steps: int = 10,
+    factor: float = 2,
+    increment: int = 0,
     text: bool = True,
     chart: bool = True,
 ) -> None:
@@ -216,9 +236,9 @@ def time_functions_int(
             `int_value`, which returns a tuple containing the input integer.
         start (int, optional): The starting integer value for inputs. Defaults to 1.
             Must be positive.
-        double (int, optional): The number of times to double the input integer value.
-            Defaults to 10. Must be non-negative.
+        steps (int): The number of times the starting input size is multiplied by factor and summed 
+            with increment. Must be non-negative.
         text (bool, optional): If True, print the run-times in text format. 
         chart (bool, optional): If True, plot the run-times using a chart. 
     """
-    time_functions(functions, generator, start, double, text, chart, True)
+    time_functions(functions, generator, start, steps, factor, increment, text, chart, True)
