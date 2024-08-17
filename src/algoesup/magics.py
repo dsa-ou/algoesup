@@ -20,13 +20,13 @@ def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -
         display_markdown(f"**{checker}** didn't check code:", raw=True)
         print(output.stderr if output.stderr else output.stdout)
     else:
-        md = [f"**{checker}** found issues:"]
+        md = [f"**{checker}** found issues:", ""]  # empty line before markdown list
         for line in output.stdout.split("\n"):
             if "syntax" in line.lower() and "error" in line.lower():
                 continue  # syntax errors already reported when running the cell
             if m := re.match(rf".*{filename}[^\d]*(\d+[^:]*:.*)", line):
                 md.append(f"- {m.group(1)}")
-        if len(md) > 1:
+        if len(md) > 2:
             display_markdown("\n".join(md), raw=True)
 
 
@@ -40,7 +40,7 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     if errors := json.loads(output.stdout):
-        md = [f"**{checker}** found issues:"]
+        md = [f"**{checker}** found issues:", ""]
         # the following assumes errors come in line order
         for error in errors:
             line = error["location"]["row"]
@@ -59,7 +59,7 @@ def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) ->
         text = "has warning:" if "warning" in output.stderr.lower() else "didn't check code:"
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
-    md = [f"**{checker}** found issues:"]
+    md = [f"**{checker}** found issues:", ""]
     for error in output.stdout.split("\n"):
         if "syntax" in error.lower() and "error" in error.lower():
             continue  # syntax errors already reported when running the cell
@@ -72,7 +72,7 @@ def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) ->
             md.append(
                 rf"- {line}:{msg}\[[{code}](https://google.github.io/pytype/errors.html#{code})\]"
             )
-    if len(md) > 1:
+    if len(md) > 2:
         display_markdown("\n".join(md), raw=True)
 
 # register the supported checkers, their commands and the output processor
