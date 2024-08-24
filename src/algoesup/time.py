@@ -62,7 +62,8 @@ def time_cases(
     
     `time_cases` prints or plots the run-times of a single function using a list of 
     different input generators. Inputs are generated based on a starting size which is
-    multiplied by `factor` and summed with `increment` for `steps` number of iterations.
+    multiplied by `factor` and summed with `increment` for a set number of times specified 
+    by `steps`.
 
     Args:
         function (Callable): A function whose run-times will be measured.
@@ -141,8 +142,8 @@ def time_functions(
     """Print or plot the run-times of different functions for the same inputs.
 
     `time_functions` prints or plots the run-times given list of functions and an input 
-    generator. Inputs are generated based on a starting size and are doubled a specified 
-    number of times.
+    generator.Inputs are generated based on a starting size which is multiplied by `factor`
+    and summed with `increment` for a set number of times specified by `steps`.
 
     Args:
         functions (list[Callable]): A list of functions whose run-times will be measured.
