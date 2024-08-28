@@ -1,4 +1,4 @@
-"""Tools for measuring and plotting run-times"""
+"""Tools for measuring and plotting run-times, see the [examples](coding.ipynb#performance-analysis)."""
 
 from typing import Callable
 
@@ -57,9 +57,9 @@ def time_cases(
     chart: bool = False,
 ) -> None:
     """Print or plot the run-times of `function` for different input cases.
-    
-    `time_cases` prints or plots the run-times of a single function using a list of 
-    different input generators. Inputs are generated based on a starting size and are 
+
+    `time_cases` prints or plots the run-times of a single function using a list of
+    different input generators. Inputs are generated based on a starting size and are
     doubled a specified number of times.
 
     Args:
@@ -70,7 +70,7 @@ def time_cases(
         double (int): The number of times to double the input size. Must be non-negative.
         text (bool, optional): If True, print the run-times in text format.
         chart (bool, optional): If True, plot the run-times using a chart.
-    
+
     Raises:
         AssertionError: If input conditions are not satisfied.
     """
@@ -129,8 +129,8 @@ def time_functions(
 ) -> None:
     """Print or plot the run-times of different functions for the same inputs.
 
-    `time_functions` prints or plots the run-times given list of functions and an input 
-    generator. Inputs are generated based on a starting size and are doubled a specified 
+    `time_functions` prints or plots the run-times given list of functions and an input
+    generator. Inputs are generated based on a starting size and are doubled a specified
     number of times.
 
     Args:
@@ -203,7 +203,7 @@ def time_functions_int(
     chart: bool = True,
 ) -> None:
     """Time functions that take a single integer as input.
-    
+
     `time_functions_int` uses `time_functions` to measure and display the run-times
     of a given list of functions that accept a single integer input. The integer inputs
     are generated starting from a specified value that defaults to 1, and are doubled
@@ -218,7 +218,7 @@ def time_functions_int(
             Must be positive.
         double (int, optional): The number of times to double the input integer value.
             Defaults to 10. Must be non-negative.
-        text (bool, optional): If True, print the run-times in text format. 
-        chart (bool, optional): If True, plot the run-times using a chart. 
+        text (bool, optional): If True, print the run-times in text format.
+        chart (bool, optional): If True, plot the run-times using a chart.
     """
     time_functions(functions, generator, start, double, text, chart, True)
