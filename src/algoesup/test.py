@@ -1,4 +1,4 @@
-"""Simplified testing for Python functions"""
+"""Simplified testing for Python functions, see the [examples](coding.ipynb#testing)."""
 
 from typing import Callable
 

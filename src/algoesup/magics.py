@@ -1,4 +1,7 @@
-"""Linting tools for Jupyter Notebook environments"""
+"""Linting tools for Jupyter Notebook environments.
+
+See the [type checking](coding.ipynb#type-checking) and [linting](coding.ipynb#linting) examples.
+"""
 
 import argparse
 import json
