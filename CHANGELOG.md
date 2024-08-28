@@ -11,7 +11,8 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 ## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.3.1...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
-Nothing yet.
+### Added
+- add to docstring that `test` doesn't accept built-in functions
 
 ## [0.3.1](https://github.com/dsa-ou/algoesup/compare/v0.3.0...v0.3.1) - 2024-08-17
 ### Fixed
