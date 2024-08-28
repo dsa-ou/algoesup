@@ -45,7 +45,7 @@ When a new version of the library is to be put on PyPI:
 1. Run again the notebooks (including the coding guide), to test the library.
 2. Update the [changelog](CHANGELOG.md).
 3. Re-generate the docs as explained above.
-4. Bump the version in `pyproject.toml` and `Deepnote/Dockerfile`,
+4. Bump the version in `pyproject.toml`, `src/docs/library.md` and `Deepnote/Dockerfile`,
    so that a new docker image can be built.
 5. Commit with a tag indicating the new version.
 6. Run `poetry build` and `poetry publish`.

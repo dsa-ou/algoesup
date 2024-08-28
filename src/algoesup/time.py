@@ -1,4 +1,4 @@
-"""Tools for measuring and plotting run-times"""
+"""Tools for measuring and plotting run-times, see the [examples](coding.ipynb#performance-analysis)."""
 
 from typing import Callable
 
@@ -78,7 +78,7 @@ def time_cases(
             Must be greater than or equal to 0.
         text (bool, optional): If True, print the run-times in text format.
         chart (bool, optional): If True, plot the run-times using a chart.
-    
+
     Raises:
         AssertionError: If input conditions are not satisfied.
     """
@@ -224,7 +224,7 @@ def time_functions_int(
     chart: bool = True,
 ) -> None:
     """Time functions that take a single integer as input.
-    
+
     `time_functions_int` uses `time_functions` to measure and display the run-times
     of a given list of functions that accept a single integer input. The integer inputs
     are generated starting from a specified value that defaults to 1, and are doubled
