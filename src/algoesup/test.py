@@ -7,7 +7,7 @@ def test(function: Callable, test_table: list) -> None:
     """Test the function with the test_table. Report failed tests.
 
     Args:
-        function (Callable): The function to be tested.
+        function (Callable): The function to be tested. Can't be a built-in function.
         test_table (list): The list of tests. Each element of test_table is a list or
             tuple with: a string (the test case name); one or more values (the inputs to the function);
             the expected output value.
