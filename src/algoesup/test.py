@@ -1,5 +1,6 @@
 """Simplified testing for Python functions, see the [examples](coding.ipynb#testing)."""
 
+from inspect import ismethod
 from typing import Callable
 
 
@@ -16,18 +17,19 @@ def test(function: Callable, test_table: list) -> None:
     if not isinstance(test_table, (list, tuple)):
         print(f"Error: The test table must be a list or tuple.\n{not_tested}")
         return
-    # The number of arguments function expects.
-    expects = function.__code__.co_argcount
+    param_count = function.__code__.co_argcount
+    # Methods don't require instance (self) argument when called.
+    expected_num_args = param_count if not ismethod(function) else param_count - 1
     invalid = []
     for num, test_case in enumerate(test_table, start=1):
         if not isinstance(test_case, (list, tuple)):
             invalid.append(f"test case {num} must be a list or tuple.")
         elif not isinstance(test_case[0], str):
             invalid.append(f"test case {num} must have string as first element.")
-        elif len(test_case[1:-1]) != expects:
+        elif len(test_case[1:-1]) != expected_num_args:
             num_args = len(test_case[1:-1])
             invalid.append(
-                f'test case "{test_case[0]}" has {num_args} input(s) instead of {expects}'
+                f'test case "{test_case[0]}" has {num_args} input(s) instead of {expected_num_args}'
             )
     if invalid:
         for msg in invalid:
