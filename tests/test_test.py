@@ -152,7 +152,7 @@ test_cases_for_test = [
     test_cases_for_test,
     ids=[case[0] for case in test_cases_for_test],
 )
-def test_all_cases(
+def test_algoesup_test(
     id: str, func: Callable, test_table: Any, expected_output: list[str], capsys
 ):
     """Test algoesup.test"""

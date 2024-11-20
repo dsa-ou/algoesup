@@ -1,4 +1,4 @@
-"""Defines functions, classes and methods to use in testing.
+"""Functions, classes and methods to use in testing.
 
 To simplify the creation of test tables, each function or method returns the sum 
 of its arguments.
