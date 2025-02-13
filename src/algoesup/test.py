@@ -1,6 +1,6 @@
 """Simplified testing for Python functions, see the [examples](coding.ipynb#testing)."""
 
-from inspect import ismethod, isbuiltin, Parameter, signature
+from inspect import isbuiltin, Parameter, signature
 from typing import Callable
 
 
@@ -22,9 +22,9 @@ def test(function: Callable, test_table: list) -> None:
     sig = signature(function)
     params = sig.parameters.values()
     # Determine if the function has variable number arguments (*args, **kwargs, default args)
-    has_var_args = any(
-        p.default != Parameter.empty or
-        p.kind in (Parameter.VAR_POSITIONAL, Parameter.VAR_KEYWORD)
+    has_variable_args = any(
+        p.default != Parameter.empty
+        or p.kind in (Parameter.VAR_POSITIONAL, Parameter.VAR_KEYWORD)
         for p in params
     )
     expected_num_args = len(params)
@@ -34,7 +34,7 @@ def test(function: Callable, test_table: list) -> None:
             invalid.append(f"test case {num} must be a list or tuple.")
         elif not isinstance(test_case[0], str):
             invalid.append(f"test case {num} must have string as first element.")
-        elif len(test_case[1:-1]) != expected_num_args and not has_var_args:
+        elif not has_variable_args and len(test_case[1:-1]) != expected_num_args:
             num_args = len(test_case[1:-1])
             invalid.append(
                 f'test case "{test_case[0]}" has {num_args} input(s) instead of {expected_num_args}.'
