@@ -2,7 +2,7 @@ site_name: "Algorithmic Essays"
 site_url: https://dsa-ou.github.io/algoesup/
 repo_url: https://github.com/dsa-ou/algoesup
 repo_name: dsa-ou/algoesup
-copyright: Copyright (c) 2023–2024 The Open University
+copyright: Copyright (c) 2023–2025 The Open University
 docs_dir: src/docs
 site_dir: docs
 exclude_docs: |

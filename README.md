@@ -40,7 +40,7 @@ enter `poetry run mkdocs build`.
 (Don't use `mkdocs gh-deploy` because it pushes untracked and other files,
 without giving you a chance to check what will be pushed.)
 
-After making changes, run the tests using `poetry run pytest`
+After making changes to the library code, run the tests using `poetry run pytest`.
 
 When a new version of the library is to be put on PyPI:
 
@@ -55,7 +55,7 @@ When a new version of the library is to be put on PyPI:
 ## Licences
 
 The code and text in this repository are
-Copyright © 2023–2024 by The Open University, UK.
+Copyright © 2023–2025 by The Open University, UK.
 The code is licensed under a [BSD 3-clause licence](LICENSE).
 The text is licensed under a
 [Creative Commons Attribution 4.0 International Licence](http://creativecommons.org/licenses/by/4.0).
