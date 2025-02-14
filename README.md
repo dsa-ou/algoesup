@@ -40,6 +40,8 @@ enter `poetry run mkdocs build`.
 (Don't use `mkdocs gh-deploy` because it pushes untracked and other files,
 without giving you a chance to check what will be pushed.)
 
+After making changes, run the tests using `poetry run pytest`
+
 When a new version of the library is to be put on PyPI:
 
 1. Run again the notebooks (including the coding guide), to test the library.
