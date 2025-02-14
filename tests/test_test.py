@@ -6,19 +6,17 @@ from algoesup import test as run_test  # The name 'test' conflicts with pytest
 from callables import no_args, two_args, var_args, default_args, Methods
 
 error_messages = {
-    "not_list": "The test table must be a list or tuple.",
+    "table_not_seq": "The test table must be a list or tuple.",
     "case_not_list": "test case {case_num} must be a list or tuple.",
-    "case_name_num": "test case {case_num} must have string as first element.",
-    "case_name_str": 'test case "{name}" must have string as first element.',
-    "args_count_num": "test case {case_num} has {given} input(s) instead of {expected}.",
+    "case_short": "test case {case_num} must have at least two elements.",
+    "case_no_str": "test case {case_num} must have a string as first element.",
     "args_count_str": 'test case "{name}" has {given} input(s) instead of {expected}.',
-    "built_in": "Cannot test built-in functions.",
 }
 
 
 def valid_msg(func_name: str, passed: int, failed: int) -> str:
     """Generate a message for a valid test table"""
-    return f"Testing {func_name}...\nTests finished: {passed} passed, {failed} failed."
+    return f"Tests finished: {passed} passed, {failed} failed."
 
 
 def error_msg(error: str, **kwargs) -> str:
@@ -28,7 +26,7 @@ def error_msg(error: str, **kwargs) -> str:
 
 def not_tested_msg(func_name: str) -> str:
     """Generate the not tested message"""
-    return f"{func_name} has NOT been tested."
+    return f"{func_name} was NOT tested."
 
 
 # Each test case:
@@ -40,107 +38,107 @@ def not_tested_msg(func_name: str) -> str:
 #   )
 test_cases_for_test = [
     (
-        "no_args - valid table, no args",
+        "no_args - no inputs; list of lists; last case fails",
         no_args,
-        [["Case 1", 0]],
-        [valid_msg("no_args", 1, 0)],
+        [["Case 1", 0], ["Case 2", 1]],
+        [valid_msg("no_args", 1, 1)],
     ),
     (
-        "two_args - valid table, add two numbers",
+        "two_args - add two numbers; list of tuples; first case fails",
         two_args,
-        [["Case 1", 2, 3, 5]],
-        [valid_msg("two_args", 1, 0)],
+        [("Case 1", 2, 3, 4), ("Case 2", 5, 7, 12)],
+        [valid_msg("two_args", 1, 1)],
     ),
     (
-        "var_args - valid table, sum variable args",
+        "var_args - sum variable args; tuple of lists; all cases fail",
         var_args,
-        [["Case 1", 1, 2, 3, 6]],
-        [valid_msg("var_args", 1, 0)],
+        (["Case 1", 1, 2, 3, 5], ["Case 2", 1, 2, 3, 4, 11]),
+        [valid_msg("var_args", 0, 2)],
     ),
     (
-        "default_args - valid table, one and two args",
+        "default_args - one and two args; tuple of tuples; middle cases fail",
         default_args,
-        [
-            ["Case 1", 5, 5],
-            ["Case 2", 5, 10, 15],
-        ],
-        [valid_msg("default_args", 2, 0)],
+        (
+            ("Case 1", 5, 5),
+            ("Case 2", 5, 6),
+            ("Case 3", 5, 10, 10),
+            ("Case 4", 5, 10, 15),
+        ),
+        [valid_msg("default_args", 2, 2)],  # cases 2 and 4 fail
     ),
     (
-        "Methods.no_args - valid table, no args method",
+        "Methods.no_args - no inputs; list of tuples; last case fails",
         Methods().no_args,
-        [["Case 1", 0]],
-        [valid_msg("no_args", 1, 0)],
+        [("Case 1", 0), ("Case 2", 1)],
+        [valid_msg("no_args", 1, 1)],
     ),
     (
-        "Methods.two_args - valid table, add two numbers method",
+        "Methods.two_args - add two numbers; tuple of lists; no case fails",
         Methods().two_args,
-        [["Case 1", 5, 7, 12]],
-        [valid_msg("two_args", 1, 0)],
+        (["Case 1", 5, 7, 12], ["Case 2", 2, 3, 5]),
+        [valid_msg("two_args", 2, 0)],
     ),
     (
-        "Methods.var_args - valid table, sum variable args method",
+        "Methods.var_args - sum variable args; tuple of tuples; all cases fail",
         Methods().var_args,
-        [["Case 1", 4, 5, 6, 15]],
-        [valid_msg("var_args", 1, 0)],
+        (("Case 1", 4, 5, 6, 16), ("Case 2", 1, 2, 3, 4, 11)),
+        [valid_msg("var_args", 0, 2)],
     ),
     (
-        "Methods.default_args - valid table, one and two args method",
+        "Methods.default_args - one and two args; list of lists; some cases fail",
         Methods().default_args,
         [
             ["Case 1", 6, 6],
             ["Case 2", 6, 4, 10],
+            ["Case 3", 4, 6, 11],
+            ["Case 4", -1, 7],
         ],
-        [valid_msg("default_args", 2, 0)],
+        [valid_msg("default_args", 2, 2)],
     ),
     (
-        "no_args - invalid table, test table is None",
+        "sum - built-in function; one case fails",
+        sum,
+        [["Case 1", [1, 2], 3], ["Case 2", 1, 2, 3], ["Case 3", [1], 2, 3]],
+        [
+            valid_msg("sum", 2, 1)
+        ],
+    ),
+    (
+        "no_args - table isn't a list or tuple",
         no_args,
         None,
         [
-            error_msg("not_list"),
+            error_msg("table_not_seq"),
             not_tested_msg("no_args"),
         ],
     ),
     (
-        "no_args - invalid table, test case is an integer",
+        "no_args - invalid test cases",
         no_args,
-        [42],
+        [42, (), [0], (0, "Case 4"), "Case 5", ["Case 6", 1, 1]],
         [
             error_msg("case_not_list", case_num=1),
+            error_msg("case_short", case_num=2),
+            error_msg("case_short", case_num=3),
+            error_msg("case_no_str", case_num=4),
+            error_msg("case_not_list", case_num=5),
+            error_msg("args_count_str", name="Case 6", given=1, expected=0),
             not_tested_msg("no_args"),
         ],
     ),
     (
-        "no_args - invalid table, too many inputs in test case",
-        no_args,
-        [["Case 1", 1, 1]],
-        [
-            error_msg("args_count_str", name="Case 1", given=1, expected=0),
-            not_tested_msg("no_args"),
-        ],
-    ),
-    (
-        "sum - invalid function, testing a built-in",
-        sum,
-        [["Case 1", [1, 2], 3]],
-        [
-            error_msg("built_in"),
-            not_tested_msg("sum"),
-        ],
-    ),
-    (
-        "two_args - invalid table, multiple cases with wrong argument counts",
+        "two_args - some invalid cases (wrong argument counts)",
         two_args,
         [
-            ["Case 1", 1, 1],
-            ["Case 2", 2, 3, 4, 9],
-            ["Case 3"],
+            ["0 args", 0],
+            ["1 arg", 1, 1],
+            ["2 args", 2, 3, 5],
+            ["3 args", 2, 3, 4, 9],
         ],
         [
-            error_msg("args_count_str", name="Case 1", given=1, expected=2),
-            error_msg("args_count_str", name="Case 2", given=3, expected=2),
-            error_msg("args_count_str", name="Case 3", given=0, expected=2),
+            error_msg("args_count_str", name="0 args", given=0, expected=2),
+            error_msg("args_count_str", name="1 arg", given=1, expected=2),
+            error_msg("args_count_str", name="3 args", given=3, expected=2),
             not_tested_msg("two_args"),
         ],
     ),
