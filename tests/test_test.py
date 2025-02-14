@@ -99,9 +99,7 @@ test_cases_for_test = [
         "sum - built-in function; one case fails",
         sum,
         [["Case 1", [1, 2], 3], ["Case 2", 1, 2, 3], ["Case 3", [1], 2, 3]],
-        [
-            valid_msg("sum", 2, 1)
-        ],
+        [valid_msg("sum", 2, 1)],
     ),
     (
         "no_args - table isn't a list or tuple",

@@ -39,7 +39,11 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
         # ignore syntax errors: they're reported on running the cell
         if "Failed to parse" in output.stderr:
             return
-        text = "has warning:" if "warning" in output.stderr.lower() else "didn't check code:"
+        text = (
+            "has warning:"
+            if "warning" in output.stderr.lower()
+            else "didn't check code:"
+        )
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     if errors := json.loads(output.stdout):
@@ -59,7 +63,11 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
 def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in pytype's output for the given file."""
     if output.stderr:
-        text = "has warning:" if "warning" in output.stderr.lower() else "didn't check code:"
+        text = (
+            "has warning:"
+            if "warning" in output.stderr.lower()
+            else "didn't check code:"
+        )
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     md = [f"**{checker}** found issues:", ""]
@@ -77,6 +85,7 @@ def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) ->
             )
     if len(md) > 2:
         display_markdown("\n".join(md), raw=True)
+
 
 # register the supported checkers, their commands and the output processor
 checkers: dict[str, tuple[str, Callable]] = {
@@ -123,14 +132,17 @@ def pytype(line: str) -> None:
     - import-error: pytype doesn't find local modules
     """
     parser = argparse.ArgumentParser("pytype")
-    parser.add_argument("status",
+    parser.add_argument(
+        "status",
         choices=["on", "off"],
         type=str.lower,
         help="Activate or deactivate the linter. If omitted, show the current status.",
         nargs="?",
         default=None,
     )
-    parser.add_argument("-d", "--disable",
+    parser.add_argument(
+        "-d",
+        "--disable",
         default="name-error,import-error",
         help="Comma or space-separated list of error names to ignore",
     )
@@ -162,14 +174,17 @@ def allowed(line: str) -> None:
     with your own [configuration](https://dsa-ou.github.io/allowed/docs/configuration.html).
     """
     parser = argparse.ArgumentParser("allowed")
-    parser.add_argument("status",
+    parser.add_argument(
+        "status",
         choices=["on", "off"],
         type=str.lower,
         help="Activate or deactivate the linter. If omitted, show the current status.",
         nargs="?",
         default=None,
     )
-    parser.add_argument("-c", "--config",
+    parser.add_argument(
+        "-c",
+        "--config",
         default=None,
         help="Use configuration file CONFIG (default: m269.json).",
     )
@@ -218,19 +233,22 @@ def ruff(line: str) -> None:
     - D415: use D400 instead (first line of docstring must end in .)
     """
     parser = argparse.ArgumentParser("ruff")
-    parser.add_argument("status",
+    parser.add_argument(
+        "status",
         choices=["on", "off"],
         type=str.lower,
         help="Activate or deactivate the linter. If omitted, show the current status.",
         nargs="?",
         default=None,
     )
-    parser.add_argument("--select",
+    parser.add_argument(
+        "--select",
         help="Comma-separated list of rule codes to enable",
         type=str,
         default="A,B,C90,D,E,W,F,N,PL",
     )
-    parser.add_argument("--ignore",
+    parser.add_argument(
+        "--ignore",
         help="Comma-separated list of rule codes to ignore",
         type=str,
         default="D100,W292,F401,F821,D203,D213,D415",
@@ -260,7 +278,10 @@ def run_checkers(result) -> None:
             lint_file = command + [temp_name]
             try:
                 output = subprocess.run(
-                    lint_file, capture_output=True, text=True, check=False,
+                    lint_file,
+                    capture_output=True,
+                    text=True,
+                    check=False,
                 )
                 display(checker, output, temp_name)
             except Exception as e:
