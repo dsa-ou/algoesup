@@ -27,7 +27,7 @@ Note that `pytype` is not available for Windows.
 
 ## Licence
 
-`algoesup` is Copyright © 2023–2024 by The Open University, UK.
+`algoesup` is Copyright © 2023–2025 by The Open University, UK.
 The code is licensed under a
 [BSD 3-clause licence](https://github.com/dsa-ou/algoesup/blob/main/LICENSE).
 The documentation is licensed under a

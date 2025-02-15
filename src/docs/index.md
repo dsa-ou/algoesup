@@ -56,7 +56,7 @@ under the Special Projects grant scheme, in May 2023.
 ## Licences
 
 The code and text in this repository are
-Copyright © 2023–2024 by The Open University, UK.
+Copyright © 2023–2025 by The Open University, UK.
 The code is licensed under a
 [BSD 3-clause licence](https://github.com/dsa-ou/algoesup/blob/main/LICENSE).
 The text is licensed under a
