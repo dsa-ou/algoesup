@@ -271,7 +271,7 @@ def run_checkers(result) -> None:
     cell_code = TransformerManager().transform_cell(result.info.raw_cell)
     for checker in active:
         command, display = checkers[checker]
-        # Avoid I/O overhead for ruff by using stdin.
+        # Use "-" option for ruff to accept stdin and avoid file I/O.
         if checker == "ruff":
             ruff_command = command + [
                 "-",
