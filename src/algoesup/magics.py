@@ -264,7 +264,7 @@ def ruff(line: str) -> None:
 
 
 def no_warnings_on_transformed(cell_code: str) -> str:
-    """Append ' # noqa E501' to transformed ipython lines"""
+    """Append ' # noqa E501' to transformed magic commands"""
     lines = []
     for line in cell_code.splitlines():
         if (
@@ -281,7 +281,7 @@ def run_checkers(result) -> None:
     """Run all active checkers after a cell is executed."""
     if not active:
         return
-    # transform IPython to pure Python to avoid linters reporting syntax errors
+    # Transform IPython to pure Python to avoid linters reporting syntax errors
     cell_code = TransformerManager().transform_cell(result.info.raw_cell)
     for checker in active:
         command, display = checkers[checker]

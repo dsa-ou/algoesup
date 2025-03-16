@@ -93,7 +93,7 @@ def ruff_warning(line_num: int, warning_code: str, **kwargs) -> str:
     )
 
 
-def allowed_warning(line_num: int, message) -> str:
+def allowed_warning(line_num: int, message: str) -> str:
     """Generate a raw markdown allowed warning"""
     return f"- {line_num}: {message}"
 
@@ -154,10 +154,62 @@ ruff_default_ignore_tests = [
     ),
 ]
 
-ruff_magics_tests = [
+ruff_magics_ignore_tests = [
     (
         "%timeit -n 1000000 -r 3 10000 + 10000 + 10000 + 10000 + 10000",
         RUFF_FOUND + ruff_warning(1, "E501", length=95),
+    ),
+    (
+        "for times in range(100):\n    %timeit -n 100 -r3 10000 + 10000 + 10000 + 10000 + 10000",
+        RUFF_FOUND + ruff_warning(1, "E501", length=95),
+    ),
+    (
+        "%%capture\nfor times in range(100):\n    print('This is a long message which is part of a cell that will be captured')",
+        RUFF_FOUND + ruff_warning(1, "E501", length=95),
+    ),
+]
+
+ruff_mixed_tests = [
+    (
+        (
+            "max = 0\n"
+            "x = 42\n"
+            "y = ++x\n"
+            "def f():\n"
+            "    pass\n"
+            "%timeit -n 1000000 -r 3 10000 + 10000 + 10000 + 10000 + 10000\n"
+            "l = 42"
+        ),
+        RUFF_FOUND
+        + ruff_warning(1, "A001", var="max")
+        + "\n"
+        + ruff_warning(3, "B002")
+        + "\n"
+        + ruff_warning(4, "D103")
+        + "\n"
+        + ruff_warning(7, "E741", var="l"),
+    ),
+    (
+        (
+            "import numpy as numpy\n"
+            "from os import path\n"
+            "def function(x):\n"
+            '    """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n'
+            "    pass\n"
+            "for path in files:\n"
+            "    print(path)\n"
+            "def myFunction():\n"
+            '    """Pass."""\n'
+            "    pass"
+        ),
+        RUFF_FOUND
+        + ruff_warning(1, "PLC0414")
+        + "\n"
+        + ruff_warning(4, "E501", length=127)
+        + "\n"
+        + ruff_warning(6, "F402", var="path", import_line=2)
+        + "\n"
+        + ruff_warning(8, "N802", name="myFunction"),
     ),
 ]
 
@@ -176,7 +228,7 @@ def ipython_shell():
     # Cleanup algoesup.magic's global state, and reset shell session.
     shell.run_cell("%ruff off")
     shell.run_cell("%allowed off")
-    shell.reset(new_session=True, aggressive=True)
+    shell.reset(new_session=True)
 
 
 def test_register_post_cell_run_event(ipython_shell: InteractiveShell) -> None:
@@ -270,7 +322,7 @@ def test_extras_ruff(
     )
 
 
-@pytest.mark.parametrize("test_input, expected", ruff_magics_tests)
+@pytest.mark.parametrize("test_input, expected", ruff_magics_ignore_tests)
 def test_magics_ruff(
     ipython_shell: InteractiveShell, test_input: str, expected: str
 ) -> None:
@@ -281,6 +333,20 @@ def test_magics_ruff(
     markdown_outputs = get_markdown(captured)
     assert expected not in markdown_outputs, (
         f"\nexpected no ruff errors\n got: {markdown_outputs[0]}"
+    )
+
+
+@pytest.mark.parametrize("test_input, expected", ruff_mixed_tests)
+def test_mixed_ruff(
+    ipython_shell: InteractiveShell, test_input: str, expected: str
+) -> None:
+    """Test %ruff with code that triggers multiple mixed warnings."""
+    with capture_output() as captured:
+        ipython_shell.run_cell("%ruff on")
+        ipython_shell.run_cell(test_input)
+    markdown_outputs = get_markdown(captured)
+    assert expected in markdown_outputs, (
+        f"\nexpected:\n {expected}\n got:\n {markdown_outputs[0]}\n"
     )
 
 
