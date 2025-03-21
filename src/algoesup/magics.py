@@ -263,17 +263,17 @@ def ruff(line: str) -> None:
     process_status("ruff", known.status)
 
 
-def no_warnings_on_transformed(cell_code: str) -> str:
+def no_e501_warning_on_transformed(cell_code: str) -> str:
     """Append ' # noqa E501' to transformed magic commands"""
-    lines = []
-    for line in cell_code.splitlines():
+    lines = [
+        line + " # noqa E501"
         if (
             "get_ipython().run_line_magic" in line
             or "get_ipython().run_cell_magic" in line
-        ):
-            lines.append(line + " # noqa E501")
-        else:
-            lines.append(line)
+        )
+        else line
+        for line in cell_code.splitlines()
+    ]
     return "\n".join(lines)
 
 
@@ -286,14 +286,14 @@ def run_checkers(result) -> None:
     for checker in active:
         command, display = checkers[checker]
         if checker == "ruff":
-            # Stop E501 warning being reported for transformed lines
             if cell_code != result.info.raw_cell:
-                cell_code = no_warnings_on_transformed(cell_code)
-            # Use "-" option for ruff to accept stdin and avoid file I/O.
+                # Transformed magics have extra characters added, so suppress
+                # "line too long" warnings (E501)
+                cell_code = no_e501_warning_on_transformed(cell_code)
             ruff_command = command + [
-                "-",
+                "-",  # Read from stdin
                 "--stdin-filename",
-                "notebook_cell.py",
+                "notebook_cell.py",  # Placeholder name for stdin
             ]
             try:
                 output = subprocess.run(
