@@ -60,4 +60,5 @@ def test(function: Callable, test_table: list | tuple) -> None:
             except Exception as e:
                 print(name, "FAILED:", e)
                 failed += 1
-        print("Tests finished:", passed, "passed,", failed, "failed.")
+        percentage = round(passed / (passed + failed) * 100) if passed + failed > 0 else 0
+        print(f"Tests finished: {passed} ({percentage}%) passed, {failed} failed.")

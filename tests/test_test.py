@@ -16,7 +16,8 @@ error_messages = {
 
 def valid_msg(func_name: str, passed: int, failed: int) -> str:
     """Generate a message for a valid test table"""
-    return f"Tests finished: {passed} passed, {failed} failed."
+    percentage = round(passed / (passed + failed) * 100) if passed + failed > 0 else 0
+    return f"Tests finished: {passed} ({percentage}%) passed, {failed} failed."
 
 
 def error_msg(error: str, **kwargs) -> str:
