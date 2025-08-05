@@ -12,7 +12,17 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
 ### Added
-- add to docstring that `test` doesn't accept built-in functions
+- allow `test()` with methods, built-ins, variable/default args
+- catch and report `test()` exceptions as failed tests
+- check each test has at least two items: name and expected output
+
+### Changed
+- make `ruff` read cells via stdin rather than files
+- improve library function docstrings
+
+### Fixed
+- remove output-format from wrong TOML section to avoid parsing error
+- make Ruff ignore lines converted from IPython being too long
 
 ## [0.3.1](https://github.com/dsa-ou/algoesup/compare/v0.3.0...v0.3.1) - 2024-08-17
 ### Fixed
