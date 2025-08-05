@@ -4,34 +4,52 @@ from inspect import Parameter, signature
 from typing import Callable
 
 def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> list:
-    """Check the structure of the table and return a list of error messages."""
+    """Check the structure of the table and return a list of error messages.
+
+    Args:
+        as in `check_tests`.
+    Returns:
+        A list of error messages, or an empty list if the table is well defined.
+    """
     if min < 0 or max < 0:
-        raise ValueError("Minimum and maximum number of tests can't be negative.")
+        raise ValueError("Minimum and maximum number of tests must be >= 0.")
+    if 0 < max < min:
+        raise ValueError("Maximum number of tests must be >= minimum number.")
     if not isinstance(test_table, (list, tuple)):
-        return ["The test table must be a list or tuple"]
+        return ["the table must be a list or tuple"]
     messages = []
     for number, test in enumerate(test_table, start=1):
         if not isinstance(test, (list, tuple)):
-            messages.append(f"test case {number} must be a list or tuple")
+            messages.append(f"test {number} must be a list or tuple")
         elif len(test) < 2:
-            messages.append(f"test case {number} must have at least two elements")
+            messages.append(f"test {number} must have two or more elements")
         elif not isinstance(test[0], str):
-            messages.append(f"test case {number} must have a string as first element")
+            messages.append(f"test {number} must have a string as first element")
         elif types:
             name = test[0]
             if len(types) != len(test) - 1:
-                messages.append(f'test case "{name}" has {len(test)-2} input(s) instead of {len(types)-1}')
+                messages.append(f"test '{name}' must have {len(types)-1} input(s) ({len(test)-2} given)")
             for value, expected_type in zip(test[1:], types):
                 if not isinstance(value, expected_type):
-                    messages.append(f'in test "{name}", {value} hasn\'t type {expected_type.__name__}')
-    if len(test_table) < min:
-        messages.append(f'the table has fewer than {min} test{"" if min == 1 else "s"}')
-    elif len(test_table) > max > 0:
-        messages.append(f"the table has more than {max} tests")
+                    messages.append(f'in test "{name}", {value} must have type {expected_type.__name__}')
+    n = len(test_table)
+    if n < min:
+        messages.append(f"the table must have at least {min} tests, but has {n}")
+    elif n > max > 0:
+        messages.append(f"the table can have at most {max} tests, but has {n}")
     return messages
 
 def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> None:
-    """Check the structure of the table and print any error messages."""
+    """Check the structure of the table and print any error messages.
+
+    Args:
+        test_table (list|tuple): The sequence of tests, each one a list or
+            tuple with: a string (the test case name); zero or more values (the inputs to the function);
+            the expected output value.
+        types (list): Expected types of inputs and output, if number and order of arguments are fixed.
+        min (int): Minimum number of tests in the table. Default is 1.
+        max (int): Maximum number of tests in the table. Default is 0 (no maximum).
+    """
     if errors := check_table(test_table, types, min, max):
         for error in errors:
             print(f"Error: {error}.")
@@ -46,6 +64,8 @@ def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 
         test_table (list|tuple): The sequence of test cases, each one a list or
             tuple with: a string (the test case name); zero or more values (the inputs to the function);
             the expected output value.
+        min (int): Minimum number of tests in the table. Default is 1.
+        max (int): Maximum number of tests in the table. Default is 0 (no maximum).
     """
     sig = signature(function)
     params = sig.parameters.values()
@@ -79,4 +99,4 @@ def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 
                 print(name, "FAILED:", e)
                 failed += 1
         percentage = round(passed / (passed + failed) * 100) if passed + failed > 0 else 0
-        print(f"Tests finished: {passed} ({percentage}%) passed, {failed} failed.")
+        print(f"Tests finished: {passed} passed ({percentage}%), {failed} failed.")
