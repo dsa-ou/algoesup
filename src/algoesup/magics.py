@@ -263,41 +263,80 @@ def ruff(line: str) -> None:
     process_status("ruff", known.status)
 
 
+def no_e501_warning_on_transformed(cell_code: str) -> str:
+    """Append ' # noqa E501' to transformed magic commands"""
+    lines = [
+        line + " # noqa E501"
+        if (
+            "get_ipython().run_line_magic" in line
+            or "get_ipython().run_cell_magic" in line
+        )
+        else line
+        for line in cell_code.splitlines()
+    ]
+    return "\n".join(lines)
+
+
 def run_checkers(result) -> None:
     """Run all active checkers after a cell is executed."""
     if not active:
         return
-    try:
-        with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as temp:
-            # transform IPython to pure Python to avoid linters reporting syntax errors
-            temp.write(TransformerManager().transform_cell(result.info.raw_cell))
-            # Handle Windows file paths
-            temp_name = temp.name.replace("\\", "/")
-        for checker in active:
-            command, display = checkers[checker]
-            lint_file = command + [temp_name]
+    # Transform IPython to pure Python to avoid linters reporting syntax errors
+    cell_code = TransformerManager().transform_cell(result.info.raw_cell)
+    for checker in active:
+        command, display = checkers[checker]
+        if checker == "ruff":
+            if cell_code != result.info.raw_cell:
+                # Transformed magics have extra characters added, so suppress
+                # "line too long" warnings (E501)
+                cell_code = no_e501_warning_on_transformed(cell_code)
+            ruff_command = command + [
+                "-",  # Read from stdin
+                "--stdin-filename",
+                "notebook_cell.py",  # Placeholder name for stdin
+            ]
             try:
                 output = subprocess.run(
-                    lint_file,
+                    ruff_command,
+                    input=cell_code,
                     capture_output=True,
                     text=True,
                     check=False,
                 )
-                display(checker, output, temp_name)
+                display(checker, output, "notebook_cell.py")
             except Exception as e:
-                print(f"Error on executing {command[0]}:\n{e}")
-    except Exception as e:
-        print(f"Error on writing cell to a temporary file:\n{e}")
-    finally:
-        os.remove(temp_name)
+                print(f"Error on executing {checker}:\n{e}")
+        else:
+            try:
+                with tempfile.NamedTemporaryFile(
+                    mode="w", suffix=".py", delete=False
+                ) as temp:
+                    temp.write(cell_code)
+                    # Handle Windows file paths
+                    temp_name = temp.name.replace("\\", "/")
+                lint_file_command = command + [temp_name]
+                try:
+                    output = subprocess.run(
+                        lint_file_command,
+                        capture_output=True,
+                        text=True,
+                        check=False,
+                    )
+                    display(checker, output, temp_name)
+                except Exception as e:
+                    print(f"Error on executing {checker}:\n{e}")
+            except Exception as e:
+                print(f"Error on writing cell to a temporary file:\n{e}")
+            finally:
+                os.remove(temp_name)
 
 
 def load_ipython_extension(ipython):
-    """Load the ipython extension, and register run_checkers with post_cell_run
+    """Load the Ipython extension, and register run_checkers with post_cell_run.
 
-    This function hooks into the ipython extension system so the magic commands defined
-    in this module can be loaded with `load_ext algoesup.magics`. It also registers
+    Hook into the Ipython extension system so the magic commands defined
+    in this module can be loaded with `load_ext algoesup.magics`. Additionally, register
     `run_checkers` with the `post_run_cell` event so the linters are run with the
-    contents of each ipython cell after it has been executed.
+    contents of each Ipython cell after it has been executed.
     """
     ipython.events.register("post_run_cell", run_checkers)  # type: ignore[name-defined]

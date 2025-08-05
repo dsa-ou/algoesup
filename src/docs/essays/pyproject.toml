@@ -7,7 +7,6 @@ disable = [
 ]
 
 [tool.ruff.lint]
-output-format = "pylint"
 select = [      # enable checks taken from the following linters:
     "A",        # flake8-builtins
     "B",        # flake8-bugbear
