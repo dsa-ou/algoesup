@@ -3,11 +3,19 @@
 from inspect import Parameter, signature
 from typing import Callable
 
-def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> list:
+def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> list[str]:
     """Check the structure of the table and return a list of error messages.
 
+    This auxiliary function does the checks for `check_tests` and `test`.
+
     Args:
-        as in `check_tests`.
+        test_table (list|tuple): The sequence of tests, each one a list or
+            tuple with: a string (the test name); zero or more values (the inputs to the function);
+            the expected output value.
+        types (list): Expected types of the inputs and output.
+            Set this argument only if the number and order of inputs are fixed.
+        min (int): Minimum number of tests in the table. Default is 1.
+        max (int): Maximum number of tests in the table. Default is 0 (no maximum).
     Returns:
         A list of error messages, or an empty list if the table is well defined.
     """
@@ -42,11 +50,22 @@ def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: i
 def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> None:
     """Check the structure of the table and print any error messages.
 
+    Use this instead of `test()` if the function to be tested is not yet implemented
+    or if you want to provide specific input and output types.
+
+    This function checks that:
+
+    - the table is a list or tuple with at least `min` tests
+    - the table has at most `max` tests (if `max` is greater than 0)
+    - each test is a list or tuple with a string followed by one or more values
+    - each input and output value has the expected type (if specified).
+
     Args:
         test_table (list|tuple): The sequence of tests, each one a list or
             tuple with: a string (the test name); zero or more values (the inputs to the function);
             the expected output value.
-        types (list): Expected types of inputs and output, if number and order of arguments are fixed.
+        types (list): Expected types of the inputs and output.
+            Set this argument only if the number and order of inputs are fixed.
         min (int): Minimum number of tests in the table. Default is 1.
         max (int): Maximum number of tests in the table. Default is 0 (no maximum).
     """
@@ -57,7 +76,14 @@ def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: i
         print("OK: the test table seems to be well defined.")
 
 def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 0) -> None:
-    """Test the function with the test_table. Report failed tests.
+    """Test `function` with `test_table`. Report errors in the table and failed tests.
+
+    This function checks that:
+
+    - the table is a list or tuple with at least `min` tests
+    - the table has at most `max` tests (if `max` is greater than 0)
+    - each test is a list or tuple with a string followed by one or more values
+    - each test has the expected number of inputs (if `function` has fixed arguments).
 
     Args:
         function (Callable): The function or method to be tested.
