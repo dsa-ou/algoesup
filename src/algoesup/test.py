@@ -28,7 +28,7 @@ def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: i
         elif types:
             name = test[0]
             if len(types) != len(test) - 1:
-                messages.append(f"test '{name}' must have {len(types)-1} input(s) ({len(test)-2} given)")
+                messages.append(f"test '{name}' must have {len(types)-1} input(s) and 1 output")
             for value, expected_type in zip(test[1:], types):
                 if not isinstance(value, expected_type):
                     messages.append(f'in test "{name}", {value} must have type {expected_type.__name__}')
@@ -44,7 +44,7 @@ def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: i
 
     Args:
         test_table (list|tuple): The sequence of tests, each one a list or
-            tuple with: a string (the test case name); zero or more values (the inputs to the function);
+            tuple with: a string (the test name); zero or more values (the inputs to the function);
             the expected output value.
         types (list): Expected types of inputs and output, if number and order of arguments are fixed.
         min (int): Minimum number of tests in the table. Default is 1.
@@ -61,8 +61,8 @@ def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 
 
     Args:
         function (Callable): The function or method to be tested.
-        test_table (list|tuple): The sequence of test cases, each one a list or
-            tuple with: a string (the test case name); zero or more values (the inputs to the function);
+        test_table (list|tuple): The sequence of tests, each one a list or
+            tuple with: a string (the test name); zero or more values (the inputs to the function);
             the expected output value.
         min (int): Minimum number of tests in the table. Default is 1.
         max (int): Maximum number of tests in the table. Default is 0 (no maximum).
@@ -84,10 +84,10 @@ def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 
     else:
         print(f"Testing {function.__name__}...")
         passed = failed = 0
-        for test_case in test_table:
-            name = test_case[0]
-            inputs = test_case[1:-1]
-            expected = test_case[-1]
+        for test in test_table:
+            name = test[0]
+            inputs = test[1:-1]
+            expected = test[-1]
             try:
                 actual = function(*inputs)
                 if actual != expected:

@@ -10,7 +10,7 @@ error_messages = {
     "case_not_list": "test {case_num} must be a list or tuple.",
     "case_short": "test {case_num} must have two or more elements.",
     "case_no_str": "test {case_num} must have a string as first element.",
-    "args_count_str": "test '{name}' must have {expected} input(s) ({given} given).",
+    "args_count_str": "test '{name}' must have {expected} input(s) and 1 output.",
 }
 
 
