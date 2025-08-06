@@ -1,7 +1,7 @@
 # Changelog
 
 This file documents notable changes to the `algoesup` library.
-Changes to the resources (example essays, etc.) are not listed.
+Changes to the resources (documentation, example essays, etc.) are not listed.
 The format is based on [Keep a Changelog](https://keepachangelog.com). <!-- ,
 with an additional 'Development' section for changes that don't affect users. -->
 This project does *not* adhere to [Semantic Versioning](https://semver.org).
@@ -12,16 +12,18 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
 ### Added
-- allow `test()` with methods, built-ins, variable/default args
-- catch and report `test()` exceptions as failed tests
-- check each test has at least two items: name and expected output
+- new function to check test table before writing function to be tested
+- allow testing of methods, built-in functions, and variable/default args
+- catch and report test exceptions as failed tests
+- check that each test has at least two items: name and expected output
+- check each test's inputs and output have expected types (if given)
+- report percentage of passed tests
 
 ### Changed
 - make `ruff` read cells via stdin rather than files
-- improve library function docstrings
 
 ### Fixed
-- remove output-format from wrong TOML section to avoid parsing error
+- remove `output-format` from wrong TOML section to avoid parsing error
 - make Ruff ignore lines converted from IPython being too long
 
 ## [0.3.1](https://github.com/dsa-ou/algoesup/compare/v0.3.0...v0.3.1) - 2024-08-17
