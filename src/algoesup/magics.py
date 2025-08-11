@@ -214,12 +214,9 @@ def ruff(line: str) -> None:
     For a list of the possible options `...`, enter `!ruff help check` in a code cell.
     Some options may not be appropriate when running Ruff within a notebook.
 
-    The `--select` and `--ignore` options expect a list
-    of [rule codes](https://docs.astral.sh/ruff/rules), without spaces.
-
     By default, `%ruff` enables the rules from
-    flake8-builtins (A), flake8-bugbear (B), mccabe (C90), pydocstyle (D),
-    pycodestyle (E, W), pyflakes (F), pep8-naming (N), and pylint (PL).
+    flake8-builtins (A), flake8-annotations (ANN), flake8-bugbear (B), mccabe (C90),
+    pydocstyle (D), pycodestyle (E, W), pyflakes (F), pep8-naming (N), pylint error (PLE).
 
     By default, `%ruff` ignores these rules:
 
@@ -230,6 +227,15 @@ def ruff(line: str) -> None:
     - D203: use D211 instead (no blank line before class docstring)
     - D213: use D212 instead (docstring starts right after \"\"\")
     - D415: use D400 instead (first line of docstring must end in .)
+
+    To ignore or select rules _on top of_ the defaults,
+    use option `--extend-ignore` or `--extend-select`.
+    To ignore or select rules _instead_ of the defaults,
+    use option `--ignore` or `--select`.
+    These four options expect a list
+    of [rule codes](https://docs.astral.sh/ruff/rules), without spaces.
+    For example, `%ruff on --ignore D203,D213 --select D,E,W` will _only_ check
+    pydocstyle and pycodestyle rules, except the two given rules, i.e it will check W292.
     """
     parser = argparse.ArgumentParser("ruff")
     parser.add_argument(
@@ -244,7 +250,7 @@ def ruff(line: str) -> None:
         "--select",
         help="Comma-separated list of rule codes to enable",
         type=str,
-        default="A,B,C90,D,E,W,F,N,PL",
+        default="A,ANN,B,C90,D,E,W,F,N,PLE",
     )
     parser.add_argument(
         "--ignore",

@@ -9,13 +9,14 @@ disable = [
 [tool.ruff.lint]
 select = [      # enable checks taken from the following linters:
     "A",        # flake8-builtins
+    "ANN",      # flake8-annotations
     "B",        # flake8-bugbear
     "C90",      # mccabe
     "D",        # pydocstyle
     "E", "W",   # pycodestyle
     "F",        # pyflakes
     "N",        # pep8-naming
-    "PL",       # pylint
+    "PLE",      # pylint
 ]
 ignore = [
     # ignore issues that are common in notebooks
