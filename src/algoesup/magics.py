@@ -205,7 +205,6 @@ def ruff(line: str) -> None:
     against the selected code style rules.
 
     - `%ruff on ...` activates the linter with any command options given after `on`
-      (see [ruff's list of rules])
     - `%ruff on` is equal to `%ruff on --select A,B,C90,D,E,W,F,N,PL --ignore D100,W292,F401,F821,D203,D213,D415`
     - `%ruff off` deactivates the linter
     - `%ruff` shows the current status of the linter

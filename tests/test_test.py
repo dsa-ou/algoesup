@@ -6,17 +6,18 @@ from algoesup import test as run_test  # The name 'test' conflicts with pytest
 from callables import no_args, two_args, var_args, default_args, Methods
 
 error_messages = {
-    "table_not_seq": "The test table must be a list or tuple.",
-    "case_not_list": "test case {case_num} must be a list or tuple.",
-    "case_short": "test case {case_num} must have at least two elements.",
-    "case_no_str": "test case {case_num} must have a string as first element.",
-    "args_count_str": 'test case "{name}" has {given} input(s) instead of {expected}.',
+    "table_not_seq": "the table must be a list or tuple.",
+    "case_not_list": "test {case_num} must be a list or tuple.",
+    "case_short": "test {case_num} must have two or more elements.",
+    "case_no_str": "test {case_num} must have a string as first element.",
+    "args_count_str": "test '{name}' must have {expected} input(s) and 1 output.",
 }
 
 
 def valid_msg(func_name: str, passed: int, failed: int) -> str:
     """Generate a message for a valid test table"""
-    return f"Tests finished: {passed} passed, {failed} failed."
+    percentage = round(passed / (passed + failed) * 100) if passed + failed > 0 else 0
+    return f"Tests finished: {passed} passed ({percentage}%), {failed} failed."
 
 
 def error_msg(error: str, **kwargs) -> str:

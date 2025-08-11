@@ -11,6 +11,8 @@ This documentation is for version 0.3.1.
       show_root_toc_entry: false
       members:
       - test
+      - check_tests
+      - check_table
 
 ## Timing
 
