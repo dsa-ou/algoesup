@@ -1534,11 +1534,11 @@ if 'COLAB_GPU' in os.environ:  # if we are in Google Colab...
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">algoesup</span><span class="o">.</span><span class="n">magics</span>
-<span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
+<span class="o">%</span><span class="n">ruff</span> <span class="n">on</span> <span class="o">--</span><span class="n">extend</span><span class="o">-</span><span class="n">ignore</span> <span class="n">ANN</span>
 <span class="o">%</span><span class="n">allowed</span> <span class="n">on</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">%load_ext algoesup.magics
-%ruff on
+%ruff on --extend-ignore ANN
 %allowed on</div>
 </div>
 </div>

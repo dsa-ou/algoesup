@@ -2179,13 +2179,17 @@ To turn it on, write the following after loading the <code>algoesup.magics</code
 </div>
 </clipboard-copy>
 </div>
-<div class="highlight-ipynb hl-python"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"5 isn't in the list"</span><span class="p">)</span>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"5 isn't in the list"</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8">l = [1, 2, 3]
-if (not 5 in l) == True:
-    print("5 isn't in the list")</div>
+<div class="clipboard-copy-txt" id="cell-8">def f(l):
+    if (not 5 in l) == True:
+        print("5 isn't in the list")
+
+f([1,2,3])</div>
 </div>
 </div>
 </div>
@@ -2206,9 +2210,11 @@ if (not 5 in l) == True:
 <div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-OutputArea-output" data-mime-type="text/markdown" tabindex="0">
 <p><strong>ruff</strong> found issues:</p>
 <ul>
+<li>1: [<a href="https://docs.astral.sh/ruff/rules/missing-return-type-undocumented-public-function">ANN201</a>] Missing return type annotation for public function <code>f</code>. Suggested fix: Add return type annotation: <code>None</code></li>
+<li>1: [<a href="https://docs.astral.sh/ruff/rules/undocumented-public-function">D103</a>] Missing docstring in public function</li>
 <li>1: [<a href="https://docs.astral.sh/ruff/rules/ambiguous-variable-name">E741</a>] Ambiguous variable name: <code>l</code></li>
+<li>1: [<a href="https://docs.astral.sh/ruff/rules/missing-type-function-argument">ANN001</a>] Missing type annotation for function argument <code>l</code></li>
 <li>2: [<a href="https://docs.astral.sh/ruff/rules/true-false-comparison">E712</a>] Avoid equality comparisons to <code>True</code>; use <code>if not 5 in l:</code> for truth checks. Suggested fix: Replace with <code>not 5 in l</code></li>
-<li>2: [<a href="https://docs.astral.sh/ruff/rules/magic-value-comparison">PLR2004</a>] Magic value used in comparison, consider replacing <code>5</code> with a constant variable</li>
 <li>2: [<a href="https://docs.astral.sh/ruff/rules/not-in-test">E713</a>] Test for membership should be <code>not in</code>. Suggested fix: Convert to <code>not in</code></li>
 </ul>
 </div>
@@ -2223,16 +2229,10 @@ if (not 5 in l) == True:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Every message indicates the line of the problem.</p>
-<ul>
-<li>Issue E741: <code>l</code> can be misread for <code>1</code> (one).</li>
-<li>Issues E712 and E713: <code>if (not 5 in l) == True</code> should be simply <code>if 5 not in l</code></li>
-<li>Issue PLR2004 recommends using constants, like <code>EXPECTED_VALUE</code>,
-instead of literals like 5 that are meaningless to the reader.</li>
-</ul>
-<p>As this code cell shows, Ruff sometimes suggests how to fix the reported error,
-but you must consider whether the suggestion is appropriate.</p>
-<p>If you don't understand an error message, like the first one, click on
+<p>Every message indicates the line of the problem and sometimes Ruff suggests how to correct it,
+e.g. for issues E712 and E713, <code>if (not 5 in l) == True</code> should be simply <code>if 5 not in l</code>.
+Ruff cannot guess the purpose of the code, so its suggestions may not be appropriate.</p>
+<p>If you don't understand an error message, like 'ambiguous variable name', click on
 the error code in brackets, to get more information from Ruff's website.</p>
 <p>Like for type checking, linting one cell at a time means that the linter is
 unaware of the wider context of your code. For example, in notebooks,
@@ -2242,7 +2242,7 @@ We have disabled checks for undefined variables and other checks that would lead
 irrelevant error messages in notebooks, which means that genuine undefined variables
 won't be flagged. But again, some linting is better than none.</p>
 <p>If you get errors that you think are irrelevant,
-you can disable them with the <code>--ignore</code> option:
+you can disable them with the <code>--ignore</code> or <code>--extend-ignore</code> option:
 see the <a href="../library/#algoesup.magics.ruff">library reference</a>.</p>
 </div>
 </div>

@@ -1095,7 +1095,7 @@
 
 <h1 id="library">Library</h1>
 <p>The <code>algoesup</code> library provides support for testing, timing and linting code.
-This documentation is for version 0.3.1.</p>
+This documentation is for version 0.4.</p>
 <h2 id="testing">Testing</h2>
 
 
@@ -2087,11 +2087,9 @@ against the selected code style rules.</p>
 <p>The command <code>%ruff on ...</code> will run <code>ruff check --output-format json ...</code> on each cell.
 For a list of the possible options <code>...</code>, enter <code>!ruff help check</code> in a code cell.
 Some options may not be appropriate when running Ruff within a notebook.</p>
-<p>The <code>--select</code> and <code>--ignore</code> options expect a list
-of <a href="https://docs.astral.sh/ruff/rules">rule codes</a>, without spaces.</p>
 <p>By default, <code>%ruff</code> enables the rules from
-flake8-builtins (A), flake8-bugbear (B), mccabe (C90), pydocstyle (D),
-pycodestyle (E, W), pyflakes (F), pep8-naming (N), and pylint (PL).</p>
+flake8-builtins (A), flake8-annotations (ANN), flake8-bugbear (B), mccabe (C90),
+pydocstyle (D), pycodestyle (E, W), pyflakes (F), pep8-naming (N), pylint error (PLE).</p>
 <p>By default, <code>%ruff</code> ignores these rules:</p>
 <ul>
 <li>D100: Missing docstring in public module (notebooks aren&rsquo;t modules)</li>
@@ -2102,6 +2100,14 @@ pycodestyle (E, W), pyflakes (F), pep8-naming (N), and pylint (PL).</p>
 <li>D213: use D212 instead (docstring starts right after &ldquo;&rdquo;&ldquo;)</li>
 <li>D415: use D400 instead (first line of docstring must end in .)</li>
 </ul>
+<p>To ignore or select rules <em>on top of</em> the defaults,
+use option <code>--extend-ignore</code> or <code>--extend-select</code>.
+To ignore or select rules <em>instead</em> of the defaults,
+use option <code>--ignore</code> or <code>--select</code>.
+These four options expect a list
+of <a href="https://docs.astral.sh/ruff/rules">rule codes</a>, without spaces.
+For example, <code>%ruff on --ignore D203,D213 --select D,E,W</code> will <em>only</em> check
+pydocstyle and pycodestyle rules, except the two given rules, i.e it will check W292.</p>
 
   </div>
 

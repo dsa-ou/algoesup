@@ -8,25 +8,28 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 
 <!-- Per release: Added / Changed / Deprecated / Removed / Fixed / Security -->
 
-## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.3.1...HEAD)
+## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
+Nothing yet.
+
+## [0.4](https://github.com/dsa-ou/algoesup/compare/v0.3.1...v0.4) - 2025-08-11
 ### Added
 - new function to check test table before writing function to be tested
 - allow testing of methods, built-in functions, and variable/default args
 - catch and report test exceptions as failed tests
 - check that each test has at least two items: name and expected output
-- check each test's inputs and output have expected types (if given)
+- check that each test's inputs and output have expected types (if given)
 - report percentage of passed tests
-- `ruff` checks type annotations by default
+- Ruff checks type annotations by default
 
 ### Changed
-- make `ruff` read cells via stdin rather than files
-- `ruff` doesn't check all pylint violations by default, only errors
+- Ruff reads cells via stdin rather than files
+- Ruff doesn't check all pylint violations by default, only errors
 
 ### Fixed
 - remove `output-format` from wrong TOML section to avoid parsing error
-- make Ruff ignore lines converted from IPython being too long
+- make Ruff ignore long lines that were converted from IPython
 
 ## [0.3.1](https://github.com/dsa-ou/algoesup/compare/v0.3.0...v0.3.1) - 2024-08-17
 ### Fixed

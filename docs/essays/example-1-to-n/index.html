@@ -1412,14 +1412,14 @@ There won't be any messages in this notebook because the code passes all checks.
 </clipboard-copy>
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">algoesup</span><span class="o">.</span><span class="n">magics</span>
-<span class="c1"># check the code for style violations</span>
-<span class="o">%</span><span class="n">ruff</span> <span class="n">on</span>
+<span class="c1"># check the code for style violations, except missing type annotations</span>
+<span class="o">%</span><span class="n">ruff</span> <span class="n">on</span> <span class="o">--</span><span class="n">extend</span><span class="o">-</span><span class="n">ignore</span> <span class="n">ANN</span>
 <span class="c1"># check that only the subset of Python taught in our introductory course TM112 is used</span>
 <span class="o">%</span><span class="n">allowed</span> <span class="n">on</span> <span class="o">--</span><span class="n">config</span> <span class="n">tm112</span><span class="o">.</span><span class="n">json</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">%load_ext algoesup.magics
-# check the code for style violations
-%ruff on
+# check the code for style violations, except missing type annotations
+%ruff on --extend-ignore ANN
 # check that only the subset of Python taught in our introductory course TM112 is used
 %allowed on --config tm112.json</div>
 </div>

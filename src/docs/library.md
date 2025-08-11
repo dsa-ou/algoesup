@@ -1,7 +1,7 @@
 # Library
 
 The `algoesup` library provides support for testing, timing and linting code.
-This documentation is for version 0.3.1.
+This documentation is for version 0.4.
 
 ## Testing
 
