@@ -4,9 +4,14 @@ from inspect import Parameter, signature
 from typing import Callable
 
 def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> list[str]:
-    """Check the structure of the table and return a list of error messages.
+    """Check the structure of `test_table` and return a list of error messages.
 
-    This auxiliary function does the checks for `check_tests` and `test`.
+    This auxiliary function does the checks for `check_tests` and `test`:
+
+    - the table is a list or tuple with at least `min` tests
+    - the table has at most `max` tests (if `max` is greater than 0)
+    - each test is a list or tuple with a string followed by one or more values
+    - each input and output value has the expected type (if `types` is given).
 
     Args:
         test_table (list|tuple): The sequence of tests, each one a list or
@@ -16,8 +21,9 @@ def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: i
             Set this argument only if the number and order of inputs are fixed.
         min (int): Minimum number of tests in the table. Default is 1.
         max (int): Maximum number of tests in the table. Default is 0 (no maximum).
+
     Returns:
-        A list of error messages, or an empty list if the table is well defined.
+        list[str]: The error messages. The list is empty if the table is well defined.
     """
     if min < 0 or max < 0:
         raise ValueError("Minimum and maximum number of tests must be >= 0.")
@@ -48,17 +54,12 @@ def check_table(test_table: list | tuple, types: list = [], min: int = 1, max: i
     return messages
 
 def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: int = 0) -> None:
-    """Check the structure of the table and print any error messages.
+    """Check the structure of `test_table` and print any error messages.
 
     Use this instead of `test()` if the function to be tested is not yet implemented
     or if you want to provide specific input and output types.
 
-    This function checks that:
-
-    - the table is a list or tuple with at least `min` tests
-    - the table has at most `max` tests (if `max` is greater than 0)
-    - each test is a list or tuple with a string followed by one or more values
-    - each input and output value has the expected type (if specified).
+    This function calls `check_table` and prints the returned error messages.
 
     Args:
         test_table (list|tuple): The sequence of tests, each one a list or
@@ -73,7 +74,7 @@ def check_tests(test_table: list | tuple, types: list = [], min: int = 1, max: i
         for error in errors:
             print(f"Error: {error}.")
     else:
-        print("OK: the test table seems to be well defined.")
+        print("OK: the test table passed the automatic checks.")
 
 def test(function: Callable, test_table: list | tuple, min: int = 1, max: int = 0) -> None:
     """Test `function` with `test_table`. Report errors in the table and failed tests.

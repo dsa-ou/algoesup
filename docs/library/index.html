@@ -657,6 +657,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#algoesup.test.check_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      check_table
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -968,6 +977,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#algoesup.test.check_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      check_table
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1229,15 +1247,117 @@ the expected output value.</p>
 
   <div class="doc doc-contents ">
   
-      <p>Check the structure of the table and print any error messages.</p>
+      <p>Check the structure of <code>test_table</code> and print any error messages.</p>
 <p>Use this instead of <code>test()</code> if the function to be tested is not yet implemented
 or if you want to provide specific input and output types.</p>
-<p>This function checks that:</p>
+<p>This function calls <code>check_table</code> and prints the returned error messages.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>test_table</code></td>
+          <td>
+                <code>list | tuple</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>The sequence of tests, each one a list or
+tuple with: a string (the test name); zero or more values (the inputs to the function);
+the expected output value.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>types</code></td>
+          <td>
+                <code>list</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Expected types of the inputs and output.
+Set this argument only if the number and order of inputs are fixed.</p>
+            </div>
+          </td>
+          <td>
+                <code>[]</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>min</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Minimum number of tests in the table. Default is 1.</p>
+            </div>
+          </td>
+          <td>
+                <code>1</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>max</code></td>
+          <td>
+                <code>int</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>Maximum number of tests in the table. Default is 0 (no maximum).</p>
+            </div>
+          </td>
+          <td>
+                <code>0</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h3 id="algoesup.test.check_table" class="doc doc-heading">
+          <span class="doc doc-object-name doc-function-name">check_table</span>
+
+
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">check_table</span><span class="p">(</span>
+    <span class="n">test_table</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">,</span>
+    <span class="n">types</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="nb">min</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nb">max</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+</code></pre></div>
+
+  <div class="doc doc-contents ">
+  
+      <p>Check the structure of <code>test_table</code> and return a list of error messages.</p>
+<p>This auxiliary function does the checks for <code>check_tests</code> and <code>test</code>:</p>
 <ul>
 <li>the table is a list or tuple with at least <code>min</code> tests</li>
 <li>the table has at most <code>max</code> tests (if <code>max</code> is greater than 0)</li>
 <li>each test is a list or tuple with a string followed by one or more values</li>
-<li>each input and output value has the expected type (if specified).</li>
+<li>each input and output value has the expected type (if <code>types</code> is given).</li>
 </ul>
 
 
@@ -1310,6 +1430,30 @@ Set this argument only if the number and order of inputs are fixed.</p>
           </td>
           <td>
                 <code>0</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>list[str]</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>list[str]: The error messages. The list is empty if the table is well defined.</p>
+            </div>
           </td>
         </tr>
     </tbody>

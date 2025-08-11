@@ -12,6 +12,7 @@ This documentation is for version 0.3.1.
       members:
       - test
       - check_tests
+      - check_table
 
 ## Timing
 
