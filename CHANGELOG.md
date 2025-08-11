@@ -18,9 +18,11 @@ These changes are in the GitHub repository but not on [PyPI](https://pypi.org/pr
 - check that each test has at least two items: name and expected output
 - check each test's inputs and output have expected types (if given)
 - report percentage of passed tests
+- `ruff` checks type annotations by default
 
 ### Changed
 - make `ruff` read cells via stdin rather than files
+- `ruff` doesn't check all pylint violations by default, only errors
 
 ### Fixed
 - remove `output-format` from wrong TOML section to avoid parsing error
