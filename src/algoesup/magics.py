@@ -54,10 +54,13 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
             code = error["code"]
             url = error["url"]
             msg = error["message"]
+            if code == "invalid-syntax":
+                continue  # syntax errors are reported by Python interpreter
             if error["fix"]:
                 msg += f". Suggested fix: {error['fix']['message']}"
             md.append(rf"- {line}: \[[{code}]({url})\] {msg}")
-        display_markdown("\n".join(md), raw=True)
+        if len(md) > 2:  # if one non-syntax issue after first 2 lines...
+            display_markdown("\n".join(md), raw=True)
 
 
 def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) -> None:
