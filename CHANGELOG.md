@@ -16,6 +16,9 @@ These changes are in the GitHub repository but not on [PyPI](https://pypi.org/pr
 ### Fixed
 - don't show Ruff's `invalid-syntax` messages
 
+### Changed
+- show `allowed` warnings for the current code cell
+
 ## [0.4](https://github.com/dsa-ou/algoesup/compare/v0.3.1...v0.4) - 2025-08-11
 ### Added
 - new function to check test table before writing function to be tested
