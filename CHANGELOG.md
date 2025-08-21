@@ -8,11 +8,12 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 
 <!-- Per release: Added / Changed / Deprecated / Removed / Fixed / Security -->
 
-## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4...HEAD)
+## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4.1...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
-<!-- Nothing yet. -->
+Nothing yet.
 
+## [0.4.1](https://github.com/dsa-ou/algoesup/compare/v0.4...v0.4.1) - 2025-08-21
 ### Fixed
 - don't show Ruff's `invalid-syntax` messages
 
