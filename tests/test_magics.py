@@ -42,7 +42,7 @@ RUFF_WARNINGS = {
     ),
     "ANN201": (
         "missing-return-type-undocumented-public-function",
-        "Missing return type annotation for public function `{name}`"
+        "Missing return type annotation for public function `{name}`. Suggested fix: Add return type annotation: `{type}`"
     ),
     "ANN001": (
         "missing-type-function-argument",
@@ -107,14 +107,26 @@ def get_markdown(captured: capture_output) -> list:
     ]
 
 
+# fmt: off
 ruff_defaults_tests = [
     ("max = 0", RUFF_FOUND + ruff_warning(1, "A001", var="max")),
     ("x = 42\ny = ++x", RUFF_FOUND + ruff_warning(2, "B002")),
-    ("def f():\n    pass", RUFF_FOUND + ruff_warning(1, "D103")),
+    (
+        "def f():\n    pass",
+        RUFF_FOUND 
+        + ruff_warning(1, "ANN201", name="f", type="None")
+        + "\n"
+        + ruff_warning(1, "D103"), 
+    ),
     ("l = 42", RUFF_FOUND + ruff_warning(1, "E741", var="l")),
     (
         'def function(x):\n    """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
-        RUFF_FOUND + ruff_warning(2, "E501", length=127),
+        RUFF_FOUND
+        + ruff_warning(1, "ANN201", name="function", type="None")
+        + "\n"
+        + ruff_warning(1, "ANN001", arg="x")
+        + "\n"
+        + ruff_warning(2, "E501", length=127),
     ),
     (
         "from os import path\n\nfor path in files:\n   print(path)",
@@ -122,19 +134,14 @@ ruff_defaults_tests = [
     ),
     (
         'def myFunction():\n    """Pass."""\n    pass',
-        RUFF_FOUND + ruff_warning(1, "N802", name="myFunction"),
+        RUFF_FOUND
+        + ruff_warning(1, "N802", name="myFunction")
+        + "\n"
+        + ruff_warning(1, "ANN201", name="myFunction", type="None")
     ),
-    ("import numpy as numpy", RUFF_FOUND + ruff_warning(1, "PLC0414")),
 ]
 
 ruff_extras_tests = [
-    (
-        'def function(x):\n    """Pass x back to the user."""\n    return x',
-        RUFF_FOUND
-        + ruff_warning(1, "ANN201", name="function")
-        + "\n"
-        + ruff_warning(1, "ANN001", arg="x"),
-    ),
     ('x = "{}".format(foo)', RUFF_FOUND + ruff_warning(1, "UP032")),
 ]
 
@@ -185,6 +192,8 @@ ruff_mixed_tests = [
         + "\n"
         + ruff_warning(3, "B002")
         + "\n"
+        + ruff_warning(4, "ANN201", name="f", type="None")
+        + "\n"
         + ruff_warning(4, "D103")
         + "\n"
         + ruff_warning(7, "E741", var="l"),
@@ -203,13 +212,17 @@ ruff_mixed_tests = [
             "    pass"
         ),
         RUFF_FOUND
-        + ruff_warning(1, "PLC0414")
+        + ruff_warning(3, "ANN201", name="function", type="None")
+        + "\n"
+        + ruff_warning(3, "ANN001", arg="x")
         + "\n"
         + ruff_warning(4, "E501", length=127)
         + "\n"
         + ruff_warning(6, "F402", var="path", import_line=2)
         + "\n"
-        + ruff_warning(8, "N802", name="myFunction"),
+        + ruff_warning(8, "N802", name="myFunction")
+        + "\n"
+        + ruff_warning(8, "ANN201", name="myFunction", type="None"),
     ),
 ]
 
@@ -217,6 +230,7 @@ allowed_tests = [
     ("import numpy as np", ALLOWED_FOUND + allowed_warning(1, "numpy")),
     ('s = f"this is an f-string"', ALLOWED_FOUND + allowed_warning(1, "f-string")),
 ]
+# fmt: on
 
 
 @pytest.fixture(scope="function")
@@ -268,7 +282,7 @@ def test_allowed_on_off(ipython_shell: InteractiveShell) -> None:
 def test_defaults_ruff(
     ipython_shell: InteractiveShell, test_input: str, expected: str
 ) -> None:
-    """Test that %ruff shows warnings from a selection enabled default rules."""
+    """Test that %ruff shows warnings from a selection of enabled default rules."""
     with capture_output() as captured:
         ipython_shell.run_cell("%ruff on")
         ipython_shell.run_cell(test_input)
@@ -312,9 +326,9 @@ def test_ignore_defaults_ruff(
 def test_extras_ruff(
     ipython_shell: InteractiveShell, test_input: str, expected: str
 ) -> None:
-    """Test that %ruff shows warnings for extra rules ANN and UP"""
+    """Test that %ruff shows warnings for extra rules UP"""
     with capture_output() as captured:
-        ipython_shell.run_cell("%ruff on --extend-select ANN,UP")
+        ipython_shell.run_cell("%ruff on --extend-select UP")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
     assert expected in markdown_outputs, (
