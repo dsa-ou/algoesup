@@ -18,6 +18,7 @@ These changes are in the GitHub repository but not on [PyPI](https://pypi.org/pr
 
 ### Changed
 - show `allowed` warnings for the current code cell
+- show warnings for `-f` and for no `-m` when `allowed` is activated
 
 ## [0.4](https://github.com/dsa-ou/algoesup/compare/v0.3.1...v0.4) - 2025-08-11
 ### Added

@@ -199,8 +199,13 @@ def allowed(line: str) -> None:
     )
     known, unknown = parser.parse_known_args(line.split())
     if known.status != "on" and (known or unknown):
-        print("warning: ignoring additional options for %allowed")
+        print("warning: allowed not turned on: command options were ignored")
     else:
+        if not ("--method" in unknown or "-m" in unknown):
+            print("warning: no -m option: allowed will not check method calls")
+        if "--first" in unknown or "-f" in unknown:
+            print("warning: option -f: allowed will flag each issue only once per cell")
+    if known.status == "on":
         config = ["-c", known.config] if known.config else []
         checkers["allowed"][0] = ["allowed"] + config + unknown
     process_status("allowed", known.status)
