@@ -23,14 +23,20 @@ def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -
         display_markdown(f"**{checker}** didn't check code:", raw=True)
         print(output.stderr if output.stderr else output.stdout)
     else:
-        md = [f"**{checker}** found issues:", ""]  # empty line before markdown list
+        # put empty line before markdown list
+        warnings = [f"**{checker}** warnings:", ""]
+        issues = [f"**{checker}** found issues:", ""]
         for line in output.stdout.split("\n"):
             if "syntax" in line.lower() and "error" in line.lower():
                 continue  # syntax errors already reported when running the cell
+            if m := re.match(rf".*{filename}.*WARNING:\s*(.*)", line):
+                warnings.append(f"- {m.group(1)}")
             if m := re.match(rf".*{filename}[^\d]*(\d+[^:]*:.*)", line):
-                md.append(f"- {m.group(1)}")
-        if len(md) > 2:
-            display_markdown("\n".join(md), raw=True)
+                issues.append(f"- {m.group(1)}")
+        if len(warnings) > 2:
+            display_markdown("\n".join(warnings), raw=True)
+        if len(issues) > 2:
+            display_markdown("\n".join(issues), raw=True)
 
 
 def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> None:
@@ -47,17 +53,20 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     if errors := json.loads(output.stdout):
-        md = [f"**{checker}** found issues:", ""]
+        md = [f"**{checker}** found issues:", ""]   # empty line before markdown list
         # the following assumes errors come in line order
         for error in errors:
             line = error["location"]["row"]
             code = error["code"]
             url = error["url"]
             msg = error["message"]
+            if code == "invalid-syntax":
+                continue  # syntax errors already reported when running the cell
             if error["fix"]:
                 msg += f". Suggested fix: {error['fix']['message']}"
             md.append(rf"- {line}: \[[{code}]({url})\] {msg}")
-        display_markdown("\n".join(md), raw=True)
+        if len(md) > 2:
+            display_markdown("\n".join(md), raw=True)
 
 
 def show_pytype_errors(checker: str, output: CompletedProcess, filename: str) -> None:
@@ -190,8 +199,13 @@ def allowed(line: str) -> None:
     )
     known, unknown = parser.parse_known_args(line.split())
     if known.status != "on" and (known or unknown):
-        print("warning: ignoring additional options for %allowed")
+        print("warning: allowed not turned on: command options were ignored")
     else:
+        if not ("--method" in unknown or "-m" in unknown):
+            print("warning: no -m option: allowed will not check method calls")
+        if "--first" in unknown or "-f" in unknown:
+            print("warning: option -f: allowed will flag each issue only once per cell")
+    if known.status == "on":
         config = ["-c", known.config] if known.config else []
         checkers["allowed"][0] = ["allowed"] + config + unknown
     process_status("allowed", known.status)
