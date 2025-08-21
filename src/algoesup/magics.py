@@ -23,14 +23,20 @@ def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -
         display_markdown(f"**{checker}** didn't check code:", raw=True)
         print(output.stderr if output.stderr else output.stdout)
     else:
-        md = [f"**{checker}** found issues:", ""]  # empty line before markdown list
+        # put empty line before markdown list
+        warnings = [f"**{checker}** warnings:", ""]
+        issues = [f"**{checker}** found issues:", ""]
         for line in output.stdout.split("\n"):
             if "syntax" in line.lower() and "error" in line.lower():
                 continue  # syntax errors already reported when running the cell
+            if m := re.match(rf".*{filename}.*WARNING:\s*(.*)", line):
+                warnings.append(f"- {m.group(1)}")
             if m := re.match(rf".*{filename}[^\d]*(\d+[^:]*:.*)", line):
-                md.append(f"- {m.group(1)}")
-        if len(md) > 2:
-            display_markdown("\n".join(md), raw=True)
+                issues.append(f"- {m.group(1)}")
+        if len(warnings) > 2:
+            display_markdown("\n".join(warnings), raw=True)
+        if len(issues) > 2:
+            display_markdown("\n".join(issues), raw=True)
 
 
 def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> None:
@@ -47,7 +53,7 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     if errors := json.loads(output.stdout):
-        md = [f"**{checker}** found issues:", ""]
+        md = [f"**{checker}** found issues:", ""]   # empty line before markdown list
         # the following assumes errors come in line order
         for error in errors:
             line = error["location"]["row"]
@@ -55,11 +61,11 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
             url = error["url"]
             msg = error["message"]
             if code == "invalid-syntax":
-                continue  # syntax errors are reported by Python interpreter
+                continue  # syntax errors already reported when running the cell
             if error["fix"]:
                 msg += f". Suggested fix: {error['fix']['message']}"
             md.append(rf"- {line}: \[[{code}]({url})\] {msg}")
-        if len(md) > 2:  # if one non-syntax issue after first 2 lines...
+        if len(md) > 2:
             display_markdown("\n".join(md), raw=True)
 
 
