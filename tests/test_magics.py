@@ -100,13 +100,8 @@ def allowed_issue(line_num: int, message: str) -> str:
     return f"- {line_num}: {message}"
 
 
-def allowed_warning(message: str) -> str:
-    """Generate a raw markdown %allowed warning"""
-    return f"- {message}"
-
-
 def get_markdown(captured: capture_output) -> list:
-    """Return a list of raw markdown from the captured output"""
+    """Return a list of markdown from the captured output, otherwise a list containing the empty string."""
     return [
         out.data.get("text/markdown")
         for out in captured.outputs
@@ -426,7 +421,6 @@ def test_extras_ruff(
         ipython_shell.run_cell("%ruff on --extend-select UP")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected == markdown_outputs[0]
     assert_str_equal(markdown_outputs[0], expected)
 
 
