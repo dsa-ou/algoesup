@@ -1,10 +1,13 @@
-import pytest
+"""Automated testing for %ruff and %allowed"""
+
 import algoesup
+import pytest
 from IPython.core.interactiveshell import InteractiveShell
 from IPython.utils.capture import capture_output
 
 RUFF_FOUND = "**ruff** found issues:\n\n"
 ALLOWED_FOUND = "**allowed** found issues:\n\n"
+ALLOWED_WARNINGS = "**allowed** warnings:\n\n"
 
 # fmt: off
 RUFF_WARNINGS = {
@@ -85,7 +88,7 @@ RUFF_WARNINGS = {
 
 
 def ruff_warning(line_num: int, warning_code: str, **kwargs) -> str:
-    """Generate a raw markdown ruff warning"""
+    """Generate a raw markdown %ruff warning"""
     error_name, message = RUFF_WARNINGS[warning_code]
     return (
         rf"- {line_num}: \[[{warning_code}](https://docs.astral.sh/ruff/rules/{error_name})\] "
@@ -93,9 +96,14 @@ def ruff_warning(line_num: int, warning_code: str, **kwargs) -> str:
     )
 
 
-def allowed_warning(line_num: int, message: str) -> str:
-    """Generate a raw markdown allowed warning"""
+def allowed_issue(line_num: int, message: str) -> str:
+    """Generate a raw markdown %allowed issue"""
     return f"- {line_num}: {message}"
+
+
+def allowed_warning(message: str) -> str:
+    """Generate a raw markdown %allowed warning"""
+    return f"- {message}"
 
 
 def get_markdown(captured: capture_output) -> list:
@@ -104,22 +112,61 @@ def get_markdown(captured: capture_output) -> list:
         out.data.get("text/markdown")
         for out in captured.outputs
         if hasattr(out, "data") and "text/markdown" in out.data
-    ]
+    ] or [""]
+
+
+# Custom assertion functions improve readability when a failure occurs
+# comparing long, multiple-line strings such as raw markdown.
+def assert_str_equal(actual: str, expected: str) -> None:
+    """Assert two strings are equal. If not, raise a pytest fail exception."""
+    if actual != expected:
+        pytest.fail(
+            "EXPECTED and ACTUAL did not match.\n\n"
+            "=== EXPECTED ===\n"
+            f"{expected}\n\n"
+            "=== ACTUAL ===\n"
+            f"{actual}\n",
+        )
+
+
+def assert_not_in_str(actual: str, unexpected: str) -> None:
+    """Assert unexpected str is not in actual str. Otherwise raise a pytest fail exception."""
+    if unexpected in actual:
+        pytest.fail(
+            "UNEXPECTED was present in ACTUAL.\n\n"
+            "=== UNEXPECTED ===\n"
+            f"{unexpected}\n\n"
+            "=== ACTUAL ===\n"
+            f"{actual}\n"
+        )
 
 
 # fmt: off
 ruff_defaults_tests = [
-    ("max = 0", RUFF_FOUND + ruff_warning(1, "A001", var="max")),
-    ("x = 42\ny = ++x", RUFF_FOUND + ruff_warning(2, "B002")),
-    (
+    pytest.param(
+        "max = 0",
+        RUFF_FOUND + ruff_warning(1, "A001", var="max"),
+        id="index: 0, ruff: A001",
+    ),
+    pytest.param(
+        "x = 42\ny = ++x",
+        RUFF_FOUND + ruff_warning(2, "B002"),
+        id="index: 1, ruff: B002",
+    ),
+    pytest.param(
         "def f():\n    pass",
-        RUFF_FOUND 
+        RUFF_FOUND
         + ruff_warning(1, "ANN201", name="f", type="None")
         + "\n"
-        + ruff_warning(1, "D103"), 
+        + ruff_warning(1, "D103"),
+        id="index: 2, ruff: ANN201+D103",
     ),
-    ("l = 42", RUFF_FOUND + ruff_warning(1, "E741", var="l")),
-    (
+    pytest.param(
+        "l = 42",
+        RUFF_FOUND + ruff_warning(1, "E741", var="l"),
+        id="index: 3, ruff: E741",
+    ),
+    pytest.param(
         'def function(x):\n    """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
         RUFF_FOUND
         + ruff_warning(1, "ANN201", name="function", type="None")
@@ -127,57 +174,89 @@ ruff_defaults_tests = [
         + ruff_warning(1, "ANN001", arg="x")
         + "\n"
         + ruff_warning(2, "E501", length=127),
+        id="index: 4, ruff: ANN201+ANN001+E501",
     ),
-    (
+    pytest.param(
         "from os import path\n\nfor path in files:\n   print(path)",
         RUFF_FOUND + ruff_warning(3, "F402", var="path", import_line=1),
+        id="index: 5, ruff: F402",
     ),
-    (
+    pytest.param(
         'def myFunction():\n    """Pass."""\n    pass',
         RUFF_FOUND
         + ruff_warning(1, "N802", name="myFunction")
         + "\n"
-        + ruff_warning(1, "ANN201", name="myFunction", type="None")
+        + ruff_warning(1, "ANN201", name="myFunction", type="None"),
+        id="index: 6, ruff: N802+ANN201",
     ),
 ]
 
 ruff_extras_tests = [
-    ('x = "{}".format(foo)', RUFF_FOUND + ruff_warning(1, "UP032")),
+    pytest.param(
+        'x = "{}".format(foo)',
+        RUFF_FOUND + ruff_warning(1, "UP032"),
+        id="index: 0, ruff: UP032",
+    ),
 ]
 
 ruff_default_ignore_tests = [
-    ('def func():\n """Pass."""    pass', RUFF_FOUND + ruff_warning(1, "D100")),
-    ('def func():\n """Pass."""    pass', RUFF_FOUND + ruff_warning(2, "W292")),
-    ("import os", RUFF_FOUND + ruff_warning(1, "F401")),
-    ("print(x)", RUFF_FOUND + ruff_warning(1, "F821")),
-    ("class MyClass:\n    '''Docstring'''", RUFF_FOUND + ruff_warning(2, "D203")),
-    (
+    pytest.param(
+        'def func():\n """Pass."""    pass',
+        RUFF_FOUND + ruff_warning(1, "D100"),
+        id="index: 0, ruff: D100",
+    ),
+    pytest.param(
+        'def func():\n """Pass."""    pass',
+        RUFF_FOUND + ruff_warning(2, "W292"),
+        id="index: 1, ruff: W292",
+    ),
+    pytest.param(
+        "import os",
+        RUFF_FOUND + ruff_warning(1, "F401"),
+        id="index: 2, ruff: F401",
+    ),
+    pytest.param(
+        "print(x)",
+        RUFF_FOUND + ruff_warning(1, "F821"),
+        id="index: 3, ruff: F821",
+    ),
+    pytest.param(
+        "class MyClass:\n    '''Docstring'''",
+        RUFF_FOUND + ruff_warning(2, "D203"),
+        id="index: 4, ruff: D203",
+    ),
+    pytest.param(
         "def func():\n    '''Summary\n    Details'''",
         RUFF_FOUND + ruff_warning(2, "D213"),
+        id="index: 5, ruff: D213",
     ),
-    (
+    pytest.param(
         "def func():\n    '''Summary without period'''",
         RUFF_FOUND + ruff_warning(2, "D415"),
+        id="index: 6, ruff: D415",
     ),
 ]
 
 ruff_magics_ignore_tests = [
-    (
+    pytest.param(
         "%timeit -n 1000000 -r 3 10000 + 10000 + 10000 + 10000 + 10000",
         RUFF_FOUND + ruff_warning(1, "E501", length=95),
+        id="index: 0, ruff: E501",
     ),
-    (
+    pytest.param(
         "for times in range(100):\n    %timeit -n 100 -r3 10000 + 10000 + 10000 + 10000 + 10000",
         RUFF_FOUND + ruff_warning(1, "E501", length=95),
+        id="index: 1, ruff: E501",
     ),
-    (
+    pytest.param(
         "%%capture\nfor times in range(100):\n    print('This is a long message which is part of a cell that will be captured')",
         RUFF_FOUND + ruff_warning(1, "E501", length=95),
+        id="index: 2, ruff: E501",
     ),
 ]
 
 ruff_mixed_tests = [
-    (
+    pytest.param(
         (
             "max = 0\n"
             "x = 42\n"
@@ -197,8 +276,9 @@ ruff_mixed_tests = [
         + ruff_warning(4, "D103")
         + "\n"
         + ruff_warning(7, "E741", var="l"),
+        id="index: 0, ruff: A001+B002+ANN201+D103+E741",
     ),
-    (
+    pytest.param(
         (
             "import numpy as numpy\n"
             "from os import path\n"
@@ -223,12 +303,30 @@ ruff_mixed_tests = [
         + ruff_warning(8, "N802", name="myFunction")
         + "\n"
         + ruff_warning(8, "ANN201", name="myFunction", type="None"),
+        id="index: 1, ruff: ANN201+ANN001+E501+F402+N802+ANN201",
     ),
 ]
 
 allowed_tests = [
-    ("import numpy as np", ALLOWED_FOUND + allowed_warning(1, "numpy")),
-    ('s = f"this is an f-string"', ALLOWED_FOUND + allowed_warning(1, "f-string")),
+    pytest.param(
+        "import numpy as np",
+        ALLOWED_FOUND + allowed_issue(1, "numpy"),
+        id="index: 0, allowed: import numpy",
+    ),
+    pytest.param(
+        's = f"this is an f-string"',
+        ALLOWED_FOUND + allowed_issue(1, "f-string"),
+        id="index: 1, allowed: f-string",
+    ),
+    pytest.param(
+        (
+            "def f(x: str):\n"
+            "    if x != None:\n"
+            "        x.split()"
+        ),
+        ALLOWED_FOUND + allowed_issue(3, "str.split()"),
+        id="index: 2, allowed: str.split()",
+    ),
 ]
 # fmt: on
 
@@ -273,7 +371,11 @@ def test_allowed_on_off(ipython_shell: InteractiveShell) -> None:
     assert "allowed was activated" in captured.stdout
     assert "allowed" in algoesup.magics.active
     with capture_output() as captured:
-        ipython_shell.run_cell("%allowed off")
+        ipython_shell.run_cell("%allowed off -f")
+    assert (
+        "warning: allowed not turned on: command options were ignored"
+        in captured.stdout
+    )
     assert "allowed was deactivated" in captured.stdout
     assert "allowed" not in algoesup.magics.active
 
@@ -287,9 +389,7 @@ def test_defaults_ruff(
         ipython_shell.run_cell("%ruff on")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected in markdown_outputs, (
-        f"expected: {expected} got: {markdown_outputs[0]}"
-    )
+    assert_str_equal(markdown_outputs[0], expected)
 
 
 @pytest.mark.parametrize("test_input, unexpected", ruff_defaults_tests)
@@ -303,23 +403,19 @@ def test_ignore_extras_ruff(
         )
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert unexpected not in markdown_outputs, (
-        f"\nexpected no ruff warings\n got: {markdown_outputs[0]}"
-    )
+    assert_not_in_str(markdown_outputs[0], unexpected)
 
 
-@pytest.mark.parametrize("test_input, expected", ruff_default_ignore_tests)
+@pytest.mark.parametrize("test_input, unexpected", ruff_default_ignore_tests)
 def test_ignore_defaults_ruff(
-    ipython_shell: InteractiveShell, test_input: str, expected: str
+    ipython_shell: InteractiveShell, test_input: str, unexpected: str
 ) -> None:
     """Test that %ruff ignores rules D100, W292, F401, F821, D203, D213 and D415 by default."""
     with capture_output() as captured:
         ipython_shell.run_cell("%ruff on")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected not in markdown_outputs, (
-        f"\nexpected no ruff errors \n got: {markdown_outputs[0]}"
-    )
+    assert_not_in_str(markdown_outputs[0], unexpected)
 
 
 @pytest.mark.parametrize("test_input, expected", ruff_extras_tests)
@@ -331,23 +427,20 @@ def test_extras_ruff(
         ipython_shell.run_cell("%ruff on --extend-select UP")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected in markdown_outputs, (
-        f"\nexpected: {expected}\n got: {markdown_outputs[0]}"
-    )
+    assert expected == markdown_outputs[0]
+    assert_str_equal(markdown_outputs[0], expected)
 
 
-@pytest.mark.parametrize("test_input, expected", ruff_magics_ignore_tests)
+@pytest.mark.parametrize("test_input, unexpected", ruff_magics_ignore_tests)
 def test_magics_ruff(
-    ipython_shell: InteractiveShell, test_input: str, expected: str
+    ipython_shell: InteractiveShell, test_input: str, unexpected: str
 ) -> None:
     """Test that transformed magics don't trigger E501"""
     with capture_output() as captured:
         ipython_shell.run_cell("%ruff on")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected not in markdown_outputs, (
-        f"\nexpected no ruff errors\n got: {markdown_outputs[0]}"
-    )
+    assert_not_in_str(markdown_outputs[0], unexpected)
 
 
 @pytest.mark.parametrize("test_input, expected", ruff_mixed_tests)
@@ -359,9 +452,7 @@ def test_mixed_ruff(
         ipython_shell.run_cell("%ruff on")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected in markdown_outputs, (
-        f"\nexpected:\n {expected}\n got:\n {markdown_outputs[0]}\n"
-    )
+    assert_str_equal(markdown_outputs[0], expected)
 
 
 @pytest.mark.parametrize("test_input, expected", allowed_tests)
@@ -370,9 +461,8 @@ def test_allowed(
 ) -> None:
     """Test that %allowed shows warnings with default settings `%allowed on`"""
     with capture_output() as captured:
-        ipython_shell.run_cell("%allowed on")
+        ipython_shell.run_cell("%allowed on -m")
         ipython_shell.run_cell(test_input)
     markdown_outputs = get_markdown(captured)
-    assert expected in markdown_outputs, (
-        f"\nexpected: {expected}\n got: {markdown_outputs[0]}"
-    )
+    if markdown_outputs:
+        assert_str_equal(markdown_outputs[0], expected)
