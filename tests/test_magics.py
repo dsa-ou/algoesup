@@ -7,7 +7,6 @@ from IPython.utils.capture import capture_output
 
 RUFF_FOUND = "**ruff** found issues:\n\n"
 ALLOWED_FOUND = "**allowed** found issues:\n\n"
-ALLOWED_WARNINGS = "**allowed** warnings:\n\n"
 
 # fmt: off
 RUFF_WARNINGS = {
@@ -365,7 +364,7 @@ def test_ruff_on_off(ipython_shell: InteractiveShell) -> None:
 
 
 def test_allowed_on_off(ipython_shell: InteractiveShell) -> None:
-    """Test that %allowed activates, deactivates, and prints appropriate messages"""
+    """Test that %allowed activates, deactivates, and prints appropriate messages and warnings."""
     with capture_output() as captured:
         ipython_shell.run_cell("%allowed on")
     assert "allowed was activated" in captured.stdout
