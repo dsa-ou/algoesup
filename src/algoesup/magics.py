@@ -42,9 +42,6 @@ def show_allowed_errors(checker: str, output: CompletedProcess, filename: str) -
 def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> None:
     """Print the errors in ruff's JSON output for the given file."""
     if output.stderr:
-        # ignore syntax errors: they're reported on running the cell
-        if "Failed to parse" in output.stderr:
-            return
         text = (
             "has warning:"
             if "warning" in output.stderr.lower()
@@ -53,7 +50,7 @@ def show_ruff_json(checker: str, output: CompletedProcess, filename: str) -> Non
         display_markdown(f"**{checker}** {text}", raw=True)
         print(output.stderr)
     if errors := json.loads(output.stdout):
-        md = [f"**{checker}** found issues:", ""]   # empty line before markdown list
+        md = [f"**{checker}** found issues:", ""]  # empty line before markdown list
         # the following assumes errors come in line order
         for error in errors:
             line = error["location"]["row"]
