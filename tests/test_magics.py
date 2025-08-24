@@ -358,11 +358,17 @@ def test_ruff_on_off(ipython_shell: InteractiveShell) -> None:
     assert "ruff" not in algoesup.magics.active
 
 
-def test_allowed_on_off(ipython_shell: InteractiveShell) -> None:
-    """Test that %allowed activates, deactivates, and prints appropriate messages and warnings."""
+def test_allowed_on_off_wo_methods(ipython_shell: InteractiveShell) -> None:
+    """Test that %allowed activates, deactivates, and prints appropriate messages and warnings.
+
+    Test the activation of %allowed without the --methods option.
+    """
     with capture_output() as captured:
         ipython_shell.run_cell("%allowed on")
     assert "allowed was activated" in captured.stdout
+    assert (
+        "warning: no -m option: allowed will not check method calls" in captured.stdout
+    )
     assert "allowed" in algoesup.magics.active
     with capture_output() as captured:
         ipython_shell.run_cell("%allowed off -f")
@@ -372,6 +378,29 @@ def test_allowed_on_off(ipython_shell: InteractiveShell) -> None:
     )
     assert "allowed was deactivated" in captured.stdout
     assert "allowed" not in algoesup.magics.active
+
+
+def test_allowed_on_w_first(ipython_shell: InteractiveShell) -> None:
+    """Test that %allowed activates, and prints appropriate messages and warnings.
+
+    Test the activation of %allowed with -f and -m options
+    """
+    with capture_output() as captured:
+        ipython_shell.run_cell("%allowed on -m -f")
+    assert "allowed was activated" in captured.stdout
+    assert (
+        "warning: option -f: allowed will flag each issue only once per cell"
+        in captured.stdout
+    )
+
+
+def test_ruff_invalid_config(ipython_shell: InteractiveShell) -> None:
+    """Test that %ruff shows appropriate message when it cannot parse a config file"""
+    with capture_output() as captured:
+        ipython_shell.run_cell("%ruff on --config tests/invalid.toml")
+    markdown_outputs = get_markdown(captured)
+    assert "**ruff** didn't check code:" in markdown_outputs[0]
+    assert "TOML parse error" in captured.stdout
 
 
 @pytest.mark.parametrize("test_input, expected", ruff_defaults_tests)
