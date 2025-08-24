@@ -302,7 +302,7 @@ def run_checkers(result) -> None:
         return
     # Transform IPython to pure Python to avoid linters reporting syntax errors
     cell_code = TransformerManager().transform_cell(result.info.raw_cell)
-    for checker in active:
+    for checker in sorted(active):
         command, display = checkers[checker]
         if checker == "ruff":
             if cell_code != result.info.raw_cell:

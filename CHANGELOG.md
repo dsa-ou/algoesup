@@ -11,7 +11,13 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 ## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4.1...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
-Nothing yet.
+<!-- Nothing yet. -->
+
+### Changed
+- run checkers always in the same order (alphabetical)
+
+### Development
+- update automated tests
 
 ## [0.4.1](https://github.com/dsa-ou/algoesup/compare/v0.4...v0.4.1) - 2025-08-21
 ### Fixed
