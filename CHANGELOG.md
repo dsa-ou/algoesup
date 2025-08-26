@@ -13,6 +13,9 @@ These changes are in the GitHub repository but not on [PyPI](https://pypi.org/pr
 
 <!-- Nothing yet. -->
 
+### Fixed
+- when activating Ruff, report if configuration file is invalid
+
 ### Changed
 - run checkers always in the same order (alphabetical)
 
