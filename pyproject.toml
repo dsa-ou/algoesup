@@ -12,7 +12,7 @@ packages = [
 readme = "src/README.md"
 license = "BSD-3-Clause"
 repository = "https://github.com/dsa-ou/algoesup/"
-documentation = "https://dsa-ou.github.io/algoesup/library/"
+homepage = "https://dsa-ou.github.io/algoesup/library/"
 keywords = ["education"]
 classifiers = [
     "Intended Audience :: Education",
