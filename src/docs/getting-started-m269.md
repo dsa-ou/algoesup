@@ -1,10 +1,11 @@
 # Getting started (M269)
 
-If you're an M269 24J student, follow these steps to start writing essays within a few minutes.
+If you're an Open University student taking M269, our algorithms and data structures module,
+follow these steps to start writing essays within a few minutes.
 {: .fs-6 .fw-300}
 
 These instructions assume you have already created your M269 folder and
-installed the M269 software.
+installed the [M269 software](https://dsa-ou.github.io/m269-installer).
 
 ## Copy an essay template
 
@@ -20,11 +21,9 @@ We have created templates to serve as starting points for your essay.
 ## Write the essay
 
 With the essay template in your M269 folder, you can work on it in the same way
-you do with the book's chapters and your TMAs.
-
-1. Open a PowerShell or terminal.
-2. Enter `m269-24j` to activate your M269 environment and go to your M269 folder.
-3. Enter `nb` to open the Jupyter dashboard, from which you can open the essay template.
+you do with the book's chapters and your TMAs: follow the instructions for
+[using the M269 software](https://dsa-ou.github.io/m269-installer/#using-the-software)
+to open JupyterLab, and then double-click the essay template in your M269 folder.
 
 For guidance on writing algorithmic essays see our [writing](writing.md) and
 [coding](coding.ipynb) guides.
