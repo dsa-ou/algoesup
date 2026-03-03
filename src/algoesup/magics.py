@@ -323,9 +323,10 @@ def run_checkers(result) -> None:
             except Exception as e:
                 print(f"Error on executing {checker}:\n{e}")
         else:
+            temp_name = None
             try:
                 with tempfile.NamedTemporaryFile(
-                    mode="w", suffix=".py", delete=False
+                    mode="w", suffix=".py", delete=False, encoding="utf-8"
                 ) as temp:
                     temp.write(cell_code)
                     # Handle Windows file paths
@@ -337,6 +338,7 @@ def run_checkers(result) -> None:
                         capture_output=True,
                         text=True,
                         check=False,
+                        encoding="utf-8",
                     )
                     display(checker, output, temp_name)
                 except Exception as e:
@@ -344,7 +346,8 @@ def run_checkers(result) -> None:
             except Exception as e:
                 print(f"Error on writing cell to a temporary file:\n{e}")
             finally:
-                os.remove(temp_name)
+                if temp_name:
+                    os.remove(temp_name)
 
 
 def load_ipython_extension(ipython):
