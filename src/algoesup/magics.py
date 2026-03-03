@@ -318,6 +318,7 @@ def run_checkers(result) -> None:
                     capture_output=True,
                     text=True,
                     check=False,
+                    encoding="utf-8",
                 )
                 display(checker, output, "notebook_cell.py")
             except Exception as e:
