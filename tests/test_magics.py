@@ -161,7 +161,7 @@ ruff_defaults_tests = [
         id="index: 3, ruff: E741",
     ),
     pytest.param(
-        'def function(x):\n    """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
+        'def function(x):\n    """Lorem ipsum—dolor≤sit amet, consectetur—adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
         RUFF_FOUND
         + ruff_warning(1, "ANN201", name="function", type="None")
         + "\n"
