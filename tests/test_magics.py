@@ -161,7 +161,7 @@ ruff_defaults_tests = [
         id="index: 3, ruff: E741",
     ),
     pytest.param(
-        'def function(x):\n    """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
+        'def function(x):\n    """Lorem ipsum—dolor≤sit amet, consectetur—adipiscing elit. Duis auctor purus ut ex fermentum, at maximus est hendrerit."""\n    pass',
         RUFF_FOUND
         + ruff_warning(1, "ANN201", name="function", type="None")
         + "\n"
@@ -308,7 +308,7 @@ allowed_tests = [
         id="index: 0, allowed: import numpy",
     ),
     pytest.param(
-        's = f"this is an f-string"',
+        's = f"this—is—an—f-string"',
         ALLOWED_FOUND + allowed_issue(1, "f-string"),
         id="index: 1, allowed: f-string",
     ),
