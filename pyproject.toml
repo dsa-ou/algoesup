@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "algoesup"
-version = "0.4.2"
+version = "0.4.3"
 description = "Algorithmic essay support library"
 authors = [
     "Michel Wermelinger <michel.wermelinger@open.ac.uk>",
@@ -17,7 +17,7 @@ keywords = ["education"]
 classifiers = [
     "Intended Audience :: Education",
     "License :: OSI Approved :: BSD License",
-    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python",
     "Topic :: Education",
     "Operating System :: OS Independent",
     ]

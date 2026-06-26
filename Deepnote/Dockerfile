@@ -1,3 +1,3 @@
-FROM python:3.10
+FROM python:3.12
 
-RUN pip install pytype==2024.3.19 ruff==0.12.9 allowed algoesup==0.4.2
+RUN pip install ruff==0.15.20 allowed==1.5.5 algoesup==0.4.3

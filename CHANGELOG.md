@@ -8,11 +8,12 @@ This project does *not* adhere to [Semantic Versioning](https://semver.org).
 
 <!-- Per release: Added / Changed / Deprecated / Removed / Fixed / Security -->
 
-## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4.2...HEAD)
+## [Unreleased](https://github.com/dsa-ou/algoesup/compare/v0.4.3...HEAD)
 These changes are in the GitHub repository but not on [PyPI](https://pypi.org/project/algoesup).
 
-<!-- Nothing yet. -->
+Nothing yet.
 
+## [0.4.3](https://github.com/dsa-ou/algoesup/compare/v0.4.2...v0.4.3) - 2026-06-26
 ### Fixed
 - read multi-byte characters in Windows
 - don't crash if temporary file isn't created for a cell
